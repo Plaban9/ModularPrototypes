@@ -452,10 +452,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
-      propertyPath: _invokeInterval
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 5126409055415034410, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

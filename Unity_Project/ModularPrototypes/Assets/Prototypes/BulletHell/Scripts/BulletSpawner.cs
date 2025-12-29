@@ -16,13 +16,16 @@ namespace ModularPrototypes.BulletHell
         [SerializeField] private float _deltaAngle = 10f;
 
         [Range(0f, 360f)]
-        [SerializeField] private float _spawnerAngle = 0f;
+        [SerializeField] private float _spawnerRotation = 0f;
+        [Range(0f, 360f)]
+        [SerializeField] private float _offset = 0f;
         [Range(0f, 360f)]
         [SerializeField] private float _startAngle = 0f;
         [Range(0f, 360f)]
         [SerializeField] private float _endAngle = 0f;
-
-        [SerializeField] private float _invokeInterval = 2f;
+        [Range(0.001f, 300f)]
+        [SerializeField] private float _invokeInterval = 0.25f;
+        [SerializeField] private bool _addExtraBullet = true;
 
         [SerializeField] private float _bulletSpeed;
         [SerializeField] private float _bulletLifeInSeconds = 3f;
@@ -41,7 +44,7 @@ namespace ModularPrototypes.BulletHell
 
         private void Update()
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, _spawnerAngle);
+            transform.rotation = Quaternion.Euler(0f, 0f, _spawnerRotation);
 
             if (_oldInvokeInterval != _invokeInterval)
             {
@@ -78,9 +81,11 @@ namespace ModularPrototypes.BulletHell
         private void RadialBurst()
         {
             var angleStep = (_endAngle - _startAngle) / _bulletsAmount;
-            float angle = _startAngle;
+            float angle = _startAngle + _offset;
 
-            for (int i = 0; i < _bulletsAmount; i++)
+            var totalBullets = _addExtraBullet ? _bulletsAmount + 1 : _bulletsAmount;
+
+            for (int i = 0; i < totalBullets; i++)
             {
                 var bulletDirectionX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
                 var bulletDirectionY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);

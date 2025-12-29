@@ -40,6 +40,8 @@ namespace ModularPrototypes.BulletHell
                 GetComponent<Renderer>().material = material;
             }
 
+            //var main = _trail.main;
+            //main.startLifetime = _lifetimeInSeconds;
             _trail.gameObject.SetActive(enableTrail);
         }
 
