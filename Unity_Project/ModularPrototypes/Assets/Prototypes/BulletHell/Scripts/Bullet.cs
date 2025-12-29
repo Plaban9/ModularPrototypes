@@ -6,10 +6,12 @@ namespace ModularPrototypes.BulletHell
     {
         [SerializeField] private Vector3 _moveDirection;
         [SerializeField] private float _moveSpeed;
+        [SerializeField] private ParticleSystem _trail;
+        private float _lifetimeInSeconds = 3f;
 
         private void OnEnable()
         {
-            Invoke(nameof(Destroy), 3f);
+            Invoke(nameof(Destroy), _lifetimeInSeconds);
         }
 
         private void Start()
@@ -27,15 +29,18 @@ namespace ModularPrototypes.BulletHell
             transform.Translate(_moveDirection * _moveSpeed * Time.deltaTime);
         }
 
-        public void SetProperties(Vector3 direction, Material material, float speed = 5f)
+        public void SetProperties(Vector3 direction, Material material, float speed = 5f, float lifetimeInSeconds = 3f, bool enableTrail = true)
         {
             _moveDirection = direction;
             _moveSpeed = speed;
+            _lifetimeInSeconds = lifetimeInSeconds;
 
             if (material != null)
             {
                 GetComponent<Renderer>().material = material;
             }
+
+            _trail.gameObject.SetActive(enableTrail);
         }
 
         private void Destroy()

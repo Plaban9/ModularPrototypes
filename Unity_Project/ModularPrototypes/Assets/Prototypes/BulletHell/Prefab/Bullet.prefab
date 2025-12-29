@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.Bullet
   _moveDirection: {x: 0, y: 0, z: 0}
   _moveSpeed: 0
+  _trail: {fileID: 1866789630491465350}
 --- !u!1 &1825823699813760859
 GameObject:
   m_ObjectHideFlags: 0
