@@ -23,7 +23,7 @@ namespace ModularPrototypes.BulletHell
         [SerializeField] private float _startAngle = 0f;
         [Range(0f, 360f)]
         [SerializeField] private float _endAngle = 0f;
-        [Range(0.001f, 300f)]
+        [Range(0.001f, 10f)]
         [SerializeField] private float _invokeInterval = 0.25f;
         [SerializeField] private bool _addExtraBullet = true;
 

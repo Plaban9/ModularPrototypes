@@ -72,7 +72,7 @@ namespace ModularPrototypes.Platformer
         [Header("ROTATION")]
         [Header("------------------------------------------------------------------------------------------------------")]
         [Header("Rotation Attributes")]
-        [Range(0f, 359f)]
+        [Range(0.1f, 359f)]
         [SerializeField] private float _rotationDurationPerRound = 1f;
         [Tooltip("Enabling this will make Rotation duration half")]
         [SerializeField] private bool _useRotationModuloFunction_X;
