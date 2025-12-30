@@ -178,7 +178,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -394,6 +394,10 @@ PrefabInstance:
     - target: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
       propertyPath: _normalizedBoundsSize
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
+      propertyPath: _minMaxBoundsLength.max
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7048856634786881747, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
       propertyPath: m_Color.a
@@ -740,6 +744,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
       propertyPath: _normalizedAxisSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
+      propertyPath: _minMaxBoundsLength.min
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7048856634786881747, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}

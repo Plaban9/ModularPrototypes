@@ -27,7 +27,9 @@ namespace ModularPrototypes.Platformer.Measurements
         [Header("------------------------")]
         [Range(0f, 1f)]
         [SerializeField] private float _normalizedBoundsSize;
-        [SerializeField] private Bound _minMaxBounds;
+        [SerializeField] private Bound _minMaxBoundsLength;
+        [Range(0.1f, 18f)]
+        [SerializeField] private float _boundsGap = 3.5f;
         [SerializeField] private List<GameObject> _bounds;
         [SerializeField] private List<SpriteRenderer> _boundSpriteRenderers;
 
@@ -73,7 +75,8 @@ namespace ModularPrototypes.Platformer.Measurements
         private void UpdateLists()
         {
             UpdateList(_axisSpriteRenderers, _minMaxAxis, _normalizedAxisSize);
-            UpdateList(_boundSpriteRenderers, _minMaxBounds, _normalizedBoundsSize);
+            UpdateList(_boundSpriteRenderers, _minMaxBoundsLength, _normalizedBoundsSize);
+            UpdateListTransforms(_boundSpriteRenderers, _boundsGap);
         }
 
         private void UpdateList(List<SpriteRenderer> spriteRenderers, Bound bound, float normalizedValue)
@@ -84,6 +87,25 @@ namespace ModularPrototypes.Platformer.Measurements
             {
                 renderer.size = new Vector2(width, renderer.size.y);
             }
+        }
+
+        private void UpdateListTransforms(List<SpriteRenderer> spriteRenderers, float boundsGap)
+        {
+            foreach (var renderer in spriteRenderers)
+            {
+                var rendererTransform = renderer.transform;
+                renderer.transform.SetPositionAndRotation(GetPosition(rendererTransform.position, boundsGap), rendererTransform.rotation);
+            }
+        }
+
+        private Vector3 GetPosition(Vector3 position, float magnitude)
+        {
+            return new Vector3(GetDirectionSign(position.x) * magnitude, GetDirectionSign(position.y) * magnitude, GetDirectionSign(position.z) * magnitude);
+        }
+
+        private int GetDirectionSign(float axisPosition)
+        {
+            return axisPosition == 0f ? 0 : (axisPosition > 0f ? 1 : -1);
         }
     }
 }

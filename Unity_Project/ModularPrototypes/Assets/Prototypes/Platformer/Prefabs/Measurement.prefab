@@ -545,9 +545,10 @@ MonoBehaviour:
   _centralAxis: {fileID: 9040398268048777471}
   _axisSpriteRenderers: []
   _normalizedBoundsSize: 0
-  _minMaxBounds:
+  _minMaxBoundsLength:
     min: 0
     max: 7
+  _boundsGap: 3.5
   _bounds:
   - {fileID: 6076882628804775354}
   - {fileID: 2020102460852653240}
