@@ -38,8 +38,8 @@ namespace ModularPrototypes.BulletHell
         private void Start()
         {
             _currentAngle = _startAngle;
-            _oldInvokeInterval = _invokeInterval;
-            InvokeRepeating(nameof(Fire), 0f, _oldInvokeInterval);
+            
+            ResetFire();
         }
 
         private void Update()
@@ -48,10 +48,15 @@ namespace ModularPrototypes.BulletHell
 
             if (_oldInvokeInterval != _invokeInterval)
             {
-                _oldInvokeInterval = _invokeInterval;
-                CancelInvoke(nameof(Fire));
-                InvokeRepeating(nameof(Fire), 0f, _oldInvokeInterval);
+                ResetFire();
             }
+        }
+
+        private void ResetFire()
+        {
+            _oldInvokeInterval = _invokeInterval;
+            CancelInvoke(nameof(Fire));
+            InvokeRepeating(nameof(Fire), 0f, _oldInvokeInterval);
         }
 
         private void Fire()
@@ -91,9 +96,16 @@ namespace ModularPrototypes.BulletHell
                 var bulletDirectionY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 
                 var bulletMoveVector = new Vector3(bulletDirectionX, bulletDirectionY, 0f);
-                var bulletDirection = (bulletMoveVector - transform.position).normalized;
+                var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+                var bulletDirection = (bulletMoveVector - filteredPosition).normalized;
 
                 var bullet = BulletPool.BulletPoolInstance.GetBullet();
+
+                if (bullet == null)
+                {
+                    continue;
+                }
+
                 bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
                 bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _radialBurstMaterial, _bulletSpeed, _bulletLifeInSeconds, _enableTrail);
 
@@ -109,9 +121,16 @@ namespace ModularPrototypes.BulletHell
             float bulletDirectionY = transform.position.y + Mathf.Cos((_currentAngle * Mathf.PI) / 180f);
 
             var bulletMoveVector = new Vector3(bulletDirectionX, bulletDirectionY, 0f);
-            var bulletDirection = (bulletMoveVector - transform.position).normalized;
+            var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+            var bulletDirection = (bulletMoveVector - filteredPosition).normalized;
 
             var bullet = BulletPool.BulletPoolInstance.GetBullet();
+
+            if (bullet == null)
+            {
+                return;
+            }
+
             bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
             bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _spiralMaterial, _bulletSpeed, _bulletLifeInSeconds, _enableTrail);
 
@@ -122,15 +141,22 @@ namespace ModularPrototypes.BulletHell
 
         private void DoubleSpiral()
         {
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i < 2; i++)
             {
                 float bulletDirectionX = transform.position.x + Mathf.Sin(((_currentAngle + 180f * i) * Mathf.PI) / 180f);
                 float bulletDirectionY = transform.position.y + Mathf.Cos(((_currentAngle + 180f * i) * Mathf.PI) / 180f);
 
                 var bulletMoveVector = new Vector3(bulletDirectionX, bulletDirectionY, 0f);
-                var bulletDirection = (bulletMoveVector - transform.position).normalized;
+                var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+                var bulletDirection = (bulletMoveVector - filteredPosition).normalized;
 
                 var bullet = BulletPool.BulletPoolInstance.GetBullet();
+
+                if (bullet == null)
+                {
+                    return;
+                }
+
                 bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
                 bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _doubleSpiralMaterial, _bulletSpeed, _bulletLifeInSeconds, _enableTrail);
 

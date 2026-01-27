@@ -25,6 +25,8 @@ namespace ModularPrototypes.Platformer.Measurements
         [Header("------------------------")]
         [Header("BOUNDS")]
         [Header("------------------------")]
+        [SerializeField] private bool _showReferenceBounds = true;
+        [SerializeField] private GameObject _referenceBounds;
         [Range(0f, 1f)]
         [SerializeField] private float _normalizedBoundsSize;
         [SerializeField] private Bound _minMaxBoundsLength;
@@ -41,6 +43,15 @@ namespace ModularPrototypes.Platformer.Measurements
         private void Update()
         {
             UpdateLists();
+            ToggleReferenceBounds();
+        }
+
+        private void ToggleReferenceBounds()
+        {
+            if (_referenceBounds != null && _referenceBounds.activeInHierarchy != _showReferenceBounds)
+            {
+                _referenceBounds.SetActive(_showReferenceBounds);
+            }
         }
 
         private void InitializeLists()

@@ -9,7 +9,7 @@ namespace ModularPrototypes.BulletHell
         private static BulletPool _bulletPoolInstance;
 
         [SerializeField] private GameObject _pooledBullet;
-        private bool _deficientPool = true;
+        [SerializeField] private bool _deficientPool = true;
         [SerializeField] private List<GameObject> _bullets;
 
         public static BulletPool BulletPoolInstance
