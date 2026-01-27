@@ -29,6 +29,10 @@ namespace ModularPrototypes.Manager
         private void Awake()
         {
             _sceneLoader = FindFirstObjectByType<SceneLoader>();
+        }
+
+        private void Start()
+        {
             OnSceneSwitchButtonPressed();
             _sceneLoader.SetCurrentScene(_availalbleScenes[_currentSceneIndex]);
         }
