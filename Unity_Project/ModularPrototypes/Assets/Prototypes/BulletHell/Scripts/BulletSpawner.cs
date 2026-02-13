@@ -4,11 +4,11 @@ namespace ModularPrototypes.BulletHell
 {
     public class BulletSpawner : MonoBehaviour
     {
-        [SerializeField] BulletPattern _bulletPattern = BulletPattern.RADIAL_BURST;
+        [SerializeField] private BulletPattern _bulletPattern = BulletPattern.RADIAL_BURST;
 
-        [SerializeField] Material _radialBurstMaterial;
-        [SerializeField] Material _spiralMaterial;
-        [SerializeField] Material _doubleSpiralMaterial;
+        [SerializeField] private Material _radialBurstMaterial;
+        [SerializeField] private Material _spiralMaterial;
+        [SerializeField] private Material _doubleSpiralMaterial;
 
         [SerializeField] private int _bulletsAmount = 10;
 
@@ -38,7 +38,7 @@ namespace ModularPrototypes.BulletHell
         private void Start()
         {
             _currentAngle = _startAngle;
-            
+
             ResetFire();
         }
 
@@ -48,6 +48,7 @@ namespace ModularPrototypes.BulletHell
 
             if (_oldInvokeInterval != _invokeInterval)
             {
+                D("Changing Fire Rate, From: " + _oldInvokeInterval + ", To: " + _invokeInterval);
                 ResetFire();
             }
         }
@@ -170,5 +171,19 @@ namespace ModularPrototypes.BulletHell
                 _currentAngle = 0f;
             }
         }
+
+        #region SETTERS
+        public void SetBulletPattern(BulletPattern bulletPattern)
+        {
+            _bulletPattern = bulletPattern;
+        }
+        #endregion
+
+        #region DEBUG
+        private void D(string message)
+        {
+            DebugUtils.DebugInfo.Print($"<<BulletSpawner>> {message}");
+        }
+        #endregion
     }
 }

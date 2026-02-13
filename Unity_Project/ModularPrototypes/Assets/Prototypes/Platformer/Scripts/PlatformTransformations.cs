@@ -336,7 +336,7 @@ namespace ModularPrototypes.Platformer
         #region DEBUG
         private void D(string message)
         {
-            Debug.Log($"<<PlatformTransformations>> {message}");
+            DebugUtils.DebugInfo.Print($"<<PlatformTransformations>> {message}");
         }
         #endregion
     }

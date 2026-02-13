@@ -278,9 +278,9 @@ RectTransform:
   - {fileID: 1153676828}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -635}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33546292
@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 98674237}
   - component: {fileID: 98674236}
   - component: {fileID: 98674238}
+  - component: {fileID: 98674239}
   m_Layer: 5
   m_Name: BGPanel
   m_TagString: Untagged
@@ -718,6 +719,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &98674239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98674234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10fff78cc73f1944b1087d7cfbabef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.UIManager
+  _bulletHellPanelImage: {fileID: 98674236}
+  _currentPattern: 0
+  _bulletHellPatternNameText: {fileID: 731381186}
+  _bulletHellDataList:
+  - {fileID: 11400000, guid: 0d975852a07c8564ba96a15b41e75649, type: 2}
+  - {fileID: 11400000, guid: 4a865f9d5948ea543928c2a5e5112693, type: 2}
+  - {fileID: 11400000, guid: 55ea654e006ed67498d0f0144cc46b86, type: 2}
+  _bulletHellButtonList:
+  - {fileID: 813192836}
+  - {fileID: 523164281}
+  - {fileID: 1712875627}
+  _panelInteractionButton: {fileID: 38250304}
+  _bulletHellPanelsList:
+  - {fileID: 1142880494}
+  - {fileID: 1329462550}
+  - {fileID: 1121496258}
+  _panelAnimation: {fileID: 98674238}
+  _bulletSpawner: {fileID: 1792646163}
 --- !u!1 &130134308
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +895,7 @@ RectTransform:
   m_Father: {fileID: 67425631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1194,9 +1225,9 @@ RectTransform:
   - {fileID: 27930194}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -335}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205693431
@@ -1780,7 +1811,7 @@ RectTransform:
   m_Father: {fileID: 1819289709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2839,7 +2870,7 @@ RectTransform:
   m_Father: {fileID: 1964696775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3090,6 +3121,7 @@ GameObject:
   - component: {fileID: 523164283}
   - component: {fileID: 523164282}
   - component: {fileID: 523164281}
+  - component: {fileID: 523164284}
   m_Layer: 5
   m_Name: Spiral
   m_TagString: Untagged
@@ -3200,6 +3232,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523164279}
   m_CullTransparentMesh: 1
+--- !u!114 &523164284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523164279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2dfb7f13d1c43950c486c4870d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
+  _bulletPattern: 2
 --- !u!1 &533713074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,7 +3432,7 @@ RectTransform:
   m_Father: {fileID: 44525364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3537,7 +3582,7 @@ RectTransform:
   m_Father: {fileID: 784748040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3861,9 +3906,9 @@ RectTransform:
   - {fileID: 854743655}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -695}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689843264
@@ -4000,8 +4045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 0, y: -160}
+  m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &731381186
 MonoBehaviour:
@@ -4050,13 +4095,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.75
+  m_fontSize: 38.35
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
@@ -4346,7 +4391,7 @@ RectTransform:
   m_Father: {fileID: 595771122}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4400,6 +4445,7 @@ GameObject:
   - component: {fileID: 813192838}
   - component: {fileID: 813192837}
   - component: {fileID: 813192836}
+  - component: {fileID: 813192839}
   m_Layer: 5
   m_Name: Radial Burst
   m_TagString: Untagged
@@ -4471,7 +4517,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 813192837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ModularPrototypes.BulletHell.UI.UIManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &813192837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4510,6 +4568,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813192834}
   m_CullTransparentMesh: 1
+--- !u!114 &813192839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813192834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2dfb7f13d1c43950c486c4870d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
+  _bulletPattern: 1
 --- !u!1 &825360581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4819,7 +4890,7 @@ RectTransform:
   m_Father: {fileID: 963025369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5210,9 +5281,9 @@ RectTransform:
   - {fileID: 190617354}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -275}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962446192
@@ -5557,7 +5628,7 @@ RectTransform:
   m_Father: {fileID: 1526963107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5632,9 +5703,9 @@ RectTransform:
   - {fileID: 463660139}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -755}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1030807455
@@ -6532,6 +6603,7 @@ GameObject:
   - component: {fileID: 1121496261}
   - component: {fileID: 1121496260}
   - component: {fileID: 1121496262}
+  - component: {fileID: 1121496263}
   m_Layer: 5
   m_Name: Double Spiral
   m_TagString: Untagged
@@ -6627,6 +6699,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1121496263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121496258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2dfb7f13d1c43950c486c4870d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
+  _bulletPattern: 4
 --- !u!1 &1124378851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6660,7 +6745,7 @@ RectTransform:
   m_Father: {fileID: 1765414030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6714,13 +6799,14 @@ GameObject:
   - component: {fileID: 1142880497}
   - component: {fileID: 1142880496}
   - component: {fileID: 1142880498}
+  - component: {fileID: 1142880499}
   m_Layer: 5
   m_Name: Radial Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1142880495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6813,6 +6899,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1142880499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142880494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2dfb7f13d1c43950c486c4870d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
+  _bulletPattern: 1
 --- !u!1 &1153676827
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,9 +7196,9 @@ RectTransform:
   - {fileID: 1052093608}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -395}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182501354
@@ -7235,9 +7334,9 @@ RectTransform:
   - {fileID: 315823432}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -455}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198974907
@@ -7373,9 +7472,9 @@ RectTransform:
   - {fileID: 1676245421}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -515}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202869815
@@ -7824,6 +7923,7 @@ GameObject:
   - component: {fileID: 1329462553}
   - component: {fileID: 1329462552}
   - component: {fileID: 1329462554}
+  - component: {fileID: 1329462555}
   m_Layer: 5
   m_Name: Spiral
   m_TagString: Untagged
@@ -7919,6 +8019,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1329462555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329462550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2dfb7f13d1c43950c486c4870d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
+  _bulletPattern: 2
 --- !u!1 &1352070585
 GameObject:
   m_ObjectHideFlags: 0
@@ -8446,7 +8559,7 @@ RectTransform:
   m_Father: {fileID: 1308688499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8521,9 +8634,9 @@ RectTransform:
   - {fileID: 1854730800}
   m_Father: {fileID: 1142880495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -575}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443942441
@@ -9405,7 +9518,7 @@ RectTransform:
   m_Father: {fileID: 341835466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9924,6 +10037,7 @@ GameObject:
   - component: {fileID: 1712875629}
   - component: {fileID: 1712875628}
   - component: {fileID: 1712875627}
+  - component: {fileID: 1712875630}
   m_Layer: 5
   m_Name: Double Spiral
   m_TagString: Untagged
@@ -10034,6 +10148,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712875625}
   m_CullTransparentMesh: 1
+--- !u!114 &1712875630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712875625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afda2dfb7f13d1c43950c486c4870d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
+  _bulletPattern: 4
 --- !u!1 &1765414029
 GameObject:
   m_ObjectHideFlags: 0
@@ -10145,6 +10272,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781210914}
   m_CullTransparentMesh: 1
+--- !u!114 &1792646163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+  m_PrefabInstance: {fileID: 5113105343071378004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf5ac26cf578474d89a843a0a2a0657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.BulletSpawner
 --- !u!1 &1809133196
 GameObject:
   m_ObjectHideFlags: 0
@@ -10427,7 +10565,7 @@ RectTransform:
   m_Father: {fileID: 1703923172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11204,7 +11342,7 @@ RectTransform:
   m_Father: {fileID: 1463596302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11508,7 +11646,7 @@ RectTransform:
   m_Father: {fileID: 1352070586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
