@@ -25,6 +25,9 @@ namespace ModularPrototypes.Manager
         [SerializeField] Color _newSceneColor = new Color(0.2f, 0.8f, 0.2f);
         [SerializeField] Color _defaultSceneColor = new Color(1f, 1f, 1f);
 
+        [SerializeField] private Button _panelCollapseButton;
+        [SerializeField] private Animator _panelAnimator;
+
 
         private void Awake()
         {
@@ -85,18 +88,15 @@ namespace ModularPrototypes.Manager
 
         private void OnEnable()
         {
-            if (_sceneSwitchButton != null)
-            {
-                _sceneSwitchButton.onClick.AddListener(OnSceneSwitchButtonPressed);
-            }
+            _sceneSwitchButton.onClick.AddListener(OnSceneSwitchButtonPressed);
+            _panelCollapseButton.onClick.AddListener(() => _panelAnimator.SetTrigger("PanelInOut"));
         }
 
         private void OnDisable()
         {
-            if (_sceneSwitchButton != null)
-            {
-                _sceneSwitchButton.onClick.RemoveListener(OnSceneSwitchButtonPressed);
-            }
+            _sceneSwitchButton.onClick.RemoveListener(OnSceneSwitchButtonPressed);
+            _panelCollapseButton.onClick.RemoveListener(() => _panelAnimator.SetTrigger("PanelInOut"));
+
         }
     }
 }
