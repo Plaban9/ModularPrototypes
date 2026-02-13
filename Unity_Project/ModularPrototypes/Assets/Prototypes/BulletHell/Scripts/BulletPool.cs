@@ -43,6 +43,7 @@ namespace ModularPrototypes.BulletHell
 
             if (_deficientPool)
             {
+                //D("Pool is deficient. Instantiating new bullet.");
                 var bullet = Instantiate(_pooledBullet);
                 bullet.SetActive(false);
                 _bullets.Add(bullet);
@@ -51,6 +52,11 @@ namespace ModularPrototypes.BulletHell
             }
 
             return null;
+        }
+
+        private void D(string message)
+        {
+            DebugUtils.DebugInfo.Print($"<<BulletPool>> {message}");
         }
     }
 }

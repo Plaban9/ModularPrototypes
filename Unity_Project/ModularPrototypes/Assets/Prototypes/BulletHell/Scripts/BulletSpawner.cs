@@ -87,7 +87,7 @@ namespace ModularPrototypes.BulletHell
         private void RadialBurst()
         {
             var angleStep = (_endAngle - _startAngle) / _bulletsAmount;
-            float angle = _startAngle + _offset;
+            float angle = (_addExtraBullet ? _startAngle : _startAngle + angleStep / 2f) + _offset;
 
             var totalBullets = _addExtraBullet ? _bulletsAmount + 1 : _bulletsAmount;
 
