@@ -13,28 +13,29 @@ namespace ModularPrototypes.BulletHell
         [SerializeField] private Material _doubleSpiralMaterial;
 
        
-        //[Header("BulletHellPatternData")]
+        [Header("|<--- Bullet Hell Pattern Data --->|")]
         [SerializeField] BulletHellPatternData _bulletHellPatternData;
 
         //[Range(0f, 360f)]
         //[SerializeField] private float _spawnerRotation = 0f;
-        [SerializeField] private int _bulletsAmount = 10;
+        
 
         private float _currentAngle = 0f;
-        [SerializeField] private float _deltaAngle = 10f;
-        [Range(0f, 360f)]
-        [SerializeField] private float _offset = 0f;
-        [Range(0f, 360f)]
-        [SerializeField] private float _startAngle = 0f;
-        [Range(0f, 360f)]
-        [SerializeField] private float _endAngle = 0f;
-        [Range(0.001f, 10f)]
-        [SerializeField] private float _invokeInterval = 0.25f;
-        [SerializeField] private bool _addExtraBullet = true;
+        //[SerializeField] private int _bulletsAmount = 10;
+        //[SerializeField] private float _deltaAngle = 10f;
+        //[Range(0f, 360f)]
+        //[SerializeField] private float _offset = 0f;
+        //[Range(0f, 360f)]
+        //[SerializeField] private float _startAngle = 0f;
+        //[Range(0f, 360f)]
+        //[SerializeField] private float _endAngle = 0f;
+        //[Range(0.001f, 10f)]
+        //[SerializeField] private float _invokeInterval = 0.25f;
+        //[SerializeField] private bool _addExtraBullet = true;
 
-        [SerializeField] private float _bulletSpeed;
-        [SerializeField] private float _bulletLifeInSeconds = 3f;
-        [SerializeField] private bool _enableTrail = true;
+        //[SerializeField] private float _bulletSpeed;
+        //[SerializeField] private float _bulletLifeInSeconds = 3f;
+        //[SerializeField] private bool _enableTrail = true;
 
         private float _oldInvokeInterval;
 
@@ -42,7 +43,7 @@ namespace ModularPrototypes.BulletHell
 
         private void Start()
         {
-            _currentAngle = _startAngle;
+            _currentAngle = _bulletHellPatternData.StartAngle;
 
             ResetFire();
         }
@@ -51,16 +52,16 @@ namespace ModularPrototypes.BulletHell
         {
             //transform.rotation = Quaternion.Euler(0f, 0f, _spawnerRotation);
 
-            if (_oldInvokeInterval != _invokeInterval)
+            if (_oldInvokeInterval != _bulletHellPatternData.ShootInterval)
             {
-                D("Changing Fire Rate, From: " + _oldInvokeInterval + ", To: " + _invokeInterval);
+                D("Changing Fire Rate, From: " + _oldInvokeInterval + ", To: " + _bulletHellPatternData.ShootInterval);
                 ResetFire();
             }
         }
 
         private void ResetFire()
         {
-            _oldInvokeInterval = _invokeInterval;
+            _oldInvokeInterval = _bulletHellPatternData.ShootInterval;
             CancelInvoke(nameof(Fire));
             InvokeRepeating(nameof(Fire), 0f, _oldInvokeInterval);
         }
@@ -91,10 +92,10 @@ namespace ModularPrototypes.BulletHell
 
         private void RadialBurst()
         {
-            var angleStep = (_endAngle - _startAngle) / _bulletsAmount;
-            float angle = (_addExtraBullet ? _startAngle : _startAngle + angleStep / 2f) + _offset;
+            var angleStep = (_bulletHellPatternData.EndAngle - _bulletHellPatternData.StartAngle) / _bulletHellPatternData.BulletAmount;
+            float angle = (_bulletHellPatternData.ExtraBullet ? _bulletHellPatternData.StartAngle : _bulletHellPatternData.StartAngle + angleStep / 2f) + _bulletHellPatternData.OffsetAngle;
 
-            var totalBullets = _addExtraBullet ? _bulletsAmount + 1 : _bulletsAmount;
+            var totalBullets = _bulletHellPatternData.ExtraBullet ? _bulletHellPatternData.BulletAmount + 1 : _bulletHellPatternData.BulletAmount;
 
             for (int i = 0; i < totalBullets; i++)
             {
@@ -113,7 +114,7 @@ namespace ModularPrototypes.BulletHell
                 }
 
                 bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-                bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _radialBurstMaterial, _bulletSpeed, _bulletLifeInSeconds, _enableTrail);
+                bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _radialBurstMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
 
                 bullet.SetActive(true);
 
@@ -138,11 +139,11 @@ namespace ModularPrototypes.BulletHell
             }
 
             bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _spiralMaterial, _bulletSpeed, _bulletLifeInSeconds, _enableTrail);
+            bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _spiralMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
 
             bullet.SetActive(true);
 
-            _currentAngle += _deltaAngle;
+            _currentAngle += _bulletHellPatternData.DeltaAngle;
         }
 
         private void DoubleSpiral()
@@ -164,12 +165,12 @@ namespace ModularPrototypes.BulletHell
                 }
 
                 bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-                bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _doubleSpiralMaterial, _bulletSpeed, _bulletLifeInSeconds, _enableTrail);
+                bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _doubleSpiralMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
 
                 bullet.SetActive(true);
             }
 
-            _currentAngle += _deltaAngle;
+            _currentAngle += _bulletHellPatternData.DeltaAngle;
 
             if (_currentAngle >= 360f)
             {
