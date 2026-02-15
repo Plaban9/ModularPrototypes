@@ -16,31 +16,9 @@ namespace ModularPrototypes.BulletHell
         [Header("|<--- Bullet Hell Pattern Data --->|")]
         [SerializeField] BulletHellPatternData _bulletHellPatternData;
 
-        //[Range(0f, 360f)]
-        //[SerializeField] private float _spawnerRotation = 0f;
-        
-
         private float _currentAngle = 0f;
-        //[SerializeField] private int _bulletsAmount = 10;
-        //[SerializeField] private float _deltaAngle = 10f;
-        //[Range(0f, 360f)]
-        //[SerializeField] private float _offset = 0f;
-        //[Range(0f, 360f)]
-        //[SerializeField] private float _startAngle = 0f;
-        //[Range(0f, 360f)]
-        //[SerializeField] private float _endAngle = 0f;
-        //[Range(0.001f, 10f)]
-        //[SerializeField] private float _invokeInterval = 0.25f;
-        //[SerializeField] private bool _addExtraBullet = true;
-
-        //[SerializeField] private float _bulletSpeed;
-        //[SerializeField] private float _bulletLifeInSeconds = 3f;
-        //[SerializeField] private bool _enableTrail = true;
-
         private float _oldInvokeInterval;
-
-        private Vector3 _bulletMoveDirection;
-
+       
         private void Start()
         {
             _currentAngle = _bulletHellPatternData.StartAngle;
@@ -176,6 +154,16 @@ namespace ModularPrototypes.BulletHell
             {
                 _currentAngle = 0f;
             }
+        }
+
+        private void DoBulletOperations()
+        {
+            
+        }
+
+        private void ApplyBulletHellPatternSettings(BulletHellPatternData data)
+        {
+            _bulletHellPatternData.SetConfiguration(data);
         }
 
         #region SETTERS
