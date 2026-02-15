@@ -1,3 +1,5 @@
+using ModularPrototypes.BulletHell.Data;
+
 using UnityEngine;
 
 namespace ModularPrototypes.BulletHell
@@ -10,13 +12,16 @@ namespace ModularPrototypes.BulletHell
         [SerializeField] private Material _spiralMaterial;
         [SerializeField] private Material _doubleSpiralMaterial;
 
+       
+        //[Header("BulletHellPatternData")]
+        [SerializeField] BulletHellPatternData _bulletHellPatternData;
+
+        //[Range(0f, 360f)]
+        //[SerializeField] private float _spawnerRotation = 0f;
         [SerializeField] private int _bulletsAmount = 10;
 
         private float _currentAngle = 0f;
         [SerializeField] private float _deltaAngle = 10f;
-
-        [Range(0f, 360f)]
-        [SerializeField] private float _spawnerRotation = 0f;
         [Range(0f, 360f)]
         [SerializeField] private float _offset = 0f;
         [Range(0f, 360f)]
@@ -44,7 +49,7 @@ namespace ModularPrototypes.BulletHell
 
         private void Update()
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, _spawnerRotation);
+            //transform.rotation = Quaternion.Euler(0f, 0f, _spawnerRotation);
 
             if (_oldInvokeInterval != _invokeInterval)
             {

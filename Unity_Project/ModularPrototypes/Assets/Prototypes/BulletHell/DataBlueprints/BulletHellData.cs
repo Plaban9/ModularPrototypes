@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ModularPrototypes.BulletHell.Data
 {
-    [CreateAssetMenu(fileName = "BulletHellData", menuName = "Data/BulletHell/BulletHellData")]
+    [CreateAssetMenu(fileName = "BulletHellData", menuName = "Data/Bullet Hell/Data/Bullet Hell Data")]
     public class BulletHellData : ScriptableObject
     {
         [SerializeField] private string patternName;

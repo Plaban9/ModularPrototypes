@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -635}
+  m_AnchoredPosition: {x: 125, y: -575}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33546292
@@ -3908,7 +3908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -695}
+  m_AnchoredPosition: {x: 125, y: -635}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689843264
@@ -6824,9 +6824,9 @@ RectTransform:
   - {fileID: 1182501353}
   - {fileID: 1198974906}
   - {fileID: 1202869814}
-  - {fileID: 1443942440}
   - {fileID: 33546291}
   - {fileID: 689843263}
+  - {fileID: 1443942440}
   - {fileID: 1030807454}
   m_Father: {fileID: 132544764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8636,7 +8636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -575}
+  m_AnchoredPosition: {x: 125, y: -695}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443942441
@@ -12470,6 +12470,42 @@ PrefabInstance:
     - target: {fileID: 14921247520316991, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: m_Name
       value: BulletSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._endAngle
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._deltaAngle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._startAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._bulletSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._enableTrail
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._extraBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._bulletAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._shootInterval
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._bulletLifeInSeconds
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5126409055415034410, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: m_LocalPosition.x
