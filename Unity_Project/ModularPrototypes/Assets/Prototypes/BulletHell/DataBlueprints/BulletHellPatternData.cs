@@ -6,13 +6,13 @@ namespace ModularPrototypes.BulletHell.Data
     public class BulletHellPatternData
     {
         [Range(0, 100)][SerializeField] private int _bulletAmount;
-        [Range(0f, 360f)][SerializeField] private int _deltaAngle;
-        [Range(0f, 360f)][SerializeField] private int _offsetAngle;
-        [Range(0f, 360f)][SerializeField] private int _startAngle;
-        [Range(0f, 360f)][SerializeField] private int _endAngle;
+        [Range(0, 360)][SerializeField] private int _deltaAngle;
+        [Range(0, 360)][SerializeField] private int _offsetAngle;
+        [Range(0, 360)][SerializeField] private int _startAngle;
+        [Range(0, 360)][SerializeField] private int _endAngle;
         [Range(0.001f, 10f)][SerializeField] private float _shootInterval;
-        [Range(0, 100)][SerializeField] private float _bulletSpeed;
-        [Range(0, 10)][SerializeField] private float _bulletLifeInSeconds;
+        [Range(0, 100f)][SerializeField] private float _bulletSpeed;
+        [Range(0, 10f)][SerializeField] private float _bulletLifeInSeconds;
         [SerializeField] private bool _extraBullet;
         [SerializeField] private bool _enableTrail;
 
@@ -30,19 +30,19 @@ namespace ModularPrototypes.BulletHell.Data
             _enableTrail = data._enableTrail;
         }
 
-        public void ApplyConfiguration(BulletHellPatternData data)
-        {
-            data._bulletAmount = _bulletAmount;
-            data._deltaAngle = _deltaAngle;
-            data._offsetAngle = _offsetAngle;
-            data._startAngle = _startAngle;
-            data._endAngle = _endAngle;
-            data._shootInterval = _shootInterval;
-            data._bulletSpeed = _bulletSpeed;
-            data._bulletLifeInSeconds = _bulletLifeInSeconds;
-            data._extraBullet = _extraBullet;
-            data._enableTrail = _enableTrail;
-        }
+        //public void ApplyConfiguration(BulletHellPatternData data)
+        //{
+        //    data._bulletAmount = _bulletAmount;
+        //    data._deltaAngle = _deltaAngle;
+        //    data._offsetAngle = _offsetAngle;
+        //    data._startAngle = _startAngle;
+        //    data._endAngle = _endAngle;
+        //    data._shootInterval = _shootInterval;
+        //    data._bulletSpeed = _bulletSpeed;
+        //    data._bulletLifeInSeconds = _bulletLifeInSeconds;
+        //    data._extraBullet = _extraBullet;
+        //    data._enableTrail = _enableTrail;
+        //}
 
         public int BulletAmount
         {

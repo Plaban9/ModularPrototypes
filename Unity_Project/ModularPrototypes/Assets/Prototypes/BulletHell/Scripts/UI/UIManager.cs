@@ -9,7 +9,7 @@ namespace ModularPrototypes.BulletHell.UI
 {
     public class UIManager : MonoBehaviour
     {
-        #region UI Elements
+        #region UI Elements        
         [SerializeField] private Image _bulletHellPanelImage;
         [SerializeField] private BulletPattern _currentPattern = BulletPattern.RADIAL_BURST;
         [SerializeField] private TMPro.TextMeshProUGUI _bulletHellPatternNameText;
@@ -28,8 +28,11 @@ namespace ModularPrototypes.BulletHell.UI
         [SerializeField] private Animator _panelAnimation;
         #endregion
 
+        [Header("Bullet Hell System")]
         #region Bullet Hell System
         [SerializeField] private BulletSpawner _bulletSpawner;
+        [SerializeField] private List<BulletHellConfig> _bulletHellPatternDefaultConfigList;
+        [SerializeField] private Dictionary<BulletPattern, BulletHellPatternData> _bulletHellPatternInstanceConfigDictionary;
         #endregion
 
         private void Awake()
@@ -72,6 +75,19 @@ namespace ModularPrototypes.BulletHell.UI
                 if (_bulletHellPanelsList[i].TryGetComponent(out BulletPatternIdentity panel))
                 {
                     _bulletHellPatternPanelsDictionary.Add(panel.GetBulletPattern(), _bulletHellPanelsList[i].gameObject);
+                }
+            }
+
+            for (int i = 0; i < _bulletHellPatternDefaultConfigList.Count; i++)
+            {
+                _bulletHellPatternInstanceConfigDictionary ??= new Dictionary<BulletPattern, BulletHellPatternData>();
+
+                if (!_bulletHellPatternInstanceConfigDictionary.ContainsKey(_bulletHellPatternDefaultConfigList[i].GetBulletPattern()))
+                {
+                    var instanceConfig = ScriptableObject.CreateInstance<BulletHellConfig>();
+                    instanceConfig.SetBulletPatternData(_bulletHellPatternDefaultConfigList[i].GetBulletHellPatternData());
+
+                    _bulletHellPatternInstanceConfigDictionary.Add(_bulletHellPatternDefaultConfigList[i].GetBulletPattern(), instanceConfig.GetBulletHellPatternData());
                 }
             }
 

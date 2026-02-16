@@ -11,16 +11,22 @@ namespace ModularPrototypes.BulletHell.Data
         #endregion
 
         #region Configuration Data
-        [SerializeField] BulletHellPatternData _bulletHellPatternData;
-        //[SerializeField] private int _bulletAmount;
-        //[SerializeField] private int _offsetAngle;
-        //[SerializeField] private int _startAngle;
-        //[SerializeField] private int _endAngle;
-        //[SerializeField] private float _shootInterval;
-        //[SerializeField] private bool _extraBullet;
-        //[SerializeField] private float _bulletSpeed;
-        //[SerializeField] private float _bulletLifeInSeconds;
-        //[SerializeField] private bool _enableTrail = true;
+        [SerializeField] private BulletHellPatternData _bulletHellPatternData;
         #endregion
+
+        public string GetName() => patternName;
+        public BulletPattern GetBulletPattern() => bulletPattern;
+
+        public BulletHellPatternData GetBulletHellPatternData() => _bulletHellPatternData;
+
+        public void SetBulletPatternData(BulletHellPatternData data)
+        {
+            _bulletHellPatternData.SetConfiguration(data);
+        }
+
+        //public void ApplyBulletPatternData(BulletHellPatternData data)
+        //{
+        //    _bulletHellPatternData.ApplyConfiguration(data);
+        //}
     }
 }
