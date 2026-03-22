@@ -45,6 +45,7 @@ namespace ModularPrototypes.BulletHell.UI
         private void Initialize()
         {
             _currentPattern = _startPattern;
+
             InitializeLists();
             InitializeButtonSubscriptions();
         }
@@ -81,12 +82,12 @@ namespace ModularPrototypes.BulletHell.UI
                 }
             }
 
-            //_currentPattern = BulletPattern.RADIAL_BURST;
             _bulletHellPatternButtonsDictionary[_currentPattern].interactable = false;
             _bulletHellPatternNameText.text = _bulletHellDataDictionary[_currentPattern].GetName();
             _bulletHellPatternPanelsDictionary[_currentPattern].SetActive(true);
 
             _uiStateMachine.Initialize(_currentPattern);
+            _bulletSpawner.Initialize(_currentPattern, _uiStateMachine.CurrentState.GetBulletHellPatternData());
         }
 
         private void InitializeButtonSubscriptions()

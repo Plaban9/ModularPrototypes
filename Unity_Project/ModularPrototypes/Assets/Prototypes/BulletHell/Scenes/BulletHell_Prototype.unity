@@ -13616,20 +13616,24 @@ PrefabInstance:
       value: BulletSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletPattern
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._endAngle
-      value: 360
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._deltaAngle
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._startAngle
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._bulletSpeed
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._enableTrail
@@ -13640,16 +13644,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
+      propertyPath: _bulletHellPatternData._offsetAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._bulletAmount
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._shootInterval
-      value: 0.25
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._bulletLifeInSeconds
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5126409055415034410, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,5 +1,7 @@
 using ModularPrototypes.BulletHell.Data;
 
+using System;
+
 using UnityEngine;
 
 namespace ModularPrototypes.BulletHell
@@ -11,7 +13,6 @@ namespace ModularPrototypes.BulletHell
         [SerializeField] private Material _radialBurstMaterial;
         [SerializeField] private Material _spiralMaterial;
         [SerializeField] private Material _doubleSpiralMaterial;
-
        
         [Header("|<--- Bullet Hell Pattern Data --->|")]
         [SerializeField] BulletHellPatternData _bulletHellPatternData;
@@ -19,13 +20,11 @@ namespace ModularPrototypes.BulletHell
         private float _currentAngle = 0f;
         private float _oldInvokeInterval;
 
-        private void Awake()
+        internal void Initialize(BulletPattern bulletPattern, BulletHellPatternData bulletHellPatternData)
         {
-            ApplyBulletHellPatternSettings(_bulletHellPatternData);
-        }
+            _bulletPattern = bulletPattern;
 
-        private void Start()
-        {
+            ApplyBulletHellPatternSettings(bulletHellPatternData);
             _currentAngle = _bulletHellPatternData.StartAngle;
 
             ResetFire();
@@ -66,9 +65,12 @@ namespace ModularPrototypes.BulletHell
                     break;
 
                 case BulletPattern.ALL:
-                    Spiral();
-                    DoubleSpiral();
-                    RadialBurst();
+                    // This case is for testing purposes, to see all patterns in action at the same time.
+                    // In a real game, you would likely want to have more control over when each pattern is active, rather than having them all fire at the same time.
+                    // Set the parameters in BulletSpawner Gameobject in the inspector to see the patterns in action.
+                    //Spiral();
+                    //DoubleSpiral();
+                    //RadialBurst();
                     break;
             }
         }
