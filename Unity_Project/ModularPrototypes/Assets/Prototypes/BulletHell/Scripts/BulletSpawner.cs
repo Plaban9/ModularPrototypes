@@ -77,31 +77,14 @@ namespace ModularPrototypes.BulletHell
 
         private void RadialBurst()
         {
-            var angleStep = (_bulletHellPatternData.EndAngle - _bulletHellPatternData.StartAngle) / _bulletHellPatternData.BulletAmount;
+            var totalBullets = _bulletHellPatternData.BulletAmount;
+
+            var angleStep = (_bulletHellPatternData.EndAngle - _bulletHellPatternData.StartAngle) / totalBullets;
             float angle = (_bulletHellPatternData.ExtraBullet ? _bulletHellPatternData.StartAngle : _bulletHellPatternData.StartAngle + angleStep / 2f) + _bulletHellPatternData.OffsetAngle;
 
-            var totalBullets = _bulletHellPatternData.ExtraBullet ? _bulletHellPatternData.BulletAmount + 1 : _bulletHellPatternData.BulletAmount;
-
             for (int i = 0; i < totalBullets; i++)
-            {
-                var bulletDirectionX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-                var bulletDirectionY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
-
-                var bulletMoveVector = new Vector3(bulletDirectionX, bulletDirectionY, 0f);
-                var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
-                var bulletDirection = (bulletMoveVector - filteredPosition).normalized;
-
-                var bullet = BulletPool.BulletPoolInstance.GetBullet();
-
-                if (bullet == null)
-                {
-                    continue;
-                }
-
-                bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-                bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _radialBurstMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
-
-                bullet.SetActive(true);
+            {       
+                DoBulletOperations(angle, _radialBurstMaterial);
 
                 angle += angleStep;
             }
@@ -109,8 +92,30 @@ namespace ModularPrototypes.BulletHell
 
         private void Spiral()
         {
-            float bulletDirectionX = transform.position.x + Mathf.Sin((_currentAngle * Mathf.PI) / 180f);
-            float bulletDirectionY = transform.position.y + Mathf.Cos((_currentAngle * Mathf.PI) / 180f);
+            DoBulletOperations(_currentAngle, _spiralMaterial);
+
+            _currentAngle += _bulletHellPatternData.DeltaAngle;
+        }
+
+        private void DoubleSpiral()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                DoBulletOperations(_currentAngle, _doubleSpiralMaterial);
+            }
+
+            _currentAngle += _bulletHellPatternData.DeltaAngle;
+
+            if (_currentAngle >= 360f)
+            {
+                _currentAngle = 0f;
+            }
+        }
+
+        private void DoBulletOperations(float angle, Material bulletMaterial)
+        {
+            var bulletDirectionX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+            var bulletDirectionY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 
             var bulletMoveVector = new Vector3(bulletDirectionX, bulletDirectionY, 0f);
             var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
@@ -124,48 +129,9 @@ namespace ModularPrototypes.BulletHell
             }
 
             bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _spiralMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
+            bullet.GetComponent<Bullet>().SetProperties(bulletDirection, bulletMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
 
             bullet.SetActive(true);
-
-            _currentAngle += _bulletHellPatternData.DeltaAngle;
-        }
-
-        private void DoubleSpiral()
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                float bulletDirectionX = transform.position.x + Mathf.Sin(((_currentAngle + 180f * i) * Mathf.PI) / 180f);
-                float bulletDirectionY = transform.position.y + Mathf.Cos(((_currentAngle + 180f * i) * Mathf.PI) / 180f);
-
-                var bulletMoveVector = new Vector3(bulletDirectionX, bulletDirectionY, 0f);
-                var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
-                var bulletDirection = (bulletMoveVector - filteredPosition).normalized;
-
-                var bullet = BulletPool.BulletPoolInstance.GetBullet();
-
-                if (bullet == null)
-                {
-                    return;
-                }
-
-                bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
-                bullet.GetComponent<Bullet>().SetProperties(bulletDirection, _doubleSpiralMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
-
-                bullet.SetActive(true);
-            }
-
-            _currentAngle += _bulletHellPatternData.DeltaAngle;
-
-            if (_currentAngle >= 360f)
-            {
-                _currentAngle = 0f;
-            }
-        }
-
-        private void DoBulletOperations(Vector2 bulletDirectionVector)
-        {
-            
         }
 
         public void ApplyBulletHellPatternSettings(BulletHellPatternData data)
