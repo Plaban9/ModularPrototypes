@@ -1,4 +1,5 @@
 using ModularPrototypes.BulletHell.Data;
+using ModularPrototypes.BulletHell.UI.StateMachine;
 
 using System.Collections.Generic;
 
@@ -11,9 +12,11 @@ namespace ModularPrototypes.BulletHell.UI
     {
         #region UI Elements        
         [SerializeField] private Image _bulletHellPanelImage;
+        [SerializeField] private BulletPattern _startPattern = BulletPattern.RADIAL_BURST;
         [SerializeField] private BulletPattern _currentPattern = BulletPattern.RADIAL_BURST;
         [SerializeField] private TMPro.TextMeshProUGUI _bulletHellPatternNameText;
         [SerializeField] private List<BulletHellData> _bulletHellDataList;
+        [SerializeField] private UIStateMachine _uiStateMachine;
         private Dictionary<BulletPattern, BulletHellData> _bulletHellDataDictionary;
         private Dictionary<BulletPattern, Button> _bulletHellPatternButtonsDictionary;
         private Dictionary<BulletPattern, GameObject> _bulletHellPatternPanelsDictionary;
@@ -31,8 +34,6 @@ namespace ModularPrototypes.BulletHell.UI
         [Header("Bullet Hell System")]
         #region Bullet Hell System
         [SerializeField] private BulletSpawner _bulletSpawner;
-        [SerializeField] private List<BulletHellConfig> _bulletHellPatternDefaultConfigList;
-        [SerializeField] private Dictionary<BulletPattern, BulletHellPatternData> _bulletHellPatternInstanceConfigDictionary;
         #endregion
 
         private void Awake()
@@ -42,6 +43,7 @@ namespace ModularPrototypes.BulletHell.UI
 
         private void Initialize()
         {
+            _currentPattern = _startPattern;
             InitializeLists();
             InitializeButtonSubscriptions();
         }
@@ -78,23 +80,12 @@ namespace ModularPrototypes.BulletHell.UI
                 }
             }
 
-            for (int i = 0; i < _bulletHellPatternDefaultConfigList.Count; i++)
-            {
-                _bulletHellPatternInstanceConfigDictionary ??= new Dictionary<BulletPattern, BulletHellPatternData>();
-
-                if (!_bulletHellPatternInstanceConfigDictionary.ContainsKey(_bulletHellPatternDefaultConfigList[i].GetBulletPattern()))
-                {
-                    var instanceConfig = ScriptableObject.CreateInstance<BulletHellConfig>();
-                    instanceConfig.SetBulletPatternData(_bulletHellPatternDefaultConfigList[i].GetBulletHellPatternData());
-
-                    _bulletHellPatternInstanceConfigDictionary.Add(_bulletHellPatternDefaultConfigList[i].GetBulletPattern(), instanceConfig.GetBulletHellPatternData());
-                }
-            }
-
-            _currentPattern = BulletPattern.RADIAL_BURST;
+            //_currentPattern = BulletPattern.RADIAL_BURST;
             _bulletHellPatternButtonsDictionary[_currentPattern].interactable = false;
             _bulletHellPatternNameText.text = _bulletHellDataDictionary[_currentPattern].GetName();
             _bulletHellPatternPanelsDictionary[_currentPattern].SetActive(true);
+
+            _uiStateMachine.Initialize(_currentPattern);
         }
 
         private void InitializeButtonSubscriptions()
@@ -126,6 +117,7 @@ namespace ModularPrototypes.BulletHell.UI
             _currentPattern = bulletPattern;
 
             _bulletSpawner.SetBulletPattern(_currentPattern);
+            _uiStateMachine.TransitionTo(_currentPattern);
         }
 
         void Update()

@@ -645,7 +645,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 533801880}
   - {fileID: 731381185}
   - {fileID: 1815254966}
   - {fileID: 38250303}
@@ -733,14 +732,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.UIManager
   _bulletHellPanelImage: {fileID: 98674236}
-  _startPattern: 1
   _currentPattern: 0
   _bulletHellPatternNameText: {fileID: 731381186}
   _bulletHellDataList:
   - {fileID: 11400000, guid: 0d975852a07c8564ba96a15b41e75649, type: 2}
   - {fileID: 11400000, guid: 4a865f9d5948ea543928c2a5e5112693, type: 2}
   - {fileID: 11400000, guid: 55ea654e006ed67498d0f0144cc46b86, type: 2}
-  _uiStateMachine: {fileID: 533801881}
   _bulletHellButtonList:
   - {fileID: 813192836}
   - {fileID: 523164281}
@@ -752,6 +749,7 @@ MonoBehaviour:
   - {fileID: 1121496258}
   _panelAnimation: {fileID: 98674238}
   _bulletSpawner: {fileID: 1792646163}
+  _bulletHellPatternDefaultConfigList: []
 --- !u!1 &130134308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,74 +2244,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &317963978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 317963979}
-  - component: {fileID: 317963980}
-  m_Layer: 5
-  m_Name: Spiral
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &317963979
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317963978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 533801880}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &317963980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317963978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0536fbd386c434b8685620791bf71e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.StateMachine.States.UIState_Spiral
-  stateName: Spiral
-  bulletPattern: 2
-  defaultBulletHellPatternConfig: {fileID: 11400000, guid: 6a6b2591c1e19a24e867311225a91eaf, type: 2}
-  bulletHellPatternData:
-    _bulletAmount: 0
-    _deltaAngle: 0
-    _offsetAngle: 0
-    _startAngle: 0
-    _endAngle: 0
-    _shootInterval: 0.001
-    _bulletSpeed: 0
-    _bulletLifeInSeconds: 0
-    _extraBullet: 0
-    _enableTrail: 0
-  _deltaAngleSlider: {fileID: 1473845015}
-  _shootIntervalSlider: {fileID: 2043984941}
-  _bulletSpeedSlider: {fileID: 1357942045}
-  _bulletLifeSlider: {fileID: 1449642483}
-  _extraTrailToggle: {fileID: 1172910316}
-  _resetToDefaultButton: {fileID: 418205245}
 --- !u!1 &341835465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3104,78 +3034,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464648638}
   m_CullTransparentMesh: 1
---- !u!1 &473862559
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 473862560}
-  - component: {fileID: 473862561}
-  m_Layer: 5
-  m_Name: Radial Burst
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &473862560
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473862559}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 533801880}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &473862561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473862559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14cb365085ea49a4ca75402a8af77207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.StateMachine.States.UIState_RadialBurst
-  stateName: Radial Burst
-  bulletPattern: 1
-  defaultBulletHellPatternConfig: {fileID: 11400000, guid: a53cadc0cd5c8e84787ffcb977d9eddc, type: 2}
-  bulletHellPatternData:
-    _bulletAmount: 0
-    _deltaAngle: 0
-    _offsetAngle: 0
-    _startAngle: 0
-    _endAngle: 0
-    _shootInterval: 0.001
-    _bulletSpeed: 0
-    _bulletLifeInSeconds: 0
-    _extraBullet: 0
-    _enableTrail: 0
-  _bulletAmountSlider: {fileID: 190617355}
-  _offsetSlider: {fileID: 27930195}
-  _startAngleSlider: {fileID: 1052093609}
-  _endAngleSlider: {fileID: 315823433}
-  _shootIntervalSlider: {fileID: 1676245422}
-  _bulletSpeedSlider: {fileID: 1153676829}
-  _bulletLifeSlider: {fileID: 854743656}
-  _extraBulletToggle: {fileID: 1854730801}
-  _extraTrailToggle: {fileID: 463660140}
-  _resetToDefaultButton: {fileID: 1102745436}
 --- !u!1 &486549007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,62 +3446,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533713074}
   m_CullTransparentMesh: 1
---- !u!1 &533801879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 533801880}
-  - component: {fileID: 533801881}
-  m_Layer: 5
-  m_Name: UIStates
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &533801880
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533801879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 473862560}
-  - {fileID: 317963979}
-  - {fileID: 708396695}
-  m_Father: {fileID: 98674235}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &533801881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533801879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0efe1deb8cded64b90d1a15466e6999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.StateMachine.UIStateMachine
-  _initialState: 1
-  _uiStatesList:
-  - {fileID: 473862561}
-  - {fileID: 317963980}
-  - {fileID: 708396696}
 --- !u!1 &561353126
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,74 +4133,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689843262}
   m_CullTransparentMesh: 1
---- !u!1 &708396694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 708396695}
-  - component: {fileID: 708396696}
-  m_Layer: 5
-  m_Name: Double Spiral
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &708396695
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708396694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 533801880}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &708396696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708396694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a709fa83e002a824c97b6223015d5183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.StateMachine.States.UIState_DoubleSpiral
-  stateName: Double Spiral
-  bulletPattern: 4
-  defaultBulletHellPatternConfig: {fileID: 11400000, guid: 16613f378fd3b2f40b8dc048c79bc0c1, type: 2}
-  bulletHellPatternData:
-    _bulletAmount: 0
-    _deltaAngle: 0
-    _offsetAngle: 0
-    _startAngle: 0
-    _endAngle: 0
-    _shootInterval: 0.001
-    _bulletSpeed: 0
-    _bulletLifeInSeconds: 0
-    _extraBullet: 0
-    _enableTrail: 0
-  _deltaAngleSlider: {fileID: 406971048}
-  _shootIntervalSlider: {fileID: 911115016}
-  _bulletSpeedSlider: {fileID: 1674214432}
-  _bulletLifeSlider: {fileID: 146537473}
-  _extraTrailToggle: {fileID: 486549009}
-  _resetToDefaultButton: {fileID: 956464736}
 --- !u!1 &731381184
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +4776,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 813192837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ModularPrototypes.BulletHell.UI.UIManager, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &813192837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13589,10 +13335,6 @@ PrefabInstance:
     - target: {fileID: 5768675654485702569, guid: 98fd5d0c0f3947c4da65c8b59fac772b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459753731976519556, guid: 98fd5d0c0f3947c4da65c8b59fac772b, type: 3}
-      propertyPath: _initialPoolSize
-      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8958908183606653299, guid: 98fd5d0c0f3947c4da65c8b59fac772b, type: 3}
       propertyPath: m_Name

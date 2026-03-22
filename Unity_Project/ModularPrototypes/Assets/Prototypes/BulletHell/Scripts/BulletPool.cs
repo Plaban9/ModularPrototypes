@@ -6,6 +6,8 @@ namespace ModularPrototypes.BulletHell
 {
     public class BulletPool : MonoBehaviour
     {
+        [SerializeField] private int _initialPoolSize = 10;
+
         private static BulletPool _bulletPoolInstance;
 
         [SerializeField] private GameObject _pooledBullet;
@@ -20,12 +22,28 @@ namespace ModularPrototypes.BulletHell
 
         private void Awake()
         {
+            if (BulletPoolInstance != null && BulletPoolInstance != this)
+            {
+                D("Another instance of BulletPool already exists. Destroying this instance.");
+                Destroy(gameObject);
+                return;
+            }
+
             BulletPoolInstance = this;
+            InitializePool();
         }
 
-        private void Start()
+        private void InitializePool()
         {
             _bullets = new List<GameObject>();
+
+            for (int i = 0; i < _initialPoolSize; i++)
+            {
+                var bullet = Instantiate(_pooledBullet);
+
+                bullet.SetActive(false);
+                _bullets.Add(bullet);
+            }
         }
 
         public GameObject GetBullet()

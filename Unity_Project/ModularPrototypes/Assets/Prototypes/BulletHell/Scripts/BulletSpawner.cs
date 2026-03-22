@@ -18,7 +18,12 @@ namespace ModularPrototypes.BulletHell
 
         private float _currentAngle = 0f;
         private float _oldInvokeInterval;
-       
+
+        private void Awake()
+        {
+            ApplyBulletHellPatternSettings(_bulletHellPatternData);
+        }
+
         private void Start()
         {
             _currentAngle = _bulletHellPatternData.StartAngle;
@@ -156,7 +161,7 @@ namespace ModularPrototypes.BulletHell
             }
         }
 
-        private void DoBulletOperations()
+        private void DoBulletOperations(Vector2 bulletDirectionVector)
         {
             
         }
