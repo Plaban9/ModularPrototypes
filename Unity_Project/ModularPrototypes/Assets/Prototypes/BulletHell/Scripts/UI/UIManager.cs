@@ -2,6 +2,7 @@ using ModularPrototypes.BulletHell.Data;
 using ModularPrototypes.BulletHell.UI.StateMachine;
 
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -117,13 +118,55 @@ namespace ModularPrototypes.BulletHell.UI
             _currentPattern = bulletPattern;
 
             _bulletSpawner.SetBulletPattern(_currentPattern);
+
             _uiStateMachine.TransitionTo(_currentPattern);
+            SubscribeToUIEvents(_currentPattern);
+            _bulletSpawner.ApplyBulletHellPatternSettings(_uiStateMachine.CurrentState.GetBulletHellPatternData());
         }
 
         void Update()
         {
             var lerpedColor = Color.Lerp(_bulletHellPanelImage.color, _bulletHellDataDictionary[_currentPattern].GetBackgroundColor(), 0.95f * Time.deltaTime);
             _bulletHellPanelImage.color = lerpedColor;
+        }
+
+        private void OnUIStateMachineStateChanged(BulletPattern bulletPattern, BulletHellPatternData bulletHellPatternData)
+        {
+            if (bulletPattern != _currentPattern)
+                return;
+
+            _bulletSpawner.ApplyBulletHellPatternSettings(bulletHellPatternData);
+        }
+
+        private void SubscribeToUIEvents(BulletPattern bulletPattern)
+        {
+            if (_uiStateMachine != null)
+            {
+                _uiStateMachine.OnUIStateChanged += OnUIStateMachineStateChanged;
+            }
+        }
+
+        private void UnsubscribeFromUIEvents(BulletPattern bulletPattern)
+        {
+            if (_uiStateMachine != null)
+            {
+                _uiStateMachine.OnUIStateChanged -= OnUIStateMachineStateChanged;
+            }
+        }
+
+        private void OnEnable()
+        {
+            SubscribeToUIEvents(_currentPattern);
+        }
+
+        private void OnDisable()
+        {
+            UnsubscribeFromUIEvents(_currentPattern);
+        }
+
+        private void D(string message, bool isError = false)
+        {
+            DebugUtils.DebugInfo.Print($"<<UIManager>> {message}", isError ? DebugUtils.DebugConstants.ERROR : DebugUtils.DebugConstants.INFO);
         }
     }
 }

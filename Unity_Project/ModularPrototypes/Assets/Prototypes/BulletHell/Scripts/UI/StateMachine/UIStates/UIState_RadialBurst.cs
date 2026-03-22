@@ -13,9 +13,11 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
         [SerializeField] private Slider _bulletSpeedSlider;
         [SerializeField] private Slider _bulletLifeSlider;
         [SerializeField] private Toggle _extraBulletToggle;
-        [SerializeField] private Toggle _extraTrailToggle;
+        [SerializeField] private Toggle _trailToggle;
 
         [SerializeField] private Button _resetToDefaultButton;
+
+        public override event UIObserver OnUIStateChanged;
 
         public override void Initialize()
         {
@@ -27,7 +29,7 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
             D("Initialized");
         }
 
-        public override void ApplyToUI()
+        protected override void ApplyToUI()
         {
             _bulletAmountSlider.value = bulletHellPatternData.BulletAmount;
             _offsetSlider.value = bulletHellPatternData.OffsetAngle;
@@ -37,7 +39,7 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
             _bulletSpeedSlider.value = bulletHellPatternData.BulletSpeed;
             _bulletLifeSlider.value = bulletHellPatternData.BulletLifeInSeconds;
             _extraBulletToggle.isOn = bulletHellPatternData.ExtraBullet;
-            _extraTrailToggle.isOn = bulletHellPatternData.EnableTrail;
+            _trailToggle.isOn = bulletHellPatternData.EnableTrail;
         }
 
         public override void OnEnter()
@@ -49,20 +51,73 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
         public override void OnExit()
         {
             D("OnExit");
-            UnsubscribeToUIElements();
+            UnsubscribeFromUIElements();
         }
 
-        private void SubscribeToUIElements()
+        protected override void OnUIInteracted()
         {
-            _bulletAmountSlider.onValueChanged.AddListener((value) => bulletHellPatternData.BulletAmount = (int)value);
-            _offsetSlider.onValueChanged.AddListener((value) => bulletHellPatternData.OffsetAngle = (int)value);
-            _startAngleSlider.onValueChanged.AddListener((value) => bulletHellPatternData.StartAngle = (int)value);
-            _endAngleSlider.onValueChanged.AddListener((value) => bulletHellPatternData.EndAngle = (int)value);
-            _shootIntervalSlider.onValueChanged.AddListener((value) => bulletHellPatternData.ShootInterval = value);
-            _bulletSpeedSlider.onValueChanged.AddListener((value) => bulletHellPatternData.BulletSpeed = value);
-            _bulletLifeSlider.onValueChanged.AddListener((value) => bulletHellPatternData.BulletLifeInSeconds = value);
-            _extraBulletToggle.onValueChanged.AddListener((value) => bulletHellPatternData.ExtraBullet = value);
-            _extraTrailToggle.onValueChanged.AddListener((value) => bulletHellPatternData.EnableTrail = value);
+            if (OnUIStateChanged != null)
+            {
+                D("Invoking OnUIStateChanged event for Pattern: " + bulletPattern);
+                OnUIStateChanged(bulletPattern, bulletHellPatternData);
+            }
+        }
+
+        protected override void SubscribeToUIElements()
+        {
+            _bulletAmountSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.BulletAmount = (int)value;
+                OnUIInteracted();
+            });
+
+            _offsetSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.OffsetAngle = (int)value;
+                OnUIInteracted();
+            });
+
+            _startAngleSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.StartAngle = (int)value;
+                OnUIInteracted();
+            });
+
+            _endAngleSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.EndAngle = (int)value;
+                OnUIInteracted();
+            });
+
+            _shootIntervalSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.ShootInterval = value;
+                OnUIInteracted();
+            });
+
+            _bulletSpeedSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.BulletSpeed = value;
+                OnUIInteracted();
+            });
+
+            _bulletLifeSlider.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.BulletLifeInSeconds = value;
+                OnUIInteracted();
+            });
+
+            _extraBulletToggle.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.ExtraBullet = value;
+                OnUIInteracted();
+            });
+
+            _trailToggle.onValueChanged.AddListener((value) =>
+            {
+                bulletHellPatternData.EnableTrail = value;
+                OnUIInteracted();
+            });
             
             _resetToDefaultButton.onClick.AddListener(() =>
             {
@@ -71,7 +126,7 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
             });
         }
 
-        private void UnsubscribeToUIElements()
+        protected override void UnsubscribeFromUIElements()
         {
             _bulletAmountSlider.onValueChanged.RemoveAllListeners();
             _offsetSlider.onValueChanged.RemoveAllListeners();
@@ -81,7 +136,7 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
             _bulletSpeedSlider.onValueChanged.RemoveAllListeners();
             _bulletLifeSlider.onValueChanged.RemoveAllListeners();
             _extraBulletToggle.onValueChanged.RemoveAllListeners();
-            _extraTrailToggle.onValueChanged.RemoveAllListeners();
+            _trailToggle.onValueChanged.RemoveAllListeners();
             _resetToDefaultButton.onClick.RemoveAllListeners();
         }
 

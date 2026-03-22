@@ -13,6 +13,11 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine
         [Header("Instance Data Here (For viewing only)")]
         [SerializeField] protected BulletHellPatternData bulletHellPatternData;
 
+        #region Events and Callbacks
+        public delegate void UIObserver(BulletPattern bulletPattern, BulletHellPatternData bulletHellPatternData);
+        public abstract event UIObserver OnUIStateChanged;
+        #endregion
+
         public string GetStateName()
         {
             return stateName;
@@ -29,7 +34,13 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine
         }
 
         public abstract void Initialize();
-        public abstract void ApplyToUI();
+
+        protected abstract void ApplyToUI();
+
+        protected abstract void SubscribeToUIElements();
+        protected abstract void UnsubscribeFromUIElements();
+        protected abstract void OnUIInteracted();
+
         public abstract void OnEnter();
         public abstract void OnFrame();
         public abstract void OnExit();

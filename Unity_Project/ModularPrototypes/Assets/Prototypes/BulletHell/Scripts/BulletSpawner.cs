@@ -166,7 +166,7 @@ namespace ModularPrototypes.BulletHell
             
         }
 
-        private void ApplyBulletHellPatternSettings(BulletHellPatternData data)
+        public void ApplyBulletHellPatternSettings(BulletHellPatternData data)
         {
             _bulletHellPatternData.SetConfiguration(data);
         }

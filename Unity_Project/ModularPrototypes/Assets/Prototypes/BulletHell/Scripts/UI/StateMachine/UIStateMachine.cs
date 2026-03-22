@@ -1,3 +1,5 @@
+using ModularPrototypes.BulletHell.Data;
+
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -9,6 +11,11 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine
         [SerializeField] private BulletPattern _initialState;
         [SerializeField] private List<UIState> _uiStatesList;
         [SerializeField] private Dictionary<BulletPattern, UIState> _uiStatesDictionary;
+
+        #region Events and Callbacks
+        public delegate void UIObserver(BulletPattern bulletPattern, BulletHellPatternData bulletHellPatternData);
+        public event UIObserver OnUIStateChanged;
+        #endregion
 
         public void Initialize(BulletPattern bulletPattern)
         {
@@ -27,7 +34,7 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine
                 _uiStatesDictionary ??= new Dictionary<BulletPattern, UIState>();
 
                 _uiStatesDictionary.Add(state.GetBulletPattern(), state);
-            }        
+            }
 
             TransitionTo(_initialState);
         }
@@ -49,16 +56,23 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine
 
             if (CurrentState != null)
             {
+                CurrentState.OnUIStateChanged -= OnUIInteracted;
                 CurrentState.OnExit();
             }
 
-            D($"Trying from state {(CurrentState == null ? "Empty" : CurrentState.GetStateName() )} to {newState.GetStateName()}.");
+            D($"Trying to transition from state: {(CurrentState == null ? "Empty" : CurrentState.GetStateName())} to state: {newState.GetStateName()}.");
             CurrentState = newState;
 
             if (CurrentState != null)
             {
                 CurrentState.OnEnter();
+                CurrentState.OnUIStateChanged += OnUIInteracted;
             }
+        }
+
+        private void OnUIInteracted(BulletPattern bulletPattern, BulletHellPatternData bulletHellPatternData)
+        {
+            OnUIStateChanged?.Invoke(bulletPattern, bulletHellPatternData);
         }
 
         #region DEBUG
