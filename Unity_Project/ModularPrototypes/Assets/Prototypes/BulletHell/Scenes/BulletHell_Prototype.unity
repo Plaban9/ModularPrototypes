@@ -21522,7 +21522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletPattern
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3013079195332400307, guid: b1c01b8fa9573ef41b8eddba73342031, type: 3}
       propertyPath: _bulletHellPatternData._endAngle

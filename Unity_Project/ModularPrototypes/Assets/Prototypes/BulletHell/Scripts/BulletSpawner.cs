@@ -76,15 +76,15 @@ namespace ModularPrototypes.BulletHell
         private void RadialBurst()
         {
             var totalBullets = _bulletHellPatternData.BulletAmount;
-
-            var angleStep = (_bulletHellPatternData.EndAngle - _bulletHellPatternData.StartAngle) / totalBullets;
-            float angle = (_bulletHellPatternData.ExtraBullet ? _bulletHellPatternData.StartAngle : _bulletHellPatternData.StartAngle + angleStep / 2f) + _bulletHellPatternData.OffsetAngle;
+            var arcAngle = _bulletHellPatternData.EndAngle - _bulletHellPatternData.StartAngle;
+            var angleStep = arcAngle / (totalBullets == 1 ? 1 : totalBullets - 1);
+            var currentAngle = totalBullets == 1 ? _bulletHellPatternData.StartAngle + (angleStep / 2) : _bulletHellPatternData.StartAngle;
 
             for (int i = 0; i < totalBullets; i++)
             {
-                DoBulletOperations(angle, _radialBurstMaterial);
+                DoBulletOperations(currentAngle, _radialBurstMaterial);
 
-                angle += angleStep;
+                currentAngle += angleStep;
             }
         }
 
