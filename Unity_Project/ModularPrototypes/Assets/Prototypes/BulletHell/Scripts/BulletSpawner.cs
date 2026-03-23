@@ -77,8 +77,8 @@ namespace ModularPrototypes.BulletHell
         {
             var totalBullets = _bulletHellPatternData.BulletAmount;
             var arcAngle = _bulletHellPatternData.EndAngle - _bulletHellPatternData.StartAngle;
-            var angleStep = arcAngle / (totalBullets == 1 ? 1 : totalBullets - 1);
-            var currentAngle = totalBullets == 1 ? _bulletHellPatternData.StartAngle + (angleStep / 2) : _bulletHellPatternData.StartAngle;
+            var angleStep = (float)arcAngle / (totalBullets == 1 ? 1 : totalBullets - 1);
+            var currentAngle = (totalBullets == 1 ? _bulletHellPatternData.StartAngle + (angleStep / 2) : _bulletHellPatternData.StartAngle) + _bulletHellPatternData.OffsetAngle;
 
             for (int i = 0; i < totalBullets; i++)
             {

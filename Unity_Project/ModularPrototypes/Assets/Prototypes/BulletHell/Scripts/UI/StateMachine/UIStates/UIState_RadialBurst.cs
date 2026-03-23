@@ -15,7 +15,6 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
         [SerializeField] private Slider _shootIntervalSlider;
         [SerializeField] private Slider _bulletSpeedSlider;
         [SerializeField] private Slider _bulletLifeSlider;
-        [SerializeField] private Toggle _extraBulletToggle;
         [SerializeField] private Toggle _trailToggle;
 
         [SerializeField] private TMP_InputField _bulletAmountInputField;
@@ -63,7 +62,6 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
             _bulletLifeSlider.value = bulletHellPatternData.BulletLifeInSeconds;
             _bulletLifeInputField.text = bulletHellPatternData.BulletLifeInSeconds.ToString("F2");
 
-            _extraBulletToggle.isOn = bulletHellPatternData.ExtraBullet;
             _trailToggle.isOn = bulletHellPatternData.EnableTrail;
         }
 
@@ -134,12 +132,6 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
                 OnUIInteracted();
             });
 
-            _extraBulletToggle.onValueChanged.AddListener((value) =>
-            {
-                bulletHellPatternData.ExtraBullet = value;
-                OnUIInteracted();
-            });
-
             _trailToggle.onValueChanged.AddListener((value) =>
             {
                 bulletHellPatternData.EnableTrail = value;
@@ -162,7 +154,6 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
             _shootIntervalSlider.onValueChanged.RemoveAllListeners();
             _bulletSpeedSlider.onValueChanged.RemoveAllListeners();
             _bulletLifeSlider.onValueChanged.RemoveAllListeners();
-            _extraBulletToggle.onValueChanged.RemoveAllListeners();
             _trailToggle.onValueChanged.RemoveAllListeners();
             _resetToDefaultButton.onClick.RemoveAllListeners();
         }

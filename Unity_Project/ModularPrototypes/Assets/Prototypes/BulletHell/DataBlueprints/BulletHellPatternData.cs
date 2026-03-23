@@ -13,7 +13,6 @@ namespace ModularPrototypes.BulletHell.Data
         [Range(0.001f, 10f)][SerializeField] private float _shootInterval;
         [Range(0, 100f)][SerializeField] private float _bulletSpeed;
         [Range(0, 10f)][SerializeField] private float _bulletLifeInSeconds;
-        [SerializeField] private bool _extraBullet;
         [SerializeField] private bool _enableTrail;
 
         public void SetConfiguration(BulletHellPatternData data)
@@ -26,7 +25,6 @@ namespace ModularPrototypes.BulletHell.Data
             _shootInterval = data._shootInterval;
             _bulletSpeed = data._bulletSpeed;
             _bulletLifeInSeconds = data._bulletLifeInSeconds;
-            _extraBullet = data._extraBullet;
             _enableTrail = data._enableTrail;
         }
 
@@ -40,7 +38,6 @@ namespace ModularPrototypes.BulletHell.Data
         //    data._shootInterval = _shootInterval;
         //    data._bulletSpeed = _bulletSpeed;
         //    data._bulletLifeInSeconds = _bulletLifeInSeconds;
-        //    data._extraBullet = _extraBullet;
         //    data._enableTrail = _enableTrail;
         //}
 
@@ -69,11 +66,7 @@ namespace ModularPrototypes.BulletHell.Data
             get => _shootInterval;
             set => _shootInterval = value;
         }
-        public bool ExtraBullet
-        {
-            get => _extraBullet;
-            set => _extraBullet = value;
-        }
+
         public float BulletSpeed
         {
             get => _bulletSpeed;
