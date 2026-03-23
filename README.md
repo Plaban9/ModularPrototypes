@@ -1,4 +1,4 @@
-<h4>Welcome to Modular Prototypes.</h4>
+<h3>Welcome to Modular Prototypes.</h3>
 <p><br>I’m Plaban, and this space is where I explore different gameplay ideas and systems while documenting the techniques behind them.&nbsp;</p>
 <p>It also gives me a place to publish devlogs, build a consistent documentation habit, and track my progress over time.<br></p>
 <p>Currently, there are three patterns:
@@ -11,7 +11,7 @@
 </p>
 <p>Itch.io for this project:&nbsp;<a href="https://plaban.itch.io/modular-prototypes" target="_blank" style="font-family: inherit; font-size: inherit;">Modular Prototypes | Itch.io</a></p>
 <p></p>
-<h5>Asset Index:</h5>
+<h4>Asset Index:</h4>
 <p><strong>Font:</strong></p>
 <table>
   <thead>
@@ -85,7 +85,7 @@
   </tbody>
 </table>
 <p><strong><br></strong></p>
-<p>Others:</p>
+<p><strong>Others:</strong>strong></p>
 <table>
   <thead>
     <tr>
