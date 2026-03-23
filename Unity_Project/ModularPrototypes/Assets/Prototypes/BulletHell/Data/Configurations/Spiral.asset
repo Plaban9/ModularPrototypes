@@ -20,7 +20,7 @@ MonoBehaviour:
     _offsetAngle: 0
     _startAngle: 90
     _endAngle: 360
-    _shootInterval: 0.25
+    _shootInterval: 0.1
     _bulletSpeed: 9
     _bulletLifeInSeconds: 3
     _extraBullet: 1

@@ -1,7 +1,5 @@
 using ModularPrototypes.BulletHell.Data;
 
-using System;
-
 using UnityEngine;
 
 namespace ModularPrototypes.BulletHell
@@ -13,7 +11,7 @@ namespace ModularPrototypes.BulletHell
         [SerializeField] private Material _radialBurstMaterial;
         [SerializeField] private Material _spiralMaterial;
         [SerializeField] private Material _doubleSpiralMaterial;
-       
+
         [Header("|<--- Bullet Hell Pattern Data --->|")]
         [SerializeField] BulletHellPatternData _bulletHellPatternData;
 
@@ -83,7 +81,7 @@ namespace ModularPrototypes.BulletHell
             float angle = (_bulletHellPatternData.ExtraBullet ? _bulletHellPatternData.StartAngle : _bulletHellPatternData.StartAngle + angleStep / 2f) + _bulletHellPatternData.OffsetAngle;
 
             for (int i = 0; i < totalBullets; i++)
-            {       
+            {
                 DoBulletOperations(angle, _radialBurstMaterial);
 
                 angle += angleStep;
@@ -101,7 +99,10 @@ namespace ModularPrototypes.BulletHell
         {
             for (int i = 0; i < 2; i++)
             {
-                DoBulletOperations(_currentAngle, _doubleSpiralMaterial);
+                float bulletDirectionX = transform.position.x + Mathf.Sin(((_currentAngle + 180f * i) * Mathf.PI) / 180f);
+                float bulletDirectionY = transform.position.y + Mathf.Cos(((_currentAngle + 180f * i) * Mathf.PI) / 180f);
+
+                DoBulletOperations(new Vector3(bulletDirectionX, bulletDirectionY), _doubleSpiralMaterial);
             }
 
             _currentAngle += _bulletHellPatternData.DeltaAngle;
@@ -110,6 +111,25 @@ namespace ModularPrototypes.BulletHell
             {
                 _currentAngle = 0f;
             }
+        }
+
+        private void DoBulletOperations(Vector3 direction, Material bulletMaterial)
+        {
+            var bulletMoveVector = new Vector3(direction.x, direction.y, 0f);
+            var filteredPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+            var bulletDirection = (bulletMoveVector - filteredPosition).normalized;
+
+            var bullet = BulletPool.BulletPoolInstance.GetBullet();
+
+            if (bullet == null)
+            {
+                return;
+            }
+
+            bullet.transform.SetPositionAndRotation(transform.position, transform.rotation);
+            bullet.GetComponent<Bullet>().SetProperties(bulletDirection, bulletMaterial, _bulletHellPatternData.BulletSpeed, _bulletHellPatternData.BulletLifeInSeconds, _bulletHellPatternData.EnableTrail);
+
+            bullet.SetActive(true);
         }
 
         private void DoBulletOperations(float angle, Material bulletMaterial)

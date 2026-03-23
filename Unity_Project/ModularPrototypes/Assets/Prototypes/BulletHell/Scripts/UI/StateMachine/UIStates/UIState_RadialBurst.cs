@@ -1,5 +1,8 @@
+using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace ModularPrototypes.BulletHell.UI.StateMachine.States
 {
     public class UIState_RadialBurst : UIState
@@ -14,6 +17,14 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
         [SerializeField] private Slider _bulletLifeSlider;
         [SerializeField] private Toggle _extraBulletToggle;
         [SerializeField] private Toggle _trailToggle;
+
+        [SerializeField] private TMP_InputField _bulletAmountInputField;
+        [SerializeField] private TMP_InputField _offsetInputField;
+        [SerializeField] private TMP_InputField _startAngleInputField;
+        [SerializeField] private TMP_InputField _endAngleInputField;
+        [SerializeField] private TMP_InputField _shootIntervalInputField;
+        [SerializeField] private TMP_InputField _bulletSpeedInputField;
+        [SerializeField] private TMP_InputField _bulletLifeInputField;
 
         [SerializeField] private Button _resetToDefaultButton;
 
@@ -32,12 +43,26 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
         protected override void ApplyToUI()
         {
             _bulletAmountSlider.value = bulletHellPatternData.BulletAmount;
+            _bulletAmountInputField.text = bulletHellPatternData.BulletAmount.ToString();
+
             _offsetSlider.value = bulletHellPatternData.OffsetAngle;
+            _offsetInputField.text = bulletHellPatternData.OffsetAngle.ToString();
+
             _startAngleSlider.value = bulletHellPatternData.StartAngle;
+            _startAngleInputField.text = bulletHellPatternData.StartAngle.ToString();
+
             _endAngleSlider.value = bulletHellPatternData.EndAngle;
+            _endAngleInputField.text = bulletHellPatternData.EndAngle.ToString();
+
             _shootIntervalSlider.value = bulletHellPatternData.ShootInterval;
+            _shootIntervalInputField.text = bulletHellPatternData.ShootInterval.ToString("F2");
+
             _bulletSpeedSlider.value = bulletHellPatternData.BulletSpeed;
+            _bulletSpeedInputField.text = bulletHellPatternData.BulletSpeed.ToString("F2");
+
             _bulletLifeSlider.value = bulletHellPatternData.BulletLifeInSeconds;
+            _bulletLifeInputField.text = bulletHellPatternData.BulletLifeInSeconds.ToString("F2");
+
             _extraBulletToggle.isOn = bulletHellPatternData.ExtraBullet;
             _trailToggle.isOn = bulletHellPatternData.EnableTrail;
         }
@@ -56,6 +81,8 @@ namespace ModularPrototypes.BulletHell.UI.StateMachine.States
 
         protected override void OnUIInteracted()
         {
+            ApplyToUI();
+
             if (OnUIStateChanged != null)
             {
                 D("Invoking OnUIStateChanged event for Pattern: " + bulletPattern);
