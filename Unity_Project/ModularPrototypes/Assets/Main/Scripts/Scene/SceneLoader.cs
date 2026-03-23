@@ -20,6 +20,12 @@ namespace ModularPrototypes.Scene
             _transitions = _transitionContainer.GetComponentsInChildren<SceneTransition>();
         }
 
+        /// <summary>
+        /// Loads a new scene with a random transition. If there is a current scene, it will be unloaded before loading the new scene. <br/>
+        /// 
+        /// By default, 
+        /// The new scene will be loaded in single mode and the progress bar will not be shown. If you want to load the new scene in additive mode or show the progress bar, use the overloaded LoadScene method.
+        /// </summary>
         public void LoadScene(string sceneToLoad)
         {
             if (string.IsNullOrEmpty(sceneToLoad))
@@ -33,11 +39,18 @@ namespace ModularPrototypes.Scene
                 UnloadScene(currentScene);
             }
 
-            StartCoroutine(LoadSceneAsync(sceneToLoad, _transitions[Random.Range(0, _transitions.Length)].name));
+            StartCoroutine(LoadSceneAsync(sceneToLoad, _transitions[Random.Range(0, _transitions.Length)].name, false, false));
             currentScene = sceneToLoad;
         }
 
-        public void LoadScene(string sceneToLoad, string transitionName = "CrossFade")
+        /// <summary>
+        /// Loads a new scene with a random transition. If there is a current scene, it will be unloaded before loading the new scene. <br/>
+        /// </summary>
+        /// <param name="sceneToLoad">The name of the scene to load.</param>
+        /// <param name="transitionName">The name of the transition to use. By default, it is "CrossFade".</param>
+        /// <param name="isAdditive">Whether to load the new scene in additive mode or single mode. By default, it is false (single mode).</param>
+        /// <param name="showProgress">Whether to show the progress bar while loading the new scene. By default, it is false (do not show progress bar).</param>
+        public void LoadScene(string sceneToLoad, string transitionName = "CrossFade", bool isAdditive = false, bool showProgress = false)
         {
             if (string.IsNullOrEmpty(sceneToLoad))
             {
@@ -50,19 +63,19 @@ namespace ModularPrototypes.Scene
                 UnloadScene(currentScene);
             }
 
-            StartCoroutine(LoadSceneAsync(sceneToLoad, transitionName));
+            StartCoroutine(LoadSceneAsync(sceneToLoad, transitionName, isAdditive, showProgress));
             currentScene = sceneToLoad;
         }
 
-        private IEnumerator LoadSceneAsync(string sceneName, string transitionName)
+        private IEnumerator LoadSceneAsync(string sceneName, string transitionName, bool isAdditive, bool showProgress)
         {
             SceneTransition transition = _transitions.First(element => element.name.Equals(transitionName));
 
             yield return transition.AnimateTransitionIn(0.5f);
 
-            _progressBar.gameObject.SetActive(true);
+            _progressBar.gameObject.SetActive(showProgress);
 
-            AsyncOperation scene = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            AsyncOperation scene = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, isAdditive ? UnityEngine.SceneManagement.LoadSceneMode.Additive : UnityEngine.SceneManagement.LoadSceneMode.Single);
             scene.allowSceneActivation = false;
 
             do

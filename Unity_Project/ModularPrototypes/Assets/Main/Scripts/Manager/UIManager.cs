@@ -53,7 +53,7 @@ namespace ModularPrototypes.Manager
             }
 
             D("Switching Scene to: " + _availalbleScenes[_currentSceneIndex] + ", Current Scene: " + _sceneLoader.GetCurrentScene());
-            _sceneLoader.LoadScene(_availalbleScenes[_currentSceneIndex]);
+            _sceneLoader.LoadScene(_availalbleScenes[_currentSceneIndex], isAdditive: true, showProgress: true);
             _sceneSwitchButton.image.color = _defaultSceneColor;
         }
 
