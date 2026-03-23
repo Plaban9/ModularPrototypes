@@ -85,7 +85,7 @@
   </tbody>
 </table>
 <p><strong><br></strong></p>
-<p><strong>Others:</strong>strong></p>
+<p><strong>Others:</strong></p>
 <table>
   <thead>
     <tr>
