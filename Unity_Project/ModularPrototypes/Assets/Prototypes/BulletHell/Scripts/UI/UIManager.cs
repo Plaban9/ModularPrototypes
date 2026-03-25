@@ -2,7 +2,6 @@ using ModularPrototypes.BulletHell.Data;
 using ModularPrototypes.BulletHell.UI.StateMachine;
 
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 using UnityEngine;
 using UnityEngine.UI;
