@@ -100,7 +100,7 @@ namespace ModularPrototypes.BulletHell.UI
                 }
             }
 
-            _panelInteractionButton.onClick.AddListener(() => _panelAnimation.SetTrigger("Animate_Out"));
+            _panelInteractionButton.onClick.AddListener(() => _panelAnimation.SetTrigger("Animate"));
         }
 
         public void OnBulletHellPatternButtonClicked(BulletPattern bulletPattern)
