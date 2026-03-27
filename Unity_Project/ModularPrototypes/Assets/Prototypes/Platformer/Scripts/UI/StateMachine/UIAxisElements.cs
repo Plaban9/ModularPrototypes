@@ -13,5 +13,13 @@ namespace ModularPrototypes.Platformer.UI.StateMachine
         [SerializeField] private TMP_InputField _amplitudeInputField;
         [SerializeField] private Toggle _moduloToggle;
         [SerializeField] private Toggle _negateToggle;
+
+        #region Getters
+        public TMP_Dropdown FunctionDropdown => _functionDropdown;
+        public Slider AmplitudeSlider => _amplitudeSlider;
+        public TMP_InputField AmplitudeInputField => _amplitudeInputField;
+        public Toggle ModuloToggle => _moduloToggle;
+        public Toggle NegateToggle => _negateToggle;
+        #endregion
     }
 }

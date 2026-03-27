@@ -2,7 +2,7 @@ namespace ModularPrototypes.Platformer
 {
     public class PlatformTransformationSettings
     {
-        public enum Axis
+        public enum TransformAxis
         {
             X,
             Y,

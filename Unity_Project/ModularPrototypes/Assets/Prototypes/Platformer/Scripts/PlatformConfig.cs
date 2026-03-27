@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace ModularPrototypes.Platformer.Data
 {
-
+    [System.Serializable]
     [CreateAssetMenu(fileName = "PlatformConfig", menuName = "Data/Platform/Data/Platform Config")]
     public class PlatformConfig : ScriptableObject
     {
-        #region Meta Data 
+        #region Top Level Data 
         [SerializeField] private string _domainName;
         [Range(0.01f, 30f)][SerializeField] private float _period;
         [SerializeField] private PlatformTransformationSettings.TransformDomain _transformDomain;
@@ -21,16 +21,16 @@ namespace ModularPrototypes.Platformer.Data
         [SerializeField] private PlatformData X;
         [SerializeField] private PlatformData Y;
         [SerializeField] private PlatformData Z;
-        [SerializeField] private Dictionary<PlatformTransformationSettings.Axis, PlatformData> _platformDataDictionary;
+        [SerializeField] private Dictionary<PlatformTransformationSettings.TransformAxis, PlatformData> _platformDataDictionary;
         #endregion
 
         private void Initialize()
         {
-            _platformDataDictionary = new Dictionary<PlatformTransformationSettings.Axis, PlatformData>
+            _platformDataDictionary = new Dictionary<PlatformTransformationSettings.TransformAxis, PlatformData>
             {
-                { PlatformTransformationSettings.Axis.X, X },
-                { PlatformTransformationSettings.Axis.Y, Y },
-                { PlatformTransformationSettings.Axis.Z, Z }
+                { PlatformTransformationSettings.TransformAxis.X, X },
+                { PlatformTransformationSettings.TransformAxis.Y, Y },
+                { PlatformTransformationSettings.TransformAxis.Z, Z }
             };
         }
 
@@ -50,7 +50,7 @@ namespace ModularPrototypes.Platformer.Data
         public PlatformTransformationSettings.TransformDimension GetTransformDimension() => _transformDimension;
         public Color GetBackgroundColor() => _backgroundColor;
 
-        private PlatformData GetPlatformData(PlatformTransformationSettings.Axis axis)
+        public PlatformData GetPlatformData(PlatformTransformationSettings.TransformAxis axis)
         {
             if (_platformDataDictionary == null)
             {
@@ -62,6 +62,11 @@ namespace ModularPrototypes.Platformer.Data
         #endregion
 
         #region SETTERS
+        public void SetPeriod(float period)
+        {
+            _period = period;
+        }
+
         public void SetConfiguration(PlatformConfig platformConfig, bool applyCosmetics = false)
         {
             if (_platformDataDictionary == null)
@@ -79,14 +84,14 @@ namespace ModularPrototypes.Platformer.Data
                 _backgroundColor = platformConfig._backgroundColor;
             }            
 
-            foreach (var axis in System.Enum.GetValues(typeof(PlatformTransformationSettings.Axis)))
+            foreach (var axis in System.Enum.GetValues(typeof(PlatformTransformationSettings.TransformAxis)))
             {
-                var platformData = platformConfig.GetPlatformData((PlatformTransformationSettings.Axis)axis);
-                GetPlatformData((PlatformTransformationSettings.Axis)axis).SetConfiguration(platformData);
+                var platformData = platformConfig.GetPlatformData((PlatformTransformationSettings.TransformAxis)axis);
+                GetPlatformData((PlatformTransformationSettings.TransformAxis)axis).SetConfiguration(platformData);
             }
         }
 
-        public void SetPlatformData(PlatformTransformationSettings.Axis axis, PlatformData data)
+        public void SetPlatformData(PlatformTransformationSettings.TransformAxis axis, PlatformData data)
         {
             if (_platformDataDictionary == null)
             {

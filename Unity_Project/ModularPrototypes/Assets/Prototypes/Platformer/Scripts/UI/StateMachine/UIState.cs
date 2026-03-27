@@ -15,7 +15,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine
         [SerializeField] protected PlatformConfig platformConfig;
 
         #region Events and Callbacks
-        public delegate void UIObserver(PlatformTransformationSettings.TransformDomain transformDomain, PlatformConfig bulletHellPatternData);
+        public delegate void UIObserver(PlatformTransformationSettings.TransformDomain transformDomain, PlatformConfig platformerData);
         public abstract event UIObserver OnUIStateChanged;
         #endregion
 
@@ -46,7 +46,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine
         public abstract void OnFrame();
         public abstract void OnExit();
 
-        protected void ApplyDefaultBulletHellPatternData()
+        protected void ApplyDefaultPlatformerData()
         {
             platformConfig.SetConfiguration(defaultPlatformConfig);
         }

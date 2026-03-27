@@ -1,6 +1,7 @@
 using ModularPrototypes.Platformer;
 using ModularPrototypes.Platformer.Data;
 
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -43,6 +44,11 @@ namespace ModularPrototypes.Platformer.UI.StateMachine
         public UIState CurrentState
         {
             get; private set;
+        }
+
+        public UIState GetState(PlatformTransformationSettings.TransformDomain domain)
+        {
+            return _uiStatesDictionary[domain];
         }
 
         public void TransitionTo(PlatformTransformationSettings.TransformDomain newPattern)

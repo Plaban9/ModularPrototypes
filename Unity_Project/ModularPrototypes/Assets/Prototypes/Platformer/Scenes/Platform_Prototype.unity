@@ -1553,6 +1553,7 @@ GameObject:
   - component: {fileID: 38500671}
   - component: {fileID: 38500670}
   - component: {fileID: 38500669}
+  - component: {fileID: 38500672}
   m_Layer: 5
   m_Name: Rotation
   m_TagString: Untagged
@@ -1663,6 +1664,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38500666}
   m_CullTransparentMesh: 1
+--- !u!114 &38500672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38500666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b121326954427664084d0b4993989d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.PlatformIdentity
+  transformDomain: 1
 --- !u!1 &38504059
 GameObject:
   m_ObjectHideFlags: 0
@@ -9440,6 +9454,7 @@ GameObject:
   - component: {fileID: 254913131}
   - component: {fileID: 254913130}
   - component: {fileID: 254913129}
+  - component: {fileID: 254913132}
   m_Layer: 5
   m_Name: Translation
   m_TagString: Untagged
@@ -9550,6 +9565,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254913126}
   m_CullTransparentMesh: 1
+--- !u!114 &254913132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254913126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b121326954427664084d0b4993989d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.PlatformIdentity
+  transformDomain: 0
 --- !u!1 &256409635
 GameObject:
   m_ObjectHideFlags: 0
@@ -28054,6 +28082,7 @@ MonoBehaviour:
     _amplitudeInputField: {fileID: 153938725}
     _moduloToggle: {fileID: 0}
     _negateToggle: {fileID: 0}
+  _resetToDefaultButton: {fileID: 931100213}
 --- !u!1 &870327612
 GameObject:
   m_ObjectHideFlags: 0
@@ -34781,6 +34810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129232199}
+  - component: {fileID: 1129232200}
   m_Layer: 5
   m_Name: UIStates
   m_TagString: Untagged
@@ -34810,6 +34840,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1129232200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129232198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa378ce0868a3f244a3e77eb113339e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.StateMachine.UIStateMachine
+  _initialState: 0
+  _uiStatesList:
+  - {fileID: 1961115194}
+  - {fileID: 2089894093}
+  - {fileID: 869756526}
 --- !u!1 &1134726469
 GameObject:
   m_ObjectHideFlags: 0
@@ -57102,6 +57149,7 @@ GameObject:
   - component: {fileID: 1946036899}
   - component: {fileID: 1946036898}
   - component: {fileID: 1946036900}
+  - component: {fileID: 1946036901}
   m_Layer: 5
   m_Name: BGPanel
   m_TagString: Untagged
@@ -57196,6 +57244,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1946036901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946036894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0dda6ddc45e76b4590e615732df3391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.UIManager
+  _platformerPanelImage: {fileID: 1946036898}
+  _startDomain: 0
+  _currentDomain: 0
+  _platformerNameText: {fileID: 2050248493}
+  _uiStateMachine: {fileID: 1129232200}
+  _platformerConfigList: []
+  _platformerButtonList:
+  - {fileID: 254913129}
+  - {fileID: 38500669}
+  - {fileID: 2013261003}
+  _panelInteractionButton: {fileID: 2050807170}
+  _platformerPanelsList:
+  - {fileID: 242115118}
+  - {fileID: 860586315}
+  - {fileID: 364455372}
+  _panelAnimation: {fileID: 1946036900}
 --- !u!1 &1956237271
 GameObject:
   m_ObjectHideFlags: 0
@@ -57415,6 +57491,7 @@ MonoBehaviour:
     _amplitudeInputField: {fileID: 1463207546}
     _moduloToggle: {fileID: 770220448}
     _negateToggle: {fileID: 1378695876}
+  _resetToDefaultButton: {fileID: 1781427481}
 --- !u!1 &1964377995
 GameObject:
   m_ObjectHideFlags: 0
@@ -58448,6 +58525,7 @@ GameObject:
   - component: {fileID: 2013261005}
   - component: {fileID: 2013261004}
   - component: {fileID: 2013261003}
+  - component: {fileID: 2013261006}
   m_Layer: 5
   m_Name: Scaling
   m_TagString: Untagged
@@ -58558,6 +58636,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013261000}
   m_CullTransparentMesh: 1
+--- !u!114 &2013261006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013261000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b121326954427664084d0b4993989d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.PlatformIdentity
+  transformDomain: 2
 --- !u!1 &2017295624
 GameObject:
   m_ObjectHideFlags: 0
@@ -61059,6 +61150,7 @@ MonoBehaviour:
     _amplitudeInputField: {fileID: 1996886347}
     _moduloToggle: {fileID: 37280586}
     _negateToggle: {fileID: 1736550239}
+  _resetToDefaultButton: {fileID: 1672991624}
 --- !u!1 &2095544371
 GameObject:
   m_ObjectHideFlags: 0
