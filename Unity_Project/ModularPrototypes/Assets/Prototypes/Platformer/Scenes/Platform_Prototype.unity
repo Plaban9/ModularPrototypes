@@ -28031,27 +28031,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.StateMachine.States.UIState_Scaling
   stateName: Scaling
   transformDomain: 2
-  defaultPlatformConfig: {fileID: 0}
+  defaultPlatformConfig: {fileID: 11400000, guid: e48a789b13ca82c479d5b4428b3b840a, type: 2}
   platformConfig: {fileID: 0}
-  _axisDropdown: {fileID: 0}
-  _periodSlider: {fileID: 0}
-  _periodInputField: {fileID: 0}
+  _axisDropdown: {fileID: 1695626110}
+  _periodSlider: {fileID: 169463115}
+  _periodInputField: {fileID: 203670376}
   _xAxisElements:
-    _functionDropdown: {fileID: 0}
-    _amplitudeSlider: {fileID: 0}
-    _amplitudeInputField: {fileID: 0}
+    _functionDropdown: {fileID: 220535672}
+    _amplitudeSlider: {fileID: 133065047}
+    _amplitudeInputField: {fileID: 1914914313}
     _moduloToggle: {fileID: 0}
     _negateToggle: {fileID: 0}
   _yAxisElements:
-    _functionDropdown: {fileID: 0}
-    _amplitudeSlider: {fileID: 0}
-    _amplitudeInputField: {fileID: 0}
+    _functionDropdown: {fileID: 1090179263}
+    _amplitudeSlider: {fileID: 822277243}
+    _amplitudeInputField: {fileID: 492826180}
     _moduloToggle: {fileID: 0}
     _negateToggle: {fileID: 0}
   _zAxisElements:
-    _functionDropdown: {fileID: 0}
-    _amplitudeSlider: {fileID: 0}
-    _amplitudeInputField: {fileID: 0}
+    _functionDropdown: {fileID: 289086136}
+    _amplitudeSlider: {fileID: 933710886}
+    _amplitudeInputField: {fileID: 153938725}
     _moduloToggle: {fileID: 0}
     _negateToggle: {fileID: 0}
 --- !u!1 &870327612
