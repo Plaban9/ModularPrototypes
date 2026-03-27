@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f2bc81425660a42ae3b8bd290be7ec, type: 3}
+  m_Name: RotationConfig
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Data.PlatformConfig
+  _domainName: Rotation
+  _period: 0.01
+  _transformDomain: 1
+  _transformDimension: 0
+  _backgroundColor: {r: 0, g: 1, b: 0.3647059, a: 0.29411766}
+  X:
+    _function: 0
+    _amplitude: 0.1
+    _modulo: 0
+    _negate: 0
+  Y:
+    _function: 0
+    _amplitude: 0.1
+    _modulo: 0
+    _negate: 0
+  Z:
+    _function: 0
+    _amplitude: 0.1
+    _modulo: 0
+    _negate: 0

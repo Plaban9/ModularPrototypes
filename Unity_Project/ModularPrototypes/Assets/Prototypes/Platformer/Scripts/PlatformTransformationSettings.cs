@@ -2,6 +2,20 @@ namespace ModularPrototypes.Platformer
 {
     public class PlatformTransformationSettings
     {
+        public enum Axis
+        {
+            X,
+            Y,
+            Z
+        }
+
+        public enum TransformDomain
+        {
+            TRANSLATION,
+            ROTATION,
+            SCALING
+        }
+
         public enum TransformDimension
         {
             // Static

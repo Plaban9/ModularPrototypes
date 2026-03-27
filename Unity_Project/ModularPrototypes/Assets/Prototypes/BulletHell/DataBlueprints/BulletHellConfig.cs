@@ -23,10 +23,5 @@ namespace ModularPrototypes.BulletHell.Data
         {
             _bulletHellPatternData.SetConfiguration(data);
         }
-
-        //public void ApplyBulletPatternData(BulletHellPatternData data)
-        //{
-        //    _bulletHellPatternData.ApplyConfiguration(data);
-        //}
     }
 }

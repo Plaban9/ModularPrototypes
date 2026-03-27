@@ -28,19 +28,6 @@ namespace ModularPrototypes.BulletHell.Data
             _enableTrail = data._enableTrail;
         }
 
-        //public void ApplyConfiguration(BulletHellPatternData data)
-        //{
-        //    data._bulletAmount = _bulletAmount;
-        //    data._deltaAngle = _deltaAngle;
-        //    data._offsetAngle = _offsetAngle;
-        //    data._startAngle = _startAngle;
-        //    data._endAngle = _endAngle;
-        //    data._shootInterval = _shootInterval;
-        //    data._bulletSpeed = _bulletSpeed;
-        //    data._bulletLifeInSeconds = _bulletLifeInSeconds;
-        //    data._enableTrail = _enableTrail;
-        //}
-
         public int BulletAmount
         {
             get => _bulletAmount;
