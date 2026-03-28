@@ -7,8 +7,8 @@ namespace ModularPrototypes.Platformer.Measurements
     [System.Serializable]
     public struct Bound
     {
-        public float min;
-        public float max;
+        [Range(0f, 20f)] public float min;
+        [Range(0f, 20f)] public float max;
     }
 
     public class Measurement : MonoBehaviour
@@ -30,7 +30,7 @@ namespace ModularPrototypes.Platformer.Measurements
         [Range(0f, 1f)]
         [SerializeField] private float _normalizedBoundsSize;
         [SerializeField] private Bound _minMaxBoundsLength;
-        [Range(0.1f, 18f)]
+        [Range(0.1f, 20f)]
         [SerializeField] private float _boundsGap = 3.5f;
         [SerializeField] private List<GameObject> _bounds;
         [SerializeField] private List<SpriteRenderer> _boundSpriteRenderers;

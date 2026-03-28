@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0f0a8abe475b7469e0e4930dd0f672, type: 3}
+  m_Name: MeasurementDefaultData
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Measurements.MeasurementData
+  _normalizedAxisSize: 0
+  _minMaxAxis:
+    min: 0
+    max: 3.5
+  _normalizedBoundsSize: 0
+  _minMaxBoundsLength:
+    min: 0
+    max: 3.5
+  _boundsGap: 3.5
+  _showReferenceBounds: 1
+  _hideMesh: 0

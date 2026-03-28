@@ -28,7 +28,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
 
         void Awake()
         {
-
+            Initialize();
         }
 
         private void Initialize()
