@@ -67,6 +67,11 @@ namespace ModularPrototypes.Platformer.Data
             _period = period;
         }
 
+        public void SetTransformDimension(PlatformTransformationSettings.TransformDimension dimension)
+        {
+            _transformDimension = dimension;
+        }
+
         public void SetConfiguration(PlatformConfig platformConfig, bool applyCosmetics = false)
         {
             if (_platformDataDictionary == null)

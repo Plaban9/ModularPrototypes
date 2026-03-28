@@ -48,7 +48,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
 
         protected override void ApplyToUI()
         {
-            //_axisDropdown.value = (int)platformConfig.SelectedAxis; // TODO: Fix This
+            _axisDropdown.value = (int)platformConfig.GetTransformDimension(); // TODO: Change Later
             _periodSlider.value = platformConfig.GetPeriod();
             _periodInputField.text = platformConfig.GetPeriod().ToString("F2");
 
@@ -62,7 +62,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
             var element = _axisToUIElements[axis];
             var platformData = platformConfig.GetPlatformData(axis);
 
-            //element.FunctionDropdown.value = (int)platformData.Function; // TODO: Fix This
+            element.FunctionDropdown.value = (int)platformData.Function;
             element.AmplitudeSlider.value = platformData.Amplitude;
             element.AmplitudeInputField.text = platformData.Amplitude.ToString("F2");
             element.ModuloToggle.isOn = platformData.Modulo;
@@ -71,11 +71,24 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
 
         protected override void SubscribeToUIElements()
         {
-            //TODO: Fix Later
             _axisDropdown.onValueChanged.AddListener((value) =>
             {
-                var selectedAxis = (PlatformTransformationSettings.TransformAxis)value;
+                var selectedAxis = (PlatformTransformationSettings.TransformDimension)value;
                 D("Selected Axis: " + selectedAxis);
+
+                if (selectedAxis == PlatformTransformationSettings.TransformDimension.XY
+                || selectedAxis == PlatformTransformationSettings.TransformDimension.YZ
+                || selectedAxis == PlatformTransformationSettings.TransformDimension.XZ)
+                {
+                    _axisDropdown.captionText.text = selectedAxis.ToString();
+                }
+                else if (selectedAxis == PlatformTransformationSettings.TransformDimension.ALL_DIMENSIONS)
+                {
+                    _axisDropdown.captionText.text = "XYZ";
+                }
+
+                platformConfig.SetTransformDimension(selectedAxis);
+
                 OnUIInteracted();
             });
 
@@ -101,13 +114,15 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
         private void SubscribeToUIElementsForAxis(PlatformTransformationSettings.TransformAxis axis)
         {
             D($"Subscribing from UI elements for {axis}");
-            //TODO: Fix Later
+
             var element = _axisToUIElements[axis];
 
             element.FunctionDropdown.onValueChanged.AddListener((value) =>
             {
                 var selectedFunction = (PlatformTransformationSettings.TransformFunction)value;
                 D($"Selected Function for {axis}: {selectedFunction}");
+                platformConfig.GetPlatformData(axis).Function = selectedFunction;
+
                 OnUIInteracted();
             });
 
