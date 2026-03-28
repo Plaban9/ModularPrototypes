@@ -84,7 +84,7 @@ namespace ModularPrototypes.Platformer.UI
                 _uiStateMachine.GetState(PlatformTransformationSettings.TransformDomain.SCALING).GetPlatformConfig());
 
             _platformerButtonsDictionary[_currentDomain].interactable = false;
-            _platformerNameText.text = _uiStateMachine.CurrentState.name;
+            _platformerNameText.text = _uiStateMachine.CurrentState.GetStateName();
             _platformerPanelsDictionary[_currentDomain].SetActive(true);
         }
 

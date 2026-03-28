@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ModularPrototypes.Platformer.Data
 {
     [System.Serializable]
-    [CreateAssetMenu(fileName = "PlatformConfig", menuName = "Data/Platform/Data/Platform Config")]
+    [CreateAssetMenu(fileName = "PlatformConfig", menuName = "Data/Platformer/Data/Platform Config")]
     public class PlatformConfig : ScriptableObject
     {
         #region Top Level Data 
