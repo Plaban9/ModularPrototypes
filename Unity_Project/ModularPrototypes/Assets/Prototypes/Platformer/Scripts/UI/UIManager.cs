@@ -20,7 +20,6 @@ namespace ModularPrototypes.Platformer.UI
         [SerializeField] private List<PlatformConfig> _platformerConfigList;
         private Dictionary<PlatformTransformationSettings.TransformDomain, Button> _platformerButtonsDictionary;
         private Dictionary<PlatformTransformationSettings.TransformDomain, GameObject> _platformerPanelsDictionary;
-        //private Dictionary<PlatformTransformationSettings.TransformDomain, PlatformConfig> _platformerConfigDictionary;
 
         [Header("Buttons")]
         [SerializeField] private List<Button> _platformerButtonList;
@@ -31,6 +30,8 @@ namespace ModularPrototypes.Platformer.UI
 
         [SerializeField] private Animator _panelAnimation;
         #endregion
+
+        [SerializeField] private PlatformTransformations_v2 _platformTransformations;
 
         private void Awake()
         {
@@ -47,22 +48,13 @@ namespace ModularPrototypes.Platformer.UI
 
         private void InitializeLists()
         {
-            //for (int i = 0; i < _platformerConfigList.Count; i++)
-            //{
-            //    _platformerConfigDictionary ??= new Dictionary<PlatformTransformationSettings.TransformDomain, PlatformConfig>();
-
-            //    if (!_platformerConfigDictionary.ContainsKey(_platformerConfigList[i].GetTransformDomain()))
-            //    {
-            //        _platformerConfigDictionary.Add(_platformerConfigList[i].GetTransformDomain(), _platformerConfigList[i]);
-            //    }
-            //}
-
             for (int i = 0; i < _platformerButtonList.Count; i++)
             {
                 if (_platformerButtonList[i].TryGetComponent(out PlatformIdentity platformIdentity))
                 {
                     var domain = platformIdentity.GetTransformDomain();
                     _platformerButtonsDictionary ??= new Dictionary<PlatformTransformationSettings.TransformDomain, Button>();
+
                     if (!_platformerButtonsDictionary.ContainsKey(domain))
                     {
                         _platformerButtonsDictionary.Add(domain, _platformerButtonList[i]);
@@ -76,19 +68,24 @@ namespace ModularPrototypes.Platformer.UI
                 {
                     var domain = platformIdentity.GetTransformDomain();
                     _platformerPanelsDictionary ??= new Dictionary<PlatformTransformationSettings.TransformDomain, GameObject>();
+
                     if (!_platformerPanelsDictionary.ContainsKey(domain))
                     {
                         _platformerPanelsDictionary.Add(domain, _platformerPanelsList[i]);
                     }
                 }
-
             }
 
             _uiStateMachine.Initialize(_currentDomain);
 
+            _platformTransformations.Inititialize(
+                _uiStateMachine.GetState(PlatformTransformationSettings.TransformDomain.TRANSLATION).GetPlatformConfig(),
+                _uiStateMachine.GetState(PlatformTransformationSettings.TransformDomain.ROTATION).GetPlatformConfig(),
+                _uiStateMachine.GetState(PlatformTransformationSettings.TransformDomain.SCALING).GetPlatformConfig());
+
             _platformerButtonsDictionary[_currentDomain].interactable = false;
             _platformerNameText.text = _uiStateMachine.CurrentState.name;
-            _platformerPanelsDictionary[_currentDomain].SetActive(true);            
+            _platformerPanelsDictionary[_currentDomain].SetActive(true);
         }
 
         private void InitializeButtonSubscriptions()
@@ -114,7 +111,7 @@ namespace ModularPrototypes.Platformer.UI
 
             _platformerNameText.text = newState.GetPlatformConfig().GetName();
 
-            _platformerPanelsDictionary[_currentDomain].SetActive(false);   
+            _platformerPanelsDictionary[_currentDomain].SetActive(false);
             _platformerPanelsDictionary[domain].SetActive(true);
 
             _currentDomain = domain;
@@ -132,9 +129,15 @@ namespace ModularPrototypes.Platformer.UI
         private void OnUIStateMachineStateChanged(PlatformTransformationSettings.TransformDomain domain, PlatformConfig platformConfig)
         {
             if (domain != _currentDomain)
-               return;
+                return;
 
-            //_bulletSpawner.ApplyBulletHellPatternSettings(bulletHellPatternData);
+            if (_platformTransformations == null)
+            {
+                D("Platform Transformations component reference is missing.", true);
+                return;
+            }
+
+            _platformTransformations.ApplyConfiguration(domain, platformConfig);
         }
 
         private void SubscribeToUIEvents(PlatformTransformationSettings.TransformDomain domain)

@@ -51339,6 +51339,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719324972}
   m_CullTransparentMesh: 1
+--- !u!1 &1725795453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1997430133191789687, guid: f7979971a12295b40978a0be3d59bdf8, type: 3}
+  m_PrefabInstance: {fileID: 531309573053795930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1725795458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725795453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28de66bdd735ca44283dd1681490f8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.PlatformTransformations_v2
+  _translationConfig: {fileID: 0}
+  _initialPosition: {x: 0, y: 0, z: 0}
+  _movementElapsedTime: 0
+  _rotationConfig: {fileID: 0}
+  _initialRotation: {x: 0, y: 0, z: 0}
+  _rotationElapsedTime: 0
+  _scaleConfig: {fileID: 0}
+  _initialScale: {x: 0, y: 0, z: 0}
+  _scaleElapsedTime: 0
 --- !u!1 &1726202658
 GameObject:
   m_ObjectHideFlags: 0
@@ -57272,6 +57298,7 @@ MonoBehaviour:
   - {fileID: 860586315}
   - {fileID: 364455372}
   _panelAnimation: {fileID: 1946036900}
+  _platformTransformations: {fileID: 1725795458}
 --- !u!1 &1956237271
 GameObject:
   m_ObjectHideFlags: 0
@@ -62741,6 +62768,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1126036116}
     m_Modifications:
+    - target: {fileID: 1533542795796952310, guid: f7979971a12295b40978a0be3d59bdf8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1997430133191789687, guid: f7979971a12295b40978a0be3d59bdf8, type: 3}
       propertyPath: m_Name
       value: Platform
@@ -62788,7 +62819,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1997430133191789687, guid: f7979971a12295b40978a0be3d59bdf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1725795458}
   m_SourcePrefab: {fileID: 100100000, guid: f7979971a12295b40978a0be3d59bdf8, type: 3}
 --- !u!1001 &6014167221491366990
 PrefabInstance:

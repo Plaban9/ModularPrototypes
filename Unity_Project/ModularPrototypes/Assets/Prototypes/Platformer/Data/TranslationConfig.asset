@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TranslationConfig
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Data.PlatformConfig
   _domainName: Translation
-  _period: 5
+  _period: 1
   _transformDomain: 0
   _transformDimension: 1
   _backgroundColor: {r: 1, g: 0, b: 0, a: 0.29411766}
