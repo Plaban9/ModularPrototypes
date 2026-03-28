@@ -127,6 +127,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
             {
                 platformConfig.GetPlatformData(axis).Amplitude = value;
                 D($"Set Amplitude for {axis}: {value}");
+
                 OnUIInteracted();
             });
         }

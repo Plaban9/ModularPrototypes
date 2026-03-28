@@ -130,6 +130,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
             {
                 platformConfig.GetPlatformData(axis).Amplitude = value;
                 D($"Set Amplitude for {axis}: {value}");
+
                 OnUIInteracted();
             });
 
@@ -137,6 +138,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
             {
                 platformConfig.GetPlatformData(axis).Modulo = value;
                 D($"Set Modulo for {axis}: {value}");
+
                 OnUIInteracted();
             });
 
@@ -144,6 +146,7 @@ namespace ModularPrototypes.Platformer.UI.StateMachine.States
             {
                 platformConfig.GetPlatformData(axis).Negate = value;
                 D($"Set Negate for {axis}: {value}");
+
                 OnUIInteracted();
             });
         }

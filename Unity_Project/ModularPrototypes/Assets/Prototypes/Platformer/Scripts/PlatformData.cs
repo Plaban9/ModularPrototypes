@@ -6,7 +6,7 @@ namespace ModularPrototypes.Platformer.Data
     public class PlatformData
     {
         [SerializeField] private PlatformTransformationSettings.TransformFunction _function;
-        [Range(0.1f, 20f)][SerializeField] private float _amplitude;
+        [Range(0.1f, 360f)][SerializeField] private float _amplitude;
         [SerializeField] private bool _modulo;
         [SerializeField] private bool _negate;
 
