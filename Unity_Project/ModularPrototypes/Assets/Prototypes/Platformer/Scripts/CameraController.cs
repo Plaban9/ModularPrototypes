@@ -87,9 +87,9 @@ namespace ModularPrototypes.Platformer.CameraUnit
                 HandleZoom(scrollY, Mouse.current.position.ReadValue());
 
             // Orbit
-            bool left = Mouse.current.leftButton.isPressed;
+            bool right = Mouse.current.rightButton.isPressed;
             bool mod = orbitModifierKey == Key.None || Keyboard.current[orbitModifierKey].isPressed;
-            bool shouldOrbit = left && mod;
+            bool shouldOrbit = right && mod;
 
             if (shouldOrbit && !isOrbiting)
             {

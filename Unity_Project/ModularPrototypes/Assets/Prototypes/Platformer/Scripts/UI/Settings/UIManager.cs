@@ -105,7 +105,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
 
         void Update()
         {
-            var lerpedColor = Color.Lerp(_platformerPanelImage.color, _uiStateMachine.CurrentState.GetSettingsData().GetBackgroundColor(), Time.deltaTime * 10f);
+            var lerpedColor = Color.Lerp(_platformerPanelImage.color, _uiStateMachine.CurrentState.GetSettingsData().GetBackgroundColor(), 0.95f * Time.deltaTime);
             _platformerPanelImage.color = lerpedColor;
         }
 

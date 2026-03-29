@@ -7,8 +7,8 @@ namespace ModularPrototypes.Platformer.Measurements
     [System.Serializable]
     public struct Bound
     {
-        [Range(0f, 20f)] public float min;
-        [Range(0f, 20f)] public float max;
+        [Range(0f, 40f)] public float min;
+        [Range(0f, 40f)] public float max;
     }
 
     public class Measurement : MonoBehaviour
