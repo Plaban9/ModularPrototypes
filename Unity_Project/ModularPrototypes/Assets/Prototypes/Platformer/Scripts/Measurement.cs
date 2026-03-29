@@ -35,9 +35,32 @@ namespace ModularPrototypes.Platformer.Measurements
         [SerializeField] private List<GameObject> _bounds;
         [SerializeField] private List<SpriteRenderer> _boundSpriteRenderers;
 
+        [SerializeField] private GameObject _platform;
+
         private void Awake()
         {
             InitializeLists();
+        }
+
+        public void Initialize(MeasurementData measurementData)
+        {
+            //InitializeLists();
+            ApplyConfigurations(measurementData);
+        }
+
+        public void ApplyConfigurations(MeasurementData measurementData)
+        {
+            _normalizedAxisSize = measurementData.GetNormalizedAxisSize();
+            _minMaxAxis = measurementData.GetMinMaxAxis();
+            _normalizedBoundsSize = measurementData.GetNormalizedBoundsSize();
+            _minMaxBoundsLength = measurementData.GetMinMaxBoundsLength();
+            _boundsGap = measurementData.GetBoundsGap();
+            _showReferenceBounds = measurementData.GetShowReferenceBounds();
+
+            if (_platform != null)
+            {
+                _platform.GetComponent<MeshRenderer>().enabled = !measurementData.GetHideMesh();
+            }
         }
 
         private void Update()

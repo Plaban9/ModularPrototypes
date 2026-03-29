@@ -14,42 +14,49 @@ namespace ModularPrototypes.Platformer.Settings.UI
 
         public override void Initialize()
         {
-            //throw new System.NotImplementedException();
+            D("OnInitialize");
         }
 
         public override void OnEnter()
         {
-            throw new System.NotImplementedException();
+            D("OnEnter");
+            SubscribeToUIElements();
         }
 
         public override void OnExit()
         {
-            throw new System.NotImplementedException();
+            D("OnExit");
+            UnsubscribeFromUIElements();
         }
 
         public override void OnFrame()
         {
-            throw new System.NotImplementedException();
+            D("OnFrame");
+        }
+
+        protected override void ApplyDefaultSettingsData()
+        {
+            
         }
 
         protected override void ApplyToUI()
         {
-            throw new System.NotImplementedException();
+           
         }
 
         protected override void OnUIInteracted()
         {
-            throw new System.NotImplementedException();
+            D("OnUIInteracted");
         }
 
         protected override void SubscribeToUIElements()
         {
-            throw new System.NotImplementedException();
+            D("SubscribeToUIElements");
         }
 
         protected override void UnsubscribeFromUIElements()
         {
-            throw new System.NotImplementedException();
+            D("UnsubscribeFromUIElements");
         }
     }
 }

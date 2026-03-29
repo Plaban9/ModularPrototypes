@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -71,6 +72,11 @@ namespace ModularPrototypes.Platformer.Settings.UI
         private void OnUIInteracted(SettingsData settingsData)
         {
             OnUIStateChanged?.Invoke(settingsData);
+        }
+
+        internal UIState GetState(PlatformSettings platformSetting)
+        {
+            return _uiStatesDictionary[platformSetting];
         }
 
         #region DEBUG

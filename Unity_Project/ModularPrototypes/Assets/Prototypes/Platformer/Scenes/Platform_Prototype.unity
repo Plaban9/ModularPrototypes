@@ -10405,7 +10405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9708fef2b6a4048afb61dc5b88a1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Settings.UI.UIState_MeasurementSetting
-  _stateName: Measurement
+  stateName: Measurement
   _settingsData: {fileID: 11400000, guid: b02f71b632b0abf4bb81f7b8a8d05fe0, type: 2}
   _minWidth: {fileID: 1492953482}
   _minWidthInputField: {fileID: 168296647}
@@ -10424,6 +10424,9 @@ MonoBehaviour:
   _showReferenceToggle: {fileID: 766144575}
   _hideMesh: {fileID: 0}
   _resetToDefaultButton: {fileID: 723386805}
+  _measurementDeafaultData: {fileID: 11400000, guid: 65b0740865fdd3a4f86bf0e9defcedf7, type: 2}
+  _measurementData: {fileID: 0}
+  _measurement: {fileID: 1407527045}
 --- !u!1 &338069940
 GameObject:
   m_ObjectHideFlags: 0
@@ -35055,7 +35058,9 @@ MonoBehaviour:
   - {fileID: 2081531726}
   - {fileID: 803163421}
   _panelInteractionButton: {fileID: 230537480}
-  _settingsPanelsList: []
+  _settingsPanelsList:
+  - {fileID: 1436870099}
+  - {fileID: 620929133}
   _panelAnimation: {fileID: 1291743132}
 --- !u!1 &1293523729
 GameObject:
@@ -37083,6 +37088,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401045553}
   m_CullTransparentMesh: 1
+--- !u!114 &1407527045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
+  m_PrefabInstance: {fileID: 6014167221491366990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64921c253135a14680185a4d284ef6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Measurements.Measurement
 --- !u!1 &1413757429
 GameObject:
   m_ObjectHideFlags: 0
@@ -38342,7 +38358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cab338d51751e4dba74211d56ab953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Settings.UI.UIState_CameraSettings
-  _stateName: CAMERA
+  stateName: Camera
   _settingsData: {fileID: 11400000, guid: 3a1dd507aa4ad5445a08846feb284ea7, type: 2}
   _showOrthographicSlider: {fileID: 128314383}
   _resetToDefaultButton: {fileID: 1085215043}
@@ -55920,6 +55936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Measurement
       objectReference: {fileID: 0}
+    - target: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
+      propertyPath: _platform
+      value: 
+      objectReference: {fileID: 1725795453}
     - target: {fileID: 6672628887828623668, guid: bc089bbf42a2c64418c6db216c826eea, type: 3}
       propertyPath: _referenceBounds
       value: 

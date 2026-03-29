@@ -94,7 +94,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
             _settingsButtonsDictionary[_currentSetting].interactable = true;
             _settingsButtonsDictionary[platformSetting].interactable = false;
 
-            _settingsNameText.text = platformSetting.ToString();
+            _settingsNameText.text = _uiStateMachine.GetState(platformSetting).GetStateName();
 
             _settingsPanelsDictionary[_currentSetting].SetActive(false);
             _settingsPanelsDictionary[platformSetting].SetActive(true);

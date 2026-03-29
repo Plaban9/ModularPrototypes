@@ -15,11 +15,11 @@ MonoBehaviour:
   _normalizedAxisSize: 0
   _minMaxAxis:
     min: 0
-    max: 3.5
+    max: 20
   _normalizedBoundsSize: 0
   _minMaxBoundsLength:
     min: 0
-    max: 3.5
+    max: 7
   _boundsGap: 3.5
   _showReferenceBounds: 1
   _hideMesh: 0

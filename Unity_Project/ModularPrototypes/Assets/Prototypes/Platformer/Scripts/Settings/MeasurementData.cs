@@ -1,3 +1,5 @@
+using System;
+
 using UnityEngine;
 
 namespace ModularPrototypes.Platformer.Measurements
@@ -52,6 +54,56 @@ namespace ModularPrototypes.Platformer.Measurements
         public bool GetHideMesh()
         {
             return _hideMesh;
+        }
+        #endregion
+
+        #region SETTERS
+        public void SetNormalizedAxisSize(float value)
+        {
+            _normalizedAxisSize = value;
+        }
+
+        public void SetMinMaxAxis(Bound value)
+        {
+            _minMaxAxis = value;
+        }
+
+        public void SetNormalizedBoundsSize(float value)
+        {
+            _normalizedBoundsSize = value;
+        }
+
+        public void SetMinMaxBoundsLength(Bound value)
+        {
+            _minMaxBoundsLength = value;
+        }
+
+        public void SetBoundsGap(float value)
+        {
+            _boundsGap = value;
+        }
+
+        public void SetShowReferenceBounds(bool value)
+        {
+            _showReferenceBounds = value;
+        }
+
+        public void SetHideMesh(bool value)
+        {
+            _hideMesh = value;
+        }
+
+        internal void SetConfiguration(MeasurementData measurementDeafaultData)
+        {
+            _normalizedAxisSize = measurementDeafaultData.GetNormalizedAxisSize();
+            _minMaxAxis = measurementDeafaultData.GetMinMaxAxis();
+             
+            _normalizedBoundsSize = measurementDeafaultData.GetNormalizedBoundsSize();
+            _minMaxBoundsLength = measurementDeafaultData.GetMinMaxBoundsLength();
+            _boundsGap = measurementDeafaultData.GetBoundsGap();
+
+            _showReferenceBounds = measurementDeafaultData.GetShowReferenceBounds();
+            _hideMesh = measurementDeafaultData.GetHideMesh();
         }
         #endregion
     }
