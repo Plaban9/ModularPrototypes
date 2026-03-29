@@ -1,3 +1,4 @@
+using ModularPrototypes.Platformer.CameraUnit;
 using ModularPrototypes.Platformer.Measurements;
 
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
         [SerializeField] private CameraData _cameraDefaultData;
         [SerializeField] private CameraData _cameraData;
         [SerializeField] private Camera _camera;
+        [SerializeField] private CameraController _cameraController;
         #endregion
 
         public override event UIObserver OnUIStateChanged;
@@ -50,6 +52,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
         protected override void ApplyDefaultSettingsData()
         {
             _cameraData.ApplyConfiguratioon(_cameraDefaultData);
+            _cameraController.ResetCamera();
             ApplyToUI();
         }
 
@@ -71,6 +74,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
             _showOrthographicSlider.onValueChanged.AddListener((value) =>
             {
                 _cameraData.SetIsOrthographic(_showOrthographicSlider.value > 0.5f);
+                _cameraController.ChangeCameraType(_cameraData.GetIsOrthographic());
                 OnUIInteracted();
             });
 

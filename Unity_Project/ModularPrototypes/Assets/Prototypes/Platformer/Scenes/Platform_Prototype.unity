@@ -3178,6 +3178,7 @@ GameObject:
   - component: {fileID: 91533936}
   - component: {fileID: 91533935}
   - component: {fileID: 91533937}
+  - component: {fileID: 91533938}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3295,6 +3296,32 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &91533938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91533933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd014e447e947cf45a9d2631d15925c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.CameraUnit.CameraController
+  toggleProjectionKey: 30
+  orbitModifierKey: 0
+  resetCameraKey: 32
+  scrollSensitivity: 40
+  orbitSensitivity: 600
+  sensitivityMultiplier: 1
+  minOrthoSize: 1
+  maxOrthoSize: 50
+  minDistance: 1
+  maxDistance: 100
+  orbitPivot: {x: 0, y: 0, z: 0}
+  minPitch: -80
+  maxPitch: 80
+  smoothTime: 0.06
 --- !u!1 &100597928
 GameObject:
   m_ObjectHideFlags: 0
@@ -38365,6 +38392,7 @@ MonoBehaviour:
   _cameraDefaultData: {fileID: 11400000, guid: 76568aca6bcbd494ab97dd50efb01e61, type: 2}
   _cameraData: {fileID: 0}
   _camera: {fileID: 91533935}
+  _cameraController: {fileID: 91533938}
 --- !u!1 &1480587967
 GameObject:
   m_ObjectHideFlags: 0
