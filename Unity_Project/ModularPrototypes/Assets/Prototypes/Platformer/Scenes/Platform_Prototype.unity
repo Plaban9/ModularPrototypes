@@ -38362,6 +38362,9 @@ MonoBehaviour:
   _settingsData: {fileID: 11400000, guid: 3a1dd507aa4ad5445a08846feb284ea7, type: 2}
   _showOrthographicSlider: {fileID: 128314383}
   _resetToDefaultButton: {fileID: 1085215043}
+  _cameraDefaultData: {fileID: 11400000, guid: 76568aca6bcbd494ab97dd50efb01e61, type: 2}
+  _cameraData: {fileID: 0}
+  _camera: {fileID: 91533935}
 --- !u!1 &1480587967
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
 
         public override void Initialize()
         {
+            D("OnInitialize");
             stateName = string.IsNullOrEmpty(stateName) ? "Measurement Settings" : stateName;
             _measurementData = Instantiate(_measurementDeafaultData);
             _measurement.Initialize(_measurementData);
