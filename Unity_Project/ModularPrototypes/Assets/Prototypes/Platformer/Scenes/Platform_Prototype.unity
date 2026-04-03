@@ -3311,8 +3311,8 @@ MonoBehaviour:
   toggleProjectionKey: 30
   orbitModifierKey: 0
   resetCameraKey: 32
-  scrollSensitivity: 40
-  orbitSensitivity: 600
+  scrollSensitivity: 250
+  orbitSensitivity: 6000
   sensitivityMultiplier: 1
   minOrthoSize: 1
   maxOrthoSize: 50

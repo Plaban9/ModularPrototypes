@@ -2085,7 +2085,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1379083710}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 50
+  m_MaxValue: 30
   m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
@@ -20914,8 +20914,8 @@ MonoBehaviour:
   toggleProjectionKey: 30
   orbitModifierKey: 0
   resetCameraKey: 32
-  scrollSensitivity: 40
-  orbitSensitivity: 600
+  scrollSensitivity: 250
+  orbitSensitivity: 6000
   sensitivityMultiplier: 1
   minOrthoSize: 1
   maxOrthoSize: 50

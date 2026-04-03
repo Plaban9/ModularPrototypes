@@ -12,8 +12,8 @@ namespace ModularPrototypes.Platformer.CameraUnit
         public Key resetCameraKey = Key.R;
 
         [Header("Sensitivity")]
-        public float scrollSensitivity = 40f;
-        public float orbitSensitivity = 600f;
+        public float scrollSensitivity = 80f;
+        public float orbitSensitivity = 1200f;
         public float sensitivityMultiplier = 1f;
 
         [Header("Zoom Limits")]

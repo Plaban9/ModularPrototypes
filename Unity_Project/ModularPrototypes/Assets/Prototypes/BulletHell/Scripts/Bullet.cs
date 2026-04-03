@@ -26,7 +26,7 @@ namespace ModularPrototypes.BulletHell
 
         private void Move()
         {
-            transform.Translate(_moveSpeed * Time.deltaTime * _moveDirection, Space.World);
+            transform.Translate(_moveSpeed * Time.deltaTime * _moveDirection, Space.Self);
         }
 
         public void SetProperties(Vector3 direction, Material material, float speed = 5f, float lifetimeInSeconds = 3f, bool enableTrail = true)
