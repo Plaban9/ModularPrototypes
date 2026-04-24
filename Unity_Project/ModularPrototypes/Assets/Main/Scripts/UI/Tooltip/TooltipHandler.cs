@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 
 using UnityEngine;
@@ -9,6 +10,11 @@ namespace ModularPrototypes.UI.Tooltip
     [ExecuteInEditMode()]
     public class TooltipHandler : MonoBehaviour
     {
+        #region Debug
+        [Header("Debug Settings")]
+        [SerializeField] private bool _updateInEditor;
+        #endregion
+
         [SerializeField] private Image _backgroundImage;
 
         [SerializeField] private TextMeshProUGUI _headerText;
@@ -19,11 +25,41 @@ namespace ModularPrototypes.UI.Tooltip
 
         [SerializeField] private int _characterWrapLimit;
 
+        [Header("Fade Settings")]
+        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private float _fadeDuration = 0.15f;
+        [SerializeField] private Ease _fadeEase = Ease.Linear;
+
+        private Tween _fadeTween;
+
         private void Awake()
         {
             if (_rectTransform == null)
             {
                 _rectTransform = GetComponent<RectTransform>();
+            }
+
+            if (_canvasGroup == null)
+            {
+                _canvasGroup = GetComponent<CanvasGroup>();
+            }
+
+            if (_canvasGroup == null)
+            {
+                _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+            }
+
+            // Ensure canvasGroup alpha matches active state in editor/runtime
+            if (!Application.isPlaying)
+            {
+                // keep visibility for editor preview
+                _canvasGroup.alpha = gameObject.activeSelf ? 1f : 0f;
+            }
+            else
+            {
+                // runtime: start hidden
+                _canvasGroup.alpha = 0f;
+                gameObject.SetActive(false);
             }
         }
 
@@ -35,12 +71,15 @@ namespace ModularPrototypes.UI.Tooltip
                 HandleLayoutSize();
             }
 
-            SetTooltipPosition();
+            if (_updateInEditor)
+            {
+                SetTooltipPosition();
+            }
         }
 
         private void SetTooltipPosition()
         {
-            var position = Mouse.current.position.value;            
+            var position = Mouse.current.position.value;
 
             var pivotX = position.x / Screen.width;
             var pivotY = position.y / Screen.height;
@@ -58,7 +97,7 @@ namespace ModularPrototypes.UI.Tooltip
             _layoutElement.enabled = (headerLength > _characterWrapLimit) || (contentLength > _characterWrapLimit);
         }
 
-        public void SetText(string header, string content, Color color)
+        public void SetTooltipAttributes(string header, Color headerColor, string content, Color contentColor, Color backgroundColor)
         {
             if (string.IsNullOrEmpty(header))
             {
@@ -80,10 +119,53 @@ namespace ModularPrototypes.UI.Tooltip
                 _contentText.text = content;
             }
 
-            _backgroundImage.color = color;
+            _headerText.color = headerColor;
+            _contentText.color = contentColor;
+            _backgroundImage.color = backgroundColor;
 
             HandleLayoutSize();
             SetTooltipPosition();
+        }
+
+        public void ShowTooltip()
+        {
+            // Stop any running fade tween
+            if (_fadeTween != null && _fadeTween.IsActive())
+            {
+                _fadeTween.Kill();
+                _fadeTween = null;
+            }
+
+            // Ensure visible and start fade-in
+            gameObject.SetActive(true);
+            _canvasGroup.alpha = 0f;
+            _fadeTween = _canvasGroup.DOFade(1f, _fadeDuration).SetEase(_fadeEase)
+                .OnComplete(() => _fadeTween = null);
+        }
+
+        public void HideTooltip()
+        {
+            // Stop any running fade tween
+            if (_fadeTween != null && _fadeTween.IsActive())
+            {
+                _fadeTween.Kill();
+                _fadeTween = null;
+            }
+
+            // If already inactive just ensure alpha is zero
+            if (!gameObject.activeSelf)
+            {
+                _canvasGroup.alpha = 0f;
+                return;
+            }
+
+            // Fade out then deactivate
+            _fadeTween = _canvasGroup.DOFade(0f, _fadeDuration).SetEase(_fadeEase)
+                .OnComplete(() =>
+                {
+                    _fadeTween = null;
+                    gameObject.SetActive(false);
+                });
         }
     }
 }

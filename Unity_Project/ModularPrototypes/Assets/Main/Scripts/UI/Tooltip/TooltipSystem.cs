@@ -20,15 +20,15 @@ namespace ModularPrototypes.UI.Tooltip
             }
         }
 
-        public static void Show(Color color, string header = "", string content = "")
+        public static void Show(string header = "", Color? headerColor = null, string content = "", Color? contentColor = null, Color? backgroundColor = null)
         {
-            _instance._tooltipHandler.SetText(header, content, color);
-            _instance._tooltipHandler.gameObject.SetActive(true);
+            _instance._tooltipHandler.SetTooltipAttributes(header, headerColor ?? Color.white, content, contentColor ?? Color.white, backgroundColor ?? Color.gray);
+            _instance._tooltipHandler.ShowTooltip();
         }
 
         public static void Hide()
         {
-            _instance._tooltipHandler.gameObject.SetActive(false);
+            _instance._tooltipHandler.HideTooltip();
         }
     }
 }
