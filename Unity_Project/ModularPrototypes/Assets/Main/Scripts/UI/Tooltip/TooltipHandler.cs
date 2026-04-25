@@ -71,7 +71,7 @@ namespace ModularPrototypes.UI.Tooltip
                 HandleLayoutSize();
             }
 
-            if (_updateInEditor)
+            //if (_updateInEditor)
             {
                 SetTooltipPosition();
             }
@@ -81,8 +81,13 @@ namespace ModularPrototypes.UI.Tooltip
         {
             var position = Mouse.current.position.value;
 
-            var pivotX = position.x / Screen.width;
-            var pivotY = position.y / Screen.height;
+            // Earlier Logic: Based on normalization of mouse position to screen dimensions, but this can cause issues showing tooltip on content and on mous position.
+            // var pivotX = position.x / Screen.width;
+            // var pivotY = position.y / Screen.height;
+
+            // New Logic: Determine pivot based on proximity to screen edges to ensure tooltip stays fully visible
+            var pivotX = position.x < Screen.width / 2f ? -0.05f : 1.05f; // Left half of screen -> pivot left, Right half -> pivot right
+            var pivotY = position.y < Screen.height / 2f ? -0.1f : 1.1f; // Bottom half of screen -> pivot bottom, Top half -> pivot top
 
             _rectTransform.pivot = new Vector2(pivotX, pivotY);
 
@@ -160,7 +165,7 @@ namespace ModularPrototypes.UI.Tooltip
             }
 
             // Fade out then deactivate
-            _fadeTween = _canvasGroup.DOFade(0f, _fadeDuration).SetEase(_fadeEase)
+            _fadeTween = _canvasGroup.DOFade(0f, _fadeDuration /2f).SetEase(_fadeEase)
                 .OnComplete(() =>
                 {
                     _fadeTween = null;

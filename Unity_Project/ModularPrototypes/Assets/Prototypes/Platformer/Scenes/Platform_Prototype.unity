@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 9105880}
   - component: {fileID: 9105882}
   - component: {fileID: 9105881}
+  - component: {fileID: 9105883}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -515,6 +516,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9105879}
   m_CullTransparentMesh: 1
+--- !u!114 &9105883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9105879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Max Displacement
+  _content: "The maximum angular distance the rotation can move away from its origin
+    during oscillation. \n\nIt defines the peak rotational offset applied by the
+    selected function (Sin/Cos)."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &17002477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1622,7 @@ GameObject:
   - component: {fileID: 38500670}
   - component: {fileID: 38500669}
   - component: {fileID: 38500672}
+  - component: {fileID: 38500673}
   m_Layer: 5
   m_Name: Rotation
   m_TagString: Untagged
@@ -1724,6 +1746,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.PlatformIdentity
   transformDomain: 1
+--- !u!114 &38500673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38500666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 
+  _content: ORIENTATION
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9019608}
+  _showDelay: 0.5
 --- !u!1 &38504059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1850,7 @@ GameObject:
   - component: {fileID: 47362249}
   - component: {fileID: 47362251}
   - component: {fileID: 47362250}
+  - component: {fileID: 47362252}
   m_Layer: 5
   m_Name: Camera Settings
   m_TagString: Untagged
@@ -1937,6 +1978,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47362248}
   m_CullTransparentMesh: 1
+--- !u!114 &47362252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47362248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: CAMERA SETTINGS
+  _content: Settings for CAMERA.
+  _headerColor: {r: 0, g: 0.8509804, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &48234856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2810,7 @@ GameObject:
   - component: {fileID: 77252012}
   - component: {fileID: 77252014}
   - component: {fileID: 77252013}
+  - component: {fileID: 77252015}
   m_Layer: 5
   m_Name: Modulo
   m_TagString: Untagged
@@ -2878,6 +2938,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77252011}
   m_CullTransparentMesh: 1
+--- !u!114 &77252015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77252011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Modulo
+  _content: Applies a modulo operation to a rotation value while ensuring the result
+    is always wrapped into a positive angular range, even when the input angle is
+    negative.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &77409626
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,6 +4544,7 @@ GameObject:
   - component: {fileID: 134543271}
   - component: {fileID: 134543273}
   - component: {fileID: 134543272}
+  - component: {fileID: 134543274}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -4592,6 +4673,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134543270}
   m_CullTransparentMesh: 1
+--- !u!114 &134543274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134543270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Displacement
+  _content: "The maximum distance the value can move away from its origin during
+    oscillation. \n\nIt defines the peak offset applied by the selected function
+    (Sin/Cos)."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &135542651
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,6 +6668,7 @@ GameObject:
   - component: {fileID: 216551680}
   - component: {fileID: 216551682}
   - component: {fileID: 216551681}
+  - component: {fileID: 216551683}
   m_Layer: 5
   m_Name: Negate
   m_TagString: Untagged
@@ -6694,6 +6796,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216551679}
   m_CullTransparentMesh: 1
+--- !u!114 &216551683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216551679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Negation
+  _content: "Inverts the sign of the input value. \n\nPositive values become negative,
+    and negative values become positive, effectively flipping the direction or phase
+    of the applied effect."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &220535670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6982,6 +7104,7 @@ GameObject:
   - component: {fileID: 226648489}
   - component: {fileID: 226648491}
   - component: {fileID: 226648490}
+  - component: {fileID: 226648492}
   m_Layer: 5
   m_Name: Modulo
   m_TagString: Untagged
@@ -7109,6 +7232,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226648488}
   m_CullTransparentMesh: 1
+--- !u!114 &226648492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226648488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Modulo
+  _content: "Applies a wrap\u2011around operation using the absolute value of the
+    input, ensuring the result always stays within a positive repeating range. \n\nUseful
+    when you want looping behavior without negative values."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &230537478
 GameObject:
   m_ObjectHideFlags: 0
@@ -7121,6 +7264,7 @@ GameObject:
   - component: {fileID: 230537482}
   - component: {fileID: 230537481}
   - component: {fileID: 230537480}
+  - component: {fileID: 230537483}
   m_Layer: 5
   m_Name: Collapse Button
   m_TagString: Untagged
@@ -7231,6 +7375,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230537478}
   m_CullTransparentMesh: 1
+--- !u!114 &230537483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230537478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: COLLAPSE
+  _content: Click to HIDE/UNHIDE.
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.75}
+  _showDelay: 0.5
 --- !u!1 &232954943
 GameObject:
   m_ObjectHideFlags: 0
@@ -8594,6 +8756,7 @@ GameObject:
   - component: {fileID: 254913130}
   - component: {fileID: 254913129}
   - component: {fileID: 254913132}
+  - component: {fileID: 254913133}
   m_Layer: 5
   m_Name: Translation
   m_TagString: Untagged
@@ -8717,6 +8880,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.PlatformIdentity
   transformDomain: 0
+--- !u!114 &254913133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254913126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 
+  _content: TRANSLATION
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 1, g: 0, b: 0, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9019608}
+  _showDelay: 0.5
 --- !u!1 &256409635
 GameObject:
   m_ObjectHideFlags: 0
@@ -9345,6 +9526,7 @@ GameObject:
   - component: {fileID: 286774329}
   - component: {fileID: 286774331}
   - component: {fileID: 286774330}
+  - component: {fileID: 286774332}
   m_Layer: 5
   m_Name: Period
   m_TagString: Untagged
@@ -9473,6 +9655,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286774328}
   m_CullTransparentMesh: 1
+--- !u!114 &286774332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286774328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Period
+  _content: "The duration of one full cycle of a repeating pattern. \n\nAfter the
+    Period elapses, the pattern restarts from the beginning."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &289086134
 GameObject:
   m_ObjectHideFlags: 0
@@ -9874,6 +10075,7 @@ GameObject:
   - component: {fileID: 312825395}
   - component: {fileID: 312825397}
   - component: {fileID: 312825396}
+  - component: {fileID: 312825398}
   m_Layer: 5
   m_Name: Negate
   m_TagString: Untagged
@@ -10001,6 +10203,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312825394}
   m_CullTransparentMesh: 1
+--- !u!114 &312825398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312825394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Negation
+  _content: "Inverts the sign of the input value. \n\nPositive values become negative,
+    and negative values become positive, effectively flipping the direction or phase
+    of the applied effect."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &320398684
 GameObject:
   m_ObjectHideFlags: 0
@@ -14604,6 +14826,7 @@ GameObject:
   - component: {fileID: 543194495}
   - component: {fileID: 543194497}
   - component: {fileID: 543194496}
+  - component: {fileID: 543194498}
   m_Layer: 5
   m_Name: Negate
   m_TagString: Untagged
@@ -14731,6 +14954,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543194494}
   m_CullTransparentMesh: 1
+--- !u!114 &543194498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543194494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Negation
+  _content: "Reverses the direction of rotation by inverting the sign of the rotation
+    value. \n\n(Positive rotation becomes negative, and negative rotation becomes
+    positive.)"
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &546132338
 GameObject:
   m_ObjectHideFlags: 0
@@ -14742,6 +14985,7 @@ GameObject:
   - component: {fileID: 546132339}
   - component: {fileID: 546132341}
   - component: {fileID: 546132340}
+  - component: {fileID: 546132342}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -14870,6 +15114,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546132338}
   m_CullTransparentMesh: 1
+--- !u!114 &546132342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546132338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Displacement
+  _content: "The maximum distance the value can move away from its origin during
+    oscillation. \n\nIt defines the peak offset applied by the selected function
+    (Sin/Cos)."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &546471959
 GameObject:
   m_ObjectHideFlags: 0
@@ -15870,6 +16134,7 @@ GameObject:
   - component: {fileID: 570566379}
   - component: {fileID: 570566381}
   - component: {fileID: 570566380}
+  - component: {fileID: 570566382}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -15998,6 +16263,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570566378}
   m_CullTransparentMesh: 1
+--- !u!114 &570566382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570566378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Max Displacement
+  _content: "The maximum amount the scale value can move away from its original size
+    during oscillation. \n\nIt defines the peak size change applied by the selected
+    scaling function (Sin/Cos)."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &574169007
 GameObject:
   m_ObjectHideFlags: 0
@@ -16486,6 +16771,7 @@ GameObject:
   - component: {fileID: 604628893}
   - component: {fileID: 604628895}
   - component: {fileID: 604628894}
+  - component: {fileID: 604628896}
   m_Layer: 5
   m_Name: Max Width
   m_TagString: Untagged
@@ -16614,6 +16900,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604628892}
   m_CullTransparentMesh: 1
+--- !u!114 &604628896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604628892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 'Maximum Width '
+  _content: Maximum Axes Length
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &608542601
 GameObject:
   m_ObjectHideFlags: 0
@@ -17278,6 +17582,7 @@ GameObject:
   - component: {fileID: 632168794}
   - component: {fileID: 632168796}
   - component: {fileID: 632168795}
+  - component: {fileID: 632168797}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -17406,6 +17711,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632168793}
   m_CullTransparentMesh: 1
+--- !u!114 &632168797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632168793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Displacement
+  _content: "The maximum distance the value can move away from its origin during
+    oscillation. \n\nIt defines the peak offset applied by the selected function
+    (Sin/Cos)."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &635649987
 GameObject:
   m_ObjectHideFlags: 0
@@ -17753,6 +18078,7 @@ GameObject:
   - component: {fileID: 655431841}
   - component: {fileID: 655431843}
   - component: {fileID: 655431842}
+  - component: {fileID: 655431844}
   m_Layer: 5
   m_Name: Normalized
   m_TagString: Untagged
@@ -17881,6 +18207,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655431840}
   m_CullTransparentMesh: 1
+--- !u!114 &655431844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655431840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Normalized
+  _content: 'Renders Reference Bounds axes normalized between minimum and maximum.
+
+
+    (Starts
+    from Minimum and goes upto Maximum)'
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &658138082
 GameObject:
   m_ObjectHideFlags: 0
@@ -17892,6 +18240,7 @@ GameObject:
   - component: {fileID: 658138083}
   - component: {fileID: 658138085}
   - component: {fileID: 658138084}
+  - component: {fileID: 658138086}
   m_Layer: 5
   m_Name: Min Width
   m_TagString: Untagged
@@ -18020,6 +18369,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658138082}
   m_CullTransparentMesh: 1
+--- !u!114 &658138086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658138082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Minimum Width
+  _content: Minimum Bounds Length
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &659152669
 GameObject:
   m_ObjectHideFlags: 0
@@ -18639,6 +19006,7 @@ GameObject:
   - component: {fileID: 691077262}
   - component: {fileID: 691077264}
   - component: {fileID: 691077263}
+  - component: {fileID: 691077265}
   m_Layer: 5
   m_Name: Modulo
   m_TagString: Untagged
@@ -18766,6 +19134,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691077261}
   m_CullTransparentMesh: 1
+--- !u!114 &691077265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691077261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Modulo
+  _content: Applies a modulo operation to a rotation value while ensuring the result
+    is always wrapped into a positive angular range, even when the input angle is
+    negative.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &699130959
 GameObject:
   m_ObjectHideFlags: 0
@@ -18903,6 +19291,7 @@ GameObject:
   - component: {fileID: 710526663}
   - component: {fileID: 710526665}
   - component: {fileID: 710526664}
+  - component: {fileID: 710526666}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -19031,6 +19420,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710526662}
   m_CullTransparentMesh: 1
+--- !u!114 &710526666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710526662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Max Displacement
+  _content: "The maximum angular distance the rotation can move away from its origin
+    during oscillation. \n\nIt defines the peak rotational offset applied by the
+    selected function (Sin/Cos)."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &717437026
 GameObject:
   m_ObjectHideFlags: 0
@@ -19118,6 +19527,7 @@ GameObject:
   - component: {fileID: 723386807}
   - component: {fileID: 723386806}
   - component: {fileID: 723386805}
+  - component: {fileID: 723386808}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -19227,6 +19637,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723386803}
   m_CullTransparentMesh: 1
+--- !u!114 &723386808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723386803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: RESET
+  _content: "Restores all parameters in the MEASUREMENT section to their default
+    values. \n\nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &727578530
 GameObject:
   m_ObjectHideFlags: 0
@@ -19416,6 +19846,7 @@ GameObject:
   - component: {fileID: 727643200}
   - component: {fileID: 727643202}
   - component: {fileID: 727643201}
+  - component: {fileID: 727643203}
   m_Layer: 5
   m_Name: Axes
   m_TagString: Untagged
@@ -19543,6 +19974,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727643199}
   m_CullTransparentMesh: 1
+--- !u!114 &727643203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727643199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Axes
+  _content: "Specifies which axes the emitter or bullets rotate around when applying
+    angular motion. \n\nDetermines how rotation is calculated and which dimensions
+    are affected."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &727790377
 GameObject:
   m_ObjectHideFlags: 0
@@ -20268,6 +20719,7 @@ GameObject:
   - component: {fileID: 754131807}
   - component: {fileID: 754131809}
   - component: {fileID: 754131808}
+  - component: {fileID: 754131810}
   m_Layer: 5
   m_Name: Max Width
   m_TagString: Untagged
@@ -20396,6 +20848,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754131806}
   m_CullTransparentMesh: 1
+--- !u!114 &754131810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754131806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Maximum Bounds
+  _content: Maximum Bounds Length
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &754414040
 GameObject:
   m_ObjectHideFlags: 0
@@ -21767,6 +22237,7 @@ GameObject:
   - component: {fileID: 803163422}
   - component: {fileID: 803163421}
   - component: {fileID: 803163424}
+  - component: {fileID: 803163425}
   m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
@@ -21890,6 +22361,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Settings.UI.SettingsIdentity
   settingIdentity: 1
+--- !u!114 &803163425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803163419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: CAMERA
+  _content: "Camera settings.\n\nCONTROLS: \nMouse Wheel to ZOOM\nRight Click and
+    Drag to PAN"
+  _headerColor: {r: 0, g: 0.8509804, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &804865200
 GameObject:
   m_ObjectHideFlags: 0
@@ -22541,6 +23031,7 @@ GameObject:
   - component: {fileID: 825503685}
   - component: {fileID: 825503687}
   - component: {fileID: 825503686}
+  - component: {fileID: 825503688}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -22668,6 +23159,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825503684}
   m_CullTransparentMesh: 1
+--- !u!114 &825503688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825503684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Z - Function
+  _content: "Selects the mathematical function used to animate scale changes over
+    time. \n\nSin and Cos produce smooth, continuous size oscillations ideal for
+    pulsing, breathing, or squash\u2011and\u2011stretch effects."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &833980286
 GameObject:
   m_ObjectHideFlags: 0
@@ -22679,6 +23190,7 @@ GameObject:
   - component: {fileID: 833980287}
   - component: {fileID: 833980289}
   - component: {fileID: 833980288}
+  - component: {fileID: 833980290}
   m_Layer: 5
   m_Name: Min Width
   m_TagString: Untagged
@@ -22807,6 +23319,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833980286}
   m_CullTransparentMesh: 1
+--- !u!114 &833980290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833980286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Minimum Width
+  _content: Minimum Central Axes length
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &846355762
 GameObject:
   m_ObjectHideFlags: 0
@@ -23682,6 +24212,7 @@ GameObject:
   - component: {fileID: 865809448}
   - component: {fileID: 865809450}
   - component: {fileID: 865809449}
+  - component: {fileID: 865809451}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -23809,6 +24340,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865809447}
   m_CullTransparentMesh: 1
+--- !u!114 &865809451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865809447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Z - Function
+  _content: Determines how the rotation value changes over time, using a selected
+    mathematical function (Sin or Cos) to create smooth, continuous, and repeatable
+    angular motion.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &868463026
 GameObject:
   m_ObjectHideFlags: 0
@@ -25753,6 +26304,7 @@ GameObject:
   - component: {fileID: 926082926}
   - component: {fileID: 926082928}
   - component: {fileID: 926082927}
+  - component: {fileID: 926082929}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -25881,6 +26433,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926082925}
   m_CullTransparentMesh: 1
+--- !u!114 &926082929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926082925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Max Displacement
+  _content: "The maximum amount the scale value can move away from its original size
+    during oscillation. \n\nIt defines the peak size change applied by the selected
+    scaling function (Sin/Cos)."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &926539470
 GameObject:
   m_ObjectHideFlags: 0
@@ -26034,6 +26606,7 @@ GameObject:
   - component: {fileID: 931100215}
   - component: {fileID: 931100214}
   - component: {fileID: 931100213}
+  - component: {fileID: 931100216}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -26143,6 +26716,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931100211}
   m_CullTransparentMesh: 1
+--- !u!114 &931100216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931100211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: RESET
+  _content: "Restores all parameters in the SCALING section to their default values.
+    \n\nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &931487552
 GameObject:
   m_ObjectHideFlags: 0
@@ -27703,6 +28296,7 @@ GameObject:
   - component: {fileID: 1015841329}
   - component: {fileID: 1015841331}
   - component: {fileID: 1015841330}
+  - component: {fileID: 1015841332}
   m_Layer: 5
   m_Name: Axes
   m_TagString: Untagged
@@ -27830,6 +28424,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015841328}
   m_CullTransparentMesh: 1
+--- !u!114 &1015841332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015841328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: AXES
+  _content: Defines which axe(s) are used when applying positional translation to
+    the emitter or bullets.
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1020965571
 GameObject:
   m_ObjectHideFlags: 0
@@ -29101,6 +29714,7 @@ GameObject:
   - component: {fileID: 1085215045}
   - component: {fileID: 1085215044}
   - component: {fileID: 1085215043}
+  - component: {fileID: 1085215046}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -29210,6 +29824,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085215041}
   m_CullTransparentMesh: 1
+--- !u!114 &1085215046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085215041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: RESET
+  _content: "Restores all parameters in the CAMERA section to their default values.
+    \n\nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 0, g: 0.8509804, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1088099660
 GameObject:
   m_ObjectHideFlags: 0
@@ -29812,6 +30446,7 @@ GameObject:
   - component: {fileID: 1113112258}
   - component: {fileID: 1113112260}
   - component: {fileID: 1113112259}
+  - component: {fileID: 1113112261}
   m_Layer: 5
   m_Name: Period
   m_TagString: Untagged
@@ -29940,6 +30575,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113112257}
   m_CullTransparentMesh: 1
+--- !u!114 &1113112261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113112257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Period
+  _content: The amount of time it takes for the emitter or pattern to complete one
+    full rotation before looping back to the start.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1118312577
 GameObject:
   m_ObjectHideFlags: 0
@@ -30635,6 +31289,7 @@ GameObject:
   - component: {fileID: 1154362481}
   - component: {fileID: 1154362483}
   - component: {fileID: 1154362482}
+  - component: {fileID: 1154362484}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -30762,6 +31417,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154362480}
   m_CullTransparentMesh: 1
+--- !u!114 &1154362484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154362480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Y - Function
+  _content: Determines whether the pattern uses a sine or cosine wave to animate
+    the selected parameter.
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1160740735
 GameObject:
   m_ObjectHideFlags: 0
@@ -32274,6 +32948,7 @@ GameObject:
   - component: {fileID: 1216141023}
   - component: {fileID: 1216141025}
   - component: {fileID: 1216141024}
+  - component: {fileID: 1216141026}
   m_Layer: 5
   m_Name: Negate
   m_TagString: Untagged
@@ -32401,6 +33076,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216141022}
   m_CullTransparentMesh: 1
+--- !u!114 &1216141026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216141022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Negation
+  _content: "Reverses the direction of rotation by inverting the sign of the rotation
+    value. \n\nPositive rotation becomes negative, and negative rotation becomes
+    positive."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1217909948
 GameObject:
   m_ObjectHideFlags: 0
@@ -32590,6 +33285,7 @@ GameObject:
   - component: {fileID: 1218735132}
   - component: {fileID: 1218735134}
   - component: {fileID: 1218735133}
+  - component: {fileID: 1218735135}
   m_Layer: 5
   m_Name: Period
   m_TagString: Untagged
@@ -32718,6 +33414,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218735131}
   m_CullTransparentMesh: 1
+--- !u!114 &1218735135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218735131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Period
+  _content: "The amount of time it takes for the scaling animation to complete one
+    full cycle before repeating. \n\nControls how quickly the size oscillation loops
+    when using a scaling function (Sin/Cos)."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1220382902
 GameObject:
   m_ObjectHideFlags: 0
@@ -33784,6 +34500,7 @@ GameObject:
   - component: {fileID: 1249663892}
   - component: {fileID: 1249663894}
   - component: {fileID: 1249663893}
+  - component: {fileID: 1249663895}
   m_Layer: 5
   m_Name: Modulo
   m_TagString: Untagged
@@ -33911,6 +34628,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249663891}
   m_CullTransparentMesh: 1
+--- !u!114 &1249663895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249663891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Modulo
+  _content: "Applies a wrap\u2011around operation using the absolute value of the
+    input, ensuring the result always stays within a positive repeating range. \n\nUseful
+    when you want looping behavior without negative values."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1250137282
 GameObject:
   m_ObjectHideFlags: 0
@@ -33922,6 +34659,7 @@ GameObject:
   - component: {fileID: 1250137283}
   - component: {fileID: 1250137285}
   - component: {fileID: 1250137284}
+  - component: {fileID: 1250137286}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -34049,6 +34787,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250137282}
   m_CullTransparentMesh: 1
+--- !u!114 &1250137286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250137282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: X - Function
+  _content: Determines how the rotation value changes over time, using a selected
+    mathematical function (Sin or Cos) to create smooth, continuous, and repeatable
+    angular motion.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1256196796
 GameObject:
   m_ObjectHideFlags: 0
@@ -34262,6 +35020,7 @@ GameObject:
   - component: {fileID: 1265697356}
   - component: {fileID: 1265697358}
   - component: {fileID: 1265697357}
+  - component: {fileID: 1265697359}
   m_Layer: 5
   m_Name: 'Reference '
   m_TagString: Untagged
@@ -34389,6 +35148,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265697355}
   m_CullTransparentMesh: 1
+--- !u!114 &1265697359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265697355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Toggle Reference
+  _content: 'Compare modified Axes value to reference.
+
+
+    (Reference is set as
+    per initial parameters.)'
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1266088959
 GameObject:
   m_ObjectHideFlags: 0
@@ -34689,6 +35470,7 @@ GameObject:
   - component: {fileID: 1277809369}
   - component: {fileID: 1277809371}
   - component: {fileID: 1277809370}
+  - component: {fileID: 1277809372}
   m_Layer: 5
   m_Name: Max Width
   m_TagString: Untagged
@@ -34817,6 +35599,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277809368}
   m_CullTransparentMesh: 1
+--- !u!114 &1277809372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277809368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bounds GAP
+  _content: The gap between bounds.
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1281454271
 GameObject:
   m_ObjectHideFlags: 0
@@ -35137,6 +35937,7 @@ GameObject:
   - component: {fileID: 1297919266}
   - component: {fileID: 1297919268}
   - component: {fileID: 1297919267}
+  - component: {fileID: 1297919269}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -35264,6 +36065,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297919265}
   m_CullTransparentMesh: 1
+--- !u!114 &1297919269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297919265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Y - Function
+  _content: "Selects the mathematical function used to animate scale changes over
+    time. \n\nSin and Cos produce smooth, continuous size oscillations ideal for
+    pulsing, breathing, or squash\u2011and\u2011stretch effects."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1302688723
 GameObject:
   m_ObjectHideFlags: 0
@@ -35738,6 +36559,7 @@ GameObject:
   - component: {fileID: 1334763097}
   - component: {fileID: 1334763099}
   - component: {fileID: 1334763098}
+  - component: {fileID: 1334763100}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -35865,6 +36687,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334763096}
   m_CullTransparentMesh: 1
+--- !u!114 &1334763100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334763096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: BOUNDS
+  _content: Bounds to measure limits of modified attributes.
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1341664355
 GameObject:
   m_ObjectHideFlags: 0
@@ -35942,6 +36782,7 @@ GameObject:
   - component: {fileID: 1349125269}
   - component: {fileID: 1349125271}
   - component: {fileID: 1349125270}
+  - component: {fileID: 1349125272}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -36069,6 +36910,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349125268}
   m_CullTransparentMesh: 1
+--- !u!114 &1349125272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349125268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: CENTRAL AXIS
+  _content: Central Reference Axis
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1350418471
 GameObject:
   m_ObjectHideFlags: 0
@@ -36434,6 +37293,7 @@ GameObject:
   - component: {fileID: 1372042862}
   - component: {fileID: 1372042864}
   - component: {fileID: 1372042863}
+  - component: {fileID: 1372042865}
   m_Layer: 5
   m_Name: Negate
   m_TagString: Untagged
@@ -36561,6 +37421,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372042861}
   m_CullTransparentMesh: 1
+--- !u!114 &1372042865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372042861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Negation
+  _content: "Reverses the direction of rotation by inverting the sign of the rotation
+    value. \n\nPositive rotation becomes negative, and negative rotation becomes
+    positive."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1372384729
 GameObject:
   m_ObjectHideFlags: 0
@@ -37544,6 +38424,7 @@ GameObject:
   - component: {fileID: 1442862680}
   - component: {fileID: 1442862682}
   - component: {fileID: 1442862681}
+  - component: {fileID: 1442862683}
   m_Layer: 5
   m_Name: Modulo
   m_TagString: Untagged
@@ -37671,6 +38552,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442862679}
   m_CullTransparentMesh: 1
+--- !u!114 &1442862683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442862679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Modulo
+  _content: "Applies a wrap\u2011around operation using the absolute value of the
+    input, ensuring the result always stays within a positive repeating range. \n\nUseful
+    when you want looping behavior without negative values."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1449293065
 GameObject:
   m_ObjectHideFlags: 0
@@ -40442,6 +41343,7 @@ GameObject:
   - component: {fileID: 1569952265}
   - component: {fileID: 1569952267}
   - component: {fileID: 1569952266}
+  - component: {fileID: 1569952268}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -40569,6 +41471,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569952264}
   m_CullTransparentMesh: 1
+--- !u!114 &1569952268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569952264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: X - Function
+  _content: Determines whether the pattern uses a sine or cosine wave to animate
+    the selected parameter.
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1570800280
 GameObject:
   m_ObjectHideFlags: 0
@@ -41338,6 +42259,7 @@ GameObject:
   - component: {fileID: 1592224572}
   - component: {fileID: 1592224574}
   - component: {fileID: 1592224573}
+  - component: {fileID: 1592224575}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -41465,6 +42387,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592224571}
   m_CullTransparentMesh: 1
+--- !u!114 &1592224575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592224571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: X - Function
+  _content: "Selects the mathematical function used to animate scale changes over
+    time. \n\nSin and Cos produce smooth, continuous size oscillations ideal for
+    pulsing, breathing, or squash\u2011and\u2011stretch effects."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1599082679
 GameObject:
   m_ObjectHideFlags: 0
@@ -41551,6 +42493,7 @@ GameObject:
   - component: {fileID: 1604728882}
   - component: {fileID: 1604728884}
   - component: {fileID: 1604728883}
+  - component: {fileID: 1604728885}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -41678,6 +42621,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604728881}
   m_CullTransparentMesh: 1
+--- !u!114 &1604728885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604728881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Y - Function
+  _content: Determines how the rotation value changes over time, using a selected
+    mathematical function (Sin or Cos) to create smooth, continuous, and repeatable
+    angular motion.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1605443959
 GameObject:
   m_ObjectHideFlags: 0
@@ -42431,6 +43394,7 @@ GameObject:
   - component: {fileID: 1656962669}
   - component: {fileID: 1656962671}
   - component: {fileID: 1656962670}
+  - component: {fileID: 1656962672}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -42558,6 +43522,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656962668}
   m_CullTransparentMesh: 1
+--- !u!114 &1656962672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656962668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Extras
+  _content: Miscellaneous Settings
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1660647853
 GameObject:
   m_ObjectHideFlags: 0
@@ -42696,6 +43678,7 @@ GameObject:
   - component: {fileID: 1672991626}
   - component: {fileID: 1672991625}
   - component: {fileID: 1672991624}
+  - component: {fileID: 1672991627}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -42805,6 +43788,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672991622}
   m_CullTransparentMesh: 1
+--- !u!114 &1672991627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672991622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: RESET
+  _content: "Restores all parameters in the ROTATION section to their default values.
+    \nThis clears any custom inputs and returns the settings to their original state."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1679281958
 GameObject:
   m_ObjectHideFlags: 0
@@ -43397,6 +44399,7 @@ GameObject:
   - component: {fileID: 1695046950}
   - component: {fileID: 1695046952}
   - component: {fileID: 1695046951}
+  - component: {fileID: 1695046953}
   m_Layer: 5
   m_Name: Modulo
   m_TagString: Untagged
@@ -43524,6 +44527,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695046949}
   m_CullTransparentMesh: 1
+--- !u!114 &1695046953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695046949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Modulo
+  _content: Applies a modulo operation to a rotation value while ensuring the result
+    is always wrapped into a positive angular range, even when the input angle is
+    negative.
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1695285197
 GameObject:
   m_ObjectHideFlags: 0
@@ -44271,6 +45294,7 @@ GameObject:
   - component: {fileID: 1726918074}
   - component: {fileID: 1726918076}
   - component: {fileID: 1726918075}
+  - component: {fileID: 1726918077}
   m_Layer: 5
   m_Name: Negate
   m_TagString: Untagged
@@ -44398,6 +45422,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726918073}
   m_CullTransparentMesh: 1
+--- !u!114 &1726918077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726918073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Negation
+  _content: "Inverts the sign of the input value. \n\nPositive values become negative,
+    and negative values become positive, effectively flipping the direction or phase
+    of the applied effect."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1732505901
 GameObject:
   m_ObjectHideFlags: 0
@@ -45165,6 +46209,7 @@ GameObject:
   - component: {fileID: 1760685522}
   - component: {fileID: 1760685524}
   - component: {fileID: 1760685523}
+  - component: {fileID: 1760685525}
   m_Layer: 5
   m_Name: Normalized
   m_TagString: Untagged
@@ -45293,6 +46338,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760685521}
   m_CullTransparentMesh: 1
+--- !u!114 &1760685525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760685521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Normalized Axes
+  _content: 'Renders Reference Central axes normalized between minimum and maximum.
+
+
+    (Starts
+    from Minimum and goes upto Maximum)'
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1763274329
 GameObject:
   m_ObjectHideFlags: 0
@@ -45693,6 +46760,7 @@ GameObject:
   - component: {fileID: 1781427483}
   - component: {fileID: 1781427482}
   - component: {fileID: 1781427481}
+  - component: {fileID: 1781427484}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -45802,6 +46870,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781427479}
   m_CullTransparentMesh: 1
+--- !u!114 &1781427484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781427479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: RESET
+  _content: "Restores all parameters in the TRANSLATION section to their default
+    values. \nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1803266801
 GameObject:
   m_ObjectHideFlags: 0
@@ -47999,6 +49087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895185079}
   - component: {fileID: 1895185080}
+  - component: {fileID: 1895185081}
   m_Layer: 5
   m_Name: Camera Projection
   m_TagString: Untagged
@@ -48054,6 +49143,28 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1895185081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895185078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Projection Toggle
+  _content: 'Toggles between ORTHOGRAPHIC and PERSPECTIVE.
+
+
+    (Drag the button
+    to toggle)'
+  _headerColor: {r: 0, g: 0.8509804, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1895464498
 GameObject:
   m_ObjectHideFlags: 0
@@ -49296,6 +50407,7 @@ GameObject:
   - component: {fileID: 1929382684}
   - component: {fileID: 1929382686}
   - component: {fileID: 1929382685}
+  - component: {fileID: 1929382687}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -49424,6 +50536,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929382683}
   m_CullTransparentMesh: 1
+--- !u!114 &1929382687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929382683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Max Displacement
+  _content: "The maximum amount the scale value can move away from its original size
+    during oscillation. \n\nIt defines the peak size change applied by the selected
+    scaling function (Sin/Cos)."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1929400854
 GameObject:
   m_ObjectHideFlags: 0
@@ -50997,6 +52129,7 @@ GameObject:
   - component: {fileID: 2013261004}
   - component: {fileID: 2013261003}
   - component: {fileID: 2013261006}
+  - component: {fileID: 2013261007}
   m_Layer: 5
   m_Name: Scaling
   m_TagString: Untagged
@@ -51120,6 +52253,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.UI.PlatformIdentity
   transformDomain: 2
+--- !u!114 &2013261007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013261000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 
+  _content: SCALE
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9019608}
+  _showDelay: 0.5
 --- !u!1 &2017295624
 GameObject:
   m_ObjectHideFlags: 0
@@ -51715,6 +52866,7 @@ GameObject:
   - component: {fileID: 2037279588}
   - component: {fileID: 2037279590}
   - component: {fileID: 2037279589}
+  - component: {fileID: 2037279591}
   m_Layer: 5
   m_Name: Max Displacement
   m_TagString: Untagged
@@ -51843,6 +52995,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037279587}
   m_CullTransparentMesh: 1
+--- !u!114 &2037279591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037279587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Max Displacement
+  _content: "The maximum angular distance the rotation can move away from its origin
+    during oscillation. \n\nIt defines the peak rotational offset applied by the
+    selected function (Sin/Cos)."
+  _headerColor: {r: 0, g: 1, b: 0.3647059, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &2039907356
 GameObject:
   m_ObjectHideFlags: 0
@@ -51929,6 +53101,7 @@ GameObject:
   - component: {fileID: 2045555875}
   - component: {fileID: 2045555877}
   - component: {fileID: 2045555876}
+  - component: {fileID: 2045555878}
   m_Layer: 5
   m_Name: Function
   m_TagString: Untagged
@@ -52056,6 +53229,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045555874}
   m_CullTransparentMesh: 1
+--- !u!114 &2045555878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045555874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Z - Function
+  _content: Determines whether the pattern uses a sine or cosine wave to animate
+    the selected parameter.
+  _headerColor: {r: 1, g: 0, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &2046067392
 GameObject:
   m_ObjectHideFlags: 0
@@ -52618,6 +53810,7 @@ GameObject:
   - component: {fileID: 2050807172}
   - component: {fileID: 2050807171}
   - component: {fileID: 2050807170}
+  - component: {fileID: 2050807173}
   m_Layer: 5
   m_Name: Collapse Button
   m_TagString: Untagged
@@ -52728,6 +53921,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050807168}
   m_CullTransparentMesh: 1
+--- !u!114 &2050807173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050807168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: COLLAPSE
+  _content: Click to HIDE/UNHIDE.
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9019608}
+  _showDelay: 0.5
 --- !u!1 &2053161544
 GameObject:
   m_ObjectHideFlags: 0
@@ -53882,6 +55093,7 @@ GameObject:
   - component: {fileID: 2081531727}
   - component: {fileID: 2081531726}
   - component: {fileID: 2081531729}
+  - component: {fileID: 2081531730}
   m_Layer: 5
   m_Name: Measurement
   m_TagString: Untagged
@@ -54005,6 +55217,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Platformer.Settings.UI.SettingsIdentity
   settingIdentity: 0
+--- !u!114 &2081531730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081531724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: MEASUREMENT
+  _content: Reference bounds and settings for platform axes
+  _headerColor: {r: 0.52156866, g: 0, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &2088445508
 GameObject:
   m_ObjectHideFlags: 0
@@ -55453,6 +56683,7 @@ GameObject:
   - component: {fileID: 2132253159}
   - component: {fileID: 2132253161}
   - component: {fileID: 2132253160}
+  - component: {fileID: 2132253162}
   m_Layer: 5
   m_Name: Axes
   m_TagString: Untagged
@@ -55580,6 +56811,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132253158}
   m_CullTransparentMesh: 1
+--- !u!114 &2132253162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132253158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: AXES
+  _content: "Specifies which axes are affected when applying scaling to the emitter
+    or bullets. \n\nDetermines whether size changes occur along the X, Y, or Z axes."
+  _headerColor: {r: 0, g: 0.15294118, b: 1, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &2138535091
 GameObject:
   m_ObjectHideFlags: 0

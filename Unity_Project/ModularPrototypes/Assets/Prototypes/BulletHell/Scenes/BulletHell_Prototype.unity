@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 33546291}
   - component: {fileID: 33546293}
   - component: {fileID: 33546292}
+  - component: {fileID: 33546294}
   m_Layer: 5
   m_Name: Bullet Speed
   m_TagString: Untagged
@@ -384,6 +385,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33546290}
   m_CullTransparentMesh: 1
+--- !u!114 &33546294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33546290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullet Speed
+  _content: "The velocity at which a bullet travels after being spawned, measured
+    in units per second. \n\nHigher values make bullets move faster; lower values
+    make them travel more slowly."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &38250302
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +417,7 @@ GameObject:
   - component: {fileID: 38250306}
   - component: {fileID: 38250305}
   - component: {fileID: 38250304}
+  - component: {fileID: 38250307}
   m_Layer: 5
   m_Name: Collapse Button
   m_TagString: Untagged
@@ -506,6 +528,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38250302}
   m_CullTransparentMesh: 1
+--- !u!114 &38250307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38250302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: COLLAPSE
+  _content: Click to HIDE/UNHIDE.
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.6862745}
+  _showDelay: 0.5
 --- !u!1 &44525363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1731,7 @@ GameObject:
   - component: {fileID: 205693430}
   - component: {fileID: 205693432}
   - component: {fileID: 205693431}
+  - component: {fileID: 205693433}
   m_Layer: 5
   m_Name: Offset
   m_TagString: Untagged
@@ -1819,6 +1860,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205693429}
   m_CullTransparentMesh: 1
+--- !u!114 &205693433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205693429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Offset
+  _content: Applies an angle offset to rotate the burst before distributing bullets
+    evenly across the arc.
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &215069537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +3661,7 @@ GameObject:
   - component: {fileID: 418205247}
   - component: {fileID: 418205246}
   - component: {fileID: 418205245}
+  - component: {fileID: 418205248}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -3710,6 +3771,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418205243}
   m_CullTransparentMesh: 1
+--- !u!114 &418205248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418205243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Reset
+  _content: "Restores all parameters in the SPIRAL section to their default values.
+    \n\nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 0, g: 1, b: 0.972549, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &422545750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,6 +4412,7 @@ GameObject:
   - component: {fileID: 523164282}
   - component: {fileID: 523164281}
   - component: {fileID: 523164284}
+  - component: {fileID: 523164285}
   m_Layer: 5
   m_Name: Spiral
   m_TagString: Untagged
@@ -4454,6 +4536,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
   _bulletPattern: 2
+--- !u!114 &523164285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523164279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 
+  _content: SPIRAL
+  _headerColor: {r: 0.5401388, g: 0.9497362, b: 0.9622642, a: 1}
+  _contentColor: {r: 0.5411765, g: 0.9490196, b: 0.9607843, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &533713074
 GameObject:
   m_ObjectHideFlags: 0
@@ -5114,6 +5214,7 @@ GameObject:
   - component: {fileID: 664040250}
   - component: {fileID: 664040252}
   - component: {fileID: 664040251}
+  - component: {fileID: 664040253}
   m_Layer: 5
   m_Name: Enable Trail
   m_TagString: Untagged
@@ -5241,6 +5342,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664040249}
   m_CullTransparentMesh: 1
+--- !u!114 &664040253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664040249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Trail
+  _content: "Toggles a visual trail effect behind each bullet. \n\nWhen enabled,
+    bullets render a continuous streak that follows their movement, improving visual
+    clarity and emphasizing motion."
+  _headerColor: {r: 1, g: 0, b: 0.69411767, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &670927590
 GameObject:
   m_ObjectHideFlags: 0
@@ -5505,6 +5626,7 @@ GameObject:
   - component: {fileID: 689843263}
   - component: {fileID: 689843265}
   - component: {fileID: 689843264}
+  - component: {fileID: 689843266}
   m_Layer: 5
   m_Name: 'Bullet Life '
   m_TagString: Untagged
@@ -5633,6 +5755,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689843262}
   m_CullTransparentMesh: 1
+--- !u!114 &689843266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689843262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullet Life
+  _content: "The amount of time, in seconds, that a bullet remains active before
+    it is automatically destroyed. \n\nOnce this duration expires, the bullet is
+    removed regardless of its position or speed."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &708396694
 GameObject:
   m_ObjectHideFlags: 0
@@ -5989,6 +6131,7 @@ GameObject:
   - component: {fileID: 742515579}
   - component: {fileID: 742515581}
   - component: {fileID: 742515580}
+  - component: {fileID: 742515582}
   m_Layer: 5
   m_Name: Enable Trail
   m_TagString: Untagged
@@ -6116,6 +6259,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742515578}
   m_CullTransparentMesh: 1
+--- !u!114 &742515582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742515578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Trail
+  _content: "Toggles a visual trail effect behind each bullet. \n\nWhen enabled,
+    bullets render a continuous streak that follows their movement, improving visual
+    clarity and emphasizing motion."
+  _headerColor: {r: 0, g: 1, b: 0.9529412, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &771377087
 GameObject:
   m_ObjectHideFlags: 0
@@ -6979,6 +7142,7 @@ GameObject:
   - component: {fileID: 813192837}
   - component: {fileID: 813192836}
   - component: {fileID: 813192839}
+  - component: {fileID: 813192840}
   m_Layer: 5
   m_Name: Radial Burst
   m_TagString: Untagged
@@ -7102,6 +7266,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
   _bulletPattern: 1
+--- !u!114 &813192840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813192834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 
+  _content: RADIAL BURST
+  _headerColor: {r: 1, g: 0.915796, b: 0.36320752, a: 1}
+  _contentColor: {r: 1, g: 0.91764706, b: 0.3647059, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &820569580
 GameObject:
   m_ObjectHideFlags: 0
@@ -7951,6 +8133,7 @@ GameObject:
   - component: {fileID: 956464738}
   - component: {fileID: 956464737}
   - component: {fileID: 956464736}
+  - component: {fileID: 956464739}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -8060,6 +8243,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956464734}
   m_CullTransparentMesh: 1
+--- !u!114 &956464739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956464734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Reset
+  _content: "Restores all parameters in the DOUBLE SPIRAL section to their default
+    values. \n\nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 1, g: 0, b: 0.69411767, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &962446190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8071,6 +8274,7 @@ GameObject:
   - component: {fileID: 962446191}
   - component: {fileID: 962446193}
   - component: {fileID: 962446192}
+  - component: {fileID: 962446194}
   m_Layer: 5
   m_Name: Bullets Amount
   m_TagString: Untagged
@@ -8199,6 +8403,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962446190}
   m_CullTransparentMesh: 1
+--- !u!114 &962446194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962446190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullets Amount
+  _content: Spawns "N" bullets, equally spaced along the specified arc.
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &963025368
 GameObject:
   m_ObjectHideFlags: 0
@@ -8830,6 +9052,7 @@ GameObject:
   - component: {fileID: 1030807454}
   - component: {fileID: 1030807456}
   - component: {fileID: 1030807455}
+  - component: {fileID: 1030807457}
   m_Layer: 5
   m_Name: Enable Trail
   m_TagString: Untagged
@@ -8957,6 +9180,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030807453}
   m_CullTransparentMesh: 1
+--- !u!114 &1030807457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030807453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Trail
+  _content: "Toggles a visual trail effect behind each bullet. \n\nWhen enabled,
+    bullets render a continuous streak that follows their movement, improving visual
+    clarity and emphasizing motion."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1041072755
 GameObject:
   m_ObjectHideFlags: 0
@@ -9940,6 +10183,7 @@ GameObject:
   - component: {fileID: 1100605260}
   - component: {fileID: 1100605262}
   - component: {fileID: 1100605261}
+  - component: {fileID: 1100605263}
   m_Layer: 5
   m_Name: Bullet Speed
   m_TagString: Untagged
@@ -10068,6 +10312,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100605259}
   m_CullTransparentMesh: 1
+--- !u!114 &1100605263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100605259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullet Speed
+  _content: "The velocity at which a bullet travels after being spawned, measured
+    in units per second. \n\nHigher values make bullets move faster; lower values
+    make them travel more slowly."
+  _headerColor: {r: 0, g: 1, b: 0.9529412, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1102745434
 GameObject:
   m_ObjectHideFlags: 0
@@ -10080,6 +10344,7 @@ GameObject:
   - component: {fileID: 1102745438}
   - component: {fileID: 1102745437}
   - component: {fileID: 1102745436}
+  - component: {fileID: 1102745439}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -10189,6 +10454,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102745434}
   m_CullTransparentMesh: 1
+--- !u!114 &1102745439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102745434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Reset
+  _content: "Restores all parameters in the RADIAL BURST section to their default
+    values. \n\nThis clears any custom inputs and returns the settings to their original
+    state."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1103375835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11265,6 +11550,7 @@ GameObject:
   - component: {fileID: 1182501353}
   - component: {fileID: 1182501355}
   - component: {fileID: 1182501354}
+  - component: {fileID: 1182501356}
   m_Layer: 5
   m_Name: Start Angle
   m_TagString: Untagged
@@ -11393,6 +11679,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182501352}
   m_CullTransparentMesh: 1
+--- !u!114 &1182501356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182501352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Start Angle
+  _content: "The angle (in degrees) at which the arc or bullet distribution begins.
+    \n\nAll bullets in the burst are placed relative to this angle."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1194405131
 GameObject:
   m_ObjectHideFlags: 0
@@ -11582,6 +11887,7 @@ GameObject:
   - component: {fileID: 1198974906}
   - component: {fileID: 1198974908}
   - component: {fileID: 1198974907}
+  - component: {fileID: 1198974909}
   m_Layer: 5
   m_Name: End Angle
   m_TagString: Untagged
@@ -11710,6 +12016,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198974905}
   m_CullTransparentMesh: 1
+--- !u!114 &1198974909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198974905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: End Angle
+  _content: "The angle at which the arc or bullet distribution finishes. \n\nThe
+    final bullet in the burst is placed at this angle (when using inclusive distribution)."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1201859415
 GameObject:
   m_ObjectHideFlags: 0
@@ -11879,6 +12204,7 @@ GameObject:
   - component: {fileID: 1202869814}
   - component: {fileID: 1202869816}
   - component: {fileID: 1202869815}
+  - component: {fileID: 1202869817}
   m_Layer: 5
   m_Name: Shoot Interval
   m_TagString: Untagged
@@ -12007,6 +12333,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202869813}
   m_CullTransparentMesh: 1
+--- !u!114 &1202869817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202869813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Shoot Interval
+  _content: "The time, in seconds, between consecutive shots fired by the emitter.
+    \n\nA lower value increases firing frequency; a higher value slows it down."
+  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1215484248
 GameObject:
   m_ObjectHideFlags: 0
@@ -13596,6 +13941,7 @@ GameObject:
   - component: {fileID: 1416319585}
   - component: {fileID: 1416319587}
   - component: {fileID: 1416319586}
+  - component: {fileID: 1416319588}
   m_Layer: 5
   m_Name: Shoot Interval
   m_TagString: Untagged
@@ -13724,6 +14070,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416319584}
   m_CullTransparentMesh: 1
+--- !u!114 &1416319588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416319584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Shoot Interval
+  _content: "The time, in seconds, between consecutive shots fired by the emitter.
+    \n\nA lower value increases firing frequency; a higher value slows it down."
+  _headerColor: {r: 1, g: 0, b: 0.69411767, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1419222327
 GameObject:
   m_ObjectHideFlags: 0
@@ -15755,6 +16120,7 @@ GameObject:
   - component: {fileID: 1587683429}
   - component: {fileID: 1587683431}
   - component: {fileID: 1587683430}
+  - component: {fileID: 1587683432}
   m_Layer: 5
   m_Name: Shoot Interval
   m_TagString: Untagged
@@ -15883,6 +16249,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587683428}
   m_CullTransparentMesh: 1
+--- !u!114 &1587683432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587683428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Shoot Interval
+  _content: "The time, in seconds, between consecutive shots fired by the emitter.
+    \n\nA lower value increases firing frequency; a higher value slows it down."
+  _headerColor: {r: 0, g: 1, b: 0.9529412, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1592211576
 GameObject:
   m_ObjectHideFlags: 0
@@ -16313,6 +16698,7 @@ GameObject:
   - component: {fileID: 1657924547}
   - component: {fileID: 1657924549}
   - component: {fileID: 1657924548}
+  - component: {fileID: 1657924550}
   m_Layer: 5
   m_Name: Delta Angle
   m_TagString: Untagged
@@ -16441,6 +16827,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657924546}
   m_CullTransparentMesh: 1
+--- !u!114 &1657924550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657924546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Delta Angle
+  _content: "The angular step between consecutive bullets when distributing them
+    across an arc. \n\nIt represents how many degrees you move forward for each bullet
+    placement."
+  _headerColor: {r: 1, g: 0, b: 0.69411767, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1674214430
 GameObject:
   m_ObjectHideFlags: 0
@@ -16807,6 +17213,7 @@ GameObject:
   - component: {fileID: 1712875628}
   - component: {fileID: 1712875627}
   - component: {fileID: 1712875630}
+  - component: {fileID: 1712875631}
   m_Layer: 5
   m_Name: Double Spiral
   m_TagString: Untagged
@@ -16930,6 +17337,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.BulletHell.UI.BulletPatternIdentity
   _bulletPattern: 4
+--- !u!114 &1712875631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712875625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: 
+  _content: DOUBLE SPIRAL
+  _headerColor: {r: 1, g: 0.4764151, b: 0.8398446, a: 1}
+  _contentColor: {r: 1, g: 0.495283, b: 0.8447026, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1724634055
 GameObject:
   m_ObjectHideFlags: 0
@@ -17236,6 +17661,7 @@ GameObject:
   - component: {fileID: 1809133197}
   - component: {fileID: 1809133199}
   - component: {fileID: 1809133198}
+  - component: {fileID: 1809133200}
   m_Layer: 5
   m_Name: Delta Angle
   m_TagString: Untagged
@@ -17364,6 +17790,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809133196}
   m_CullTransparentMesh: 1
+--- !u!114 &1809133200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809133196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Delta Angle
+  _content: "The angular step between consecutive bullets when distributing them
+    across an arc. \n\nIt represents how many degrees you move forward for each bullet
+    placement."
+  _headerColor: {r: 0, g: 1, b: 0.9529412, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1815254965
 GameObject:
   m_ObjectHideFlags: 0
@@ -17925,6 +18371,7 @@ GameObject:
   - component: {fileID: 1907018856}
   - component: {fileID: 1907018858}
   - component: {fileID: 1907018857}
+  - component: {fileID: 1907018859}
   m_Layer: 5
   m_Name: 'Bullet Life '
   m_TagString: Untagged
@@ -18053,6 +18500,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907018855}
   m_CullTransparentMesh: 1
+--- !u!114 &1907018859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907018855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullet Life
+  _content: 'The amount of time, in seconds, that a bullet remains active before
+    it is automatically destroyed.
+
+
+    Once this duration expires, the bullet is
+    removed regardless of its position or speed.'
+  _headerColor: {r: 1, g: 0, b: 0.69411767, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1911204671
 GameObject:
   m_ObjectHideFlags: 0
@@ -18280,6 +18750,7 @@ GameObject:
   - component: {fileID: 1933997789}
   - component: {fileID: 1933997791}
   - component: {fileID: 1933997790}
+  - component: {fileID: 1933997792}
   m_Layer: 5
   m_Name: Bullet Speed
   m_TagString: Untagged
@@ -18408,6 +18879,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933997788}
   m_CullTransparentMesh: 1
+--- !u!114 &1933997792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933997788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullet Speed
+  _content: "The velocity at which a bullet travels after being spawned, measured
+    in units per second. \n\nHigher values make bullets move faster; lower values
+    make them travel more slowly."
+  _headerColor: {r: 1, g: 0, b: 0.69411767, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &1961376450
 GameObject:
   m_ObjectHideFlags: 0
@@ -19585,6 +20076,7 @@ GameObject:
   - component: {fileID: 2042208124}
   - component: {fileID: 2042208126}
   - component: {fileID: 2042208125}
+  - component: {fileID: 2042208127}
   m_Layer: 5
   m_Name: 'Bullet Life '
   m_TagString: Untagged
@@ -19713,6 +20205,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042208123}
   m_CullTransparentMesh: 1
+--- !u!114 &2042208127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042208123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: Bullet Life
+  _content: "The amount of time, in seconds, that a bullet remains active before
+    it is automatically destroyed. \n\nOnce this duration expires, the bullet is
+    removed regardless of its position or speed."
+  _headerColor: {r: 0, g: 1, b: 0.9529412, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
+  _showDelay: 0.5
 --- !u!1 &2043984939
 GameObject:
   m_ObjectHideFlags: 0
