@@ -13,6 +13,8 @@ namespace ModularPrototypes.Manager
         [SerializeField]
         private static readonly List<string> _availalbleScenes = new()
         {
+            SceneModules.Voronoi_SplitScreen_Prototype,
+            SceneModules.Voronoi_Region_Generator_Prototype,
             SceneModules.BulletHell_Prototype,
             SceneModules.Platformer_Prototype,
             SceneModules.PlatformWithProjectiles_Prototype,
@@ -96,7 +98,6 @@ namespace ModularPrototypes.Manager
         {
             _sceneSwitchButton.onClick.RemoveListener(OnSceneSwitchButtonPressed);
             _panelCollapseButton.onClick.RemoveListener(() => _panelAnimator.SetTrigger("PanelInOut"));
-
         }
     }
 }

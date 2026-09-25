@@ -33,21 +33,25 @@ namespace ModularPrototypes.BulletHell.Data
             get => _bulletAmount;
             set => _bulletAmount = value;
         }
+
         public int OffsetAngle
         {
             get => _offsetAngle;
             set => _offsetAngle = value;
         }
+
         public int StartAngle
         {
             get => _startAngle;
             set => _startAngle = value;
         }
+
         public int EndAngle
         {
             get => _endAngle;
             set => _endAngle = value;
         }
+
         public float ShootInterval
         {
             get => _shootInterval;
@@ -59,16 +63,19 @@ namespace ModularPrototypes.BulletHell.Data
             get => _bulletSpeed;
             set => _bulletSpeed = value;
         }
+
         public float BulletLifeInSeconds
         {
             get => _bulletLifeInSeconds;
             set => _bulletLifeInSeconds = value;
         }
+
         public bool EnableTrail
         {
             get => _enableTrail;
             set => _enableTrail = value;
         }
+
         public int DeltaAngle
         {
             get => _deltaAngle;
