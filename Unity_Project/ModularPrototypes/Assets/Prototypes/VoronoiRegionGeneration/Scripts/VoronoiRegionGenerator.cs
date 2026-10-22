@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
@@ -11,12 +12,14 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         private Vector2Int _gridDimension;
         private Vector2Int[,] _seedPositions;
 
-        [SerializeField] private RawImage _mapVisual;
-        private Texture2D _texture2D;
-
-
         [SerializeField] private Gradient _colourGradient;
         [SerializeField] private Color[,] _cellColours;
+
+        #region Visual
+        [SerializeField] private RawImage _seedVisual;
+        [SerializeField] private RawImage _gridVisual;
+        [SerializeField] private RawImage _mapVisual;
+        #endregion
 
         private void Start()
         {
@@ -25,22 +28,23 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
         private void Initialize()
         {
-            _mapVisual = GetComponent<RawImage>();
-
             GenerateVoronoiMap();
-        }
-
-        private void CalculateDimensions()
-        {
-            _gridDimension = new Vector2Int(_mapDimension.x / _cellSize, _mapDimension.y / _cellSize);
         }
 
         [ContextMenu("GenerateVoronoiMap()")]
         private void GenerateVoronoiMap()
         {
-            CalculateDimensions();
+            GenerateGrid();
             GenerateSeeds();
             GenerateMap();
+
+            PaintGeneration();
+        }
+
+        #region Generation Logic
+        private void GenerateGrid()
+        {
+            _gridDimension = new Vector2Int(_mapDimension.x / _cellSize, _mapDimension.y / _cellSize);
         }
 
         private void GenerateSeeds()
@@ -61,71 +65,87 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
         private void GenerateMap()
         {
-            _texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
-            _texture2D.filterMode = FilterMode.Point;
-
-            PaintGeneratedSeedsWithGrid();
-
-            SaveToMap();
-        }
-
-        private void PaintGeneratedSeeds()
-        {
-            PaintBackgroundWithGrid();
-            PaintSeeds();
             GenerateVoronoiRegion();
         }
+        #endregion
 
-        private void PaintGeneratedSeedsWithGrid()
+        #region Visual Logic
+        private void PaintGeneration()
         {
-            PaintBackgroundWithGrid(true);
+            PaintGrid();
             PaintSeeds();
-            GenerateVoronoiRegion();
         }
 
-
-        private void PaintBackgroundWithGrid(bool paintGrid = false)
+        private void PaintGrid()
         {
+            var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
+            texture2D.filterMode = FilterMode.Point;
+
             for (int i = 0; i < _mapDimension.x; i++)
             {
                 for (int j = 0; j < _mapDimension.y; j++)
                 {
-                    var isGridPixel = paintGrid && ((i > 0 && i % _cellSize == 0) || (j > 0 && j % _cellSize == 0));
+                    var isGridPixel = (i > 0 && i % _cellSize == 0) || (j > 0 && j % _cellSize == 0);
+                    var colour = isGridPixel ? new Color(.5f, .5f, .5f, .25f) : new Color(0f, 0f, 0f, .5f);
 
-                    var colour = isGridPixel ? Color.gray : Color.white;
-                    //var colour = isGridPixel ? new Color(.25f, .25f, .25f, .25f) : new Color(1f, 1f, 1f, .25f);
-
-                    _texture2D.SetPixel(i, j, colour);
+                    texture2D.SetPixel(i, j, colour);
                 }
             }
+
+            SaveToMap(texture2D, _gridVisual);
         }
 
-        [ContextMenu("PaintSeeds()")]
-        private void VisualizeSeeds()
+        private void PaintSeeds()
         {
-            PaintSeeds(true);
-        }
+            var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
+            texture2D.filterMode = FilterMode.Point;
 
-        private void PaintSeeds(bool applyChanges = false)
-        {
+            var pixels = new Color[texture2D.width * texture2D.height];
+            texture2D.SetPixels(pixels);
+
+
             for (int i = 0; i < _gridDimension.x; i++)
             {
                 for (int j = 0; j < _gridDimension.y; j++)
                 {
                     var seedPosition = _seedPositions[i, j];
 
-                    _texture2D.SetPixel(seedPosition.x, seedPosition.y, Color.black);
+                    texture2D.SetPixel(seedPosition.x, seedPosition.y, Color.black);
                 }
             }
 
-            if (applyChanges)
-            {
-                SaveToMap();
-            }
+            SaveToMap(texture2D, _seedVisual);
         }
+
+        private void PaintVoronoiMap()
+        {
+            GenerateVoronoiRegion();
+        }
+
+        [ContextMenu("ToggleMapVisual()")]
+        private void ToggleMapVisual()
+        {
+            _mapVisual.enabled = !_mapVisual.enabled;
+        }
+
+        [ContextMenu("ToggleGridVisual()")]
+        private void ToggleGridVisual()
+        {
+            _gridVisual.enabled = !_gridVisual.enabled;
+        }
+
+        [ContextMenu("ToggleSeedVisual()")]
+        private void ToggleSeedVisual()
+        {
+            _seedVisual.enabled = !_seedVisual.enabled;
+        }
+        #endregion
 
         private void GenerateVoronoiRegion()
         {
+            var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
+            texture2D.filterMode = FilterMode.Point;
+
             for (int i = 0; i < _mapDimension.x; i++)
             {
                 for (int j = 0; j < _mapDimension.y; j++)
@@ -157,15 +177,19 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                         }
                     }
 
-                    _texture2D.SetPixel(i, j, _cellColours[nearestCellPosition.x, nearestCellPosition.y]);
+                    texture2D.SetPixel(i, j, _cellColours[nearestCellPosition.x, nearestCellPosition.y]);
                 }
             }
+
+            SaveToMap(texture2D, _mapVisual);
         }
 
-        private void SaveToMap()
+        #region Utilities
+        private void SaveToMap(Texture2D texture2D, RawImage rawImage)
         {
-            _texture2D.Apply();
-            _mapVisual.texture = _texture2D;
+            texture2D.Apply();
+            rawImage.texture = texture2D;
         }
+        #endregion
     }
 }
