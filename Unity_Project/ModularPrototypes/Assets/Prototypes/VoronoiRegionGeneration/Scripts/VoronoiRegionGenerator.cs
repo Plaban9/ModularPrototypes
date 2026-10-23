@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
@@ -202,9 +201,21 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         #endregion
 
         #region UI
-        private void OnHover(int x, int y)
+        [ContextMenu("OnHover()")]
+        private void OnHover()
         {
-            
+            OnHover(x: 40);
+        }
+
+        private void OnHover(int x = 30, int y = 30)
+        {
+            var currentGrid = new Vector2Int(x / _cellSize, y / _cellSize);
+            var seedPosition = _seedPositions[currentGrid.x, currentGrid.y];
+            var regionColor = _cellColours[currentGrid.x, currentGrid.y]; // TODO: Fix this to locate after Voronoi Region Generation
+
+            var pixelData = new VoronoiRegionPixelData(new Vector2Int(x, y), currentGrid, seedPosition, regionColor);
+
+            Debug.Log(pixelData);
         }
         #endregion
     }
