@@ -9,7 +9,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [SerializeField] private Vector2Int _mapDimension;
         [SerializeField] private int _cellSize = 10;
 
-        private Vector2Int _gridDimension;
+        private Vector2Int _gridLayout;
         private Vector2Int[,] _seedPositions;
 
         [SerializeField] private Gradient _colourGradient;
@@ -44,17 +44,19 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         #region Generation Logic
         private void GenerateGrid()
         {
-            _gridDimension = new Vector2Int(_mapDimension.x / _cellSize, _mapDimension.y / _cellSize);
+            // Calculate Grid Count in X and Y
+            _gridLayout = new Vector2Int(_mapDimension.x / _cellSize, _mapDimension.y / _cellSize);
         }
 
         private void GenerateSeeds()
         {
-            _seedPositions = new Vector2Int[_gridDimension.x, _gridDimension.y];
-            _cellColours = new Color[_gridDimension.x, _gridDimension.y];
+            // Initialize the 2D array to store respective data (Seed's Position and Colour)
+            _seedPositions = new Vector2Int[_gridLayout.x, _gridLayout.y];
+            _cellColours = new Color[_gridLayout.x, _gridLayout.y];
 
-            for (int x = 0; x < _gridDimension.x; x++)
+            for (int x = 0; x < _gridLayout.x; x++)
             {
-                for (int y = 0; y < _gridDimension.y; y++)
+                for (int y = 0; y < _gridLayout.y; y++)
                 {
                     _seedPositions[x, y] = new Vector2Int(x * _cellSize + Random.Range(1, _cellSize), y * _cellSize + Random.Range(1, _cellSize));
 
@@ -104,9 +106,9 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             texture2D.SetPixels(pixels);
 
 
-            for (int i = 0; i < _gridDimension.x; i++)
+            for (int i = 0; i < _gridLayout.x; i++)
             {
-                for (int j = 0; j < _gridDimension.y; j++)
+                for (int j = 0; j < _gridLayout.y; j++)
                 {
                     var seedPosition = _seedPositions[i, j];
 
@@ -146,15 +148,19 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
             texture2D.filterMode = FilterMode.Point;
 
+
+            // Iteration of 2D to determine the region closeness towards the seed of each pixel
             for (int i = 0; i < _mapDimension.x; i++)
             {
                 for (int j = 0; j < _mapDimension.y; j++)
                 {
+                    // Locate Current Grid for the Pixel
                     var currentGrid = new Vector2Int(i / _cellSize, j / _cellSize);
 
                     var nearestDistance = Mathf.Infinity;
                     var nearestCellPosition = new Vector2Int();
 
+                    // Checking Surrounding Grids
                     for (int x = -1; x < 2; x++)
                     {
                         for (int y = -1; y < 2; y++)
@@ -162,11 +168,13 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                             int posX = x + currentGrid.x;
                             int posY = y + currentGrid.y;
 
-                            if (posX < 0 || posY < 0 || posX >= _gridDimension.x || posY >= _gridDimension.y)
+                            // Edge Cases
+                            if (posX < 0 || posY < 0 || posX >= _gridLayout.x || posY >= _gridLayout.y)
                             {
                                 continue;
                             }
 
+                            // Checking shortest distance from that pixel to seed of the respective Grid
                             var distance = Vector2Int.Distance(new Vector2Int(i, j), _seedPositions[posX, posY]);
 
                             if (distance < nearestDistance)
@@ -177,6 +185,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                         }
                     }
 
+                    // Assign Colour of the nearest Seed
                     texture2D.SetPixel(i, j, _cellColours[nearestCellPosition.x, nearestCellPosition.y]);
                 }
             }
@@ -189,6 +198,13 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         {
             texture2D.Apply();
             rawImage.texture = texture2D;
+        }
+        #endregion
+
+        #region UI
+        private void OnHover(int x, int y)
+        {
+            
         }
         #endregion
     }
