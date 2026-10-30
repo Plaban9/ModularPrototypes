@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 15, y: 195.00002}
+  m_AnchoredPosition: {x: 15, y: 235}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14653822
@@ -2206,7 +2206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 15, y: 235.00002}
+  m_AnchoredPosition: {x: 15, y: 155}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606910764
@@ -2995,7 +2995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 15, y: 155.00002}
+  m_AnchoredPosition: {x: 15, y: 195}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807953408
@@ -3498,7 +3498,7 @@ GameObject:
   - component: {fileID: 1071447767}
   - component: {fileID: 1071447766}
   m_Layer: 5
-  m_Name: Borders
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3869,9 +3869,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 606910763}
   - {fileID: 14653821}
   - {fileID: 807953407}
+  - {fileID: 606910763}
   - {fileID: 961501829}
   m_Father: {fileID: 163264624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4331,8 +4331,10 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
+  _borderColour: {r: 0, g: 0, b: 0, a: 1}
   _seedVisual: {fileID: 1113412429}
   _gridVisual: {fileID: 1093034238}
+  _borderVisual: {fileID: 1071447766}
   _mapVisual: {fileID: 1891244284}
 --- !u!1 &1514507779
 GameObject:
