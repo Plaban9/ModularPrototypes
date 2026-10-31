@@ -755,7 +755,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1110767552}
   - {fileID: 258597966}
@@ -4271,13 +4271,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 727986223}
   - {fileID: 1891244282}
   - {fileID: 1071447765}
   - {fileID: 1093034237}
   - {fileID: 1113412428}
+  - {fileID: 1842490028}
   m_Father: {fileID: 641980481}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4297,23 +4298,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07febc0e6ba9f894788618ce1ace0a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.VoronoiRegionGenerator
-  _mapDimension: {x: 50, y: 50}
-  _cellSize: 10
+  _mapDimension: {x: 100, y: 100}
+  _cellSize: 20
   _colourGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0.26125875, b: 0.8862745, a: 1}
     key1: {r: 0.972549, g: 0, b: 0.7184859, a: 1}
-    key2: {r: 0.5377358, g: 0.021573959, b: 0.0025364957, a: 0}
-    key3: {r: 0, g: 1, b: 0.9263356, a: 0}
-    key4: {r: 0.58017635, g: 1, b: 0, a: 0}
+    key2: {r: 0, g: 1, b: 0.9263356, a: 0}
+    key3: {r: 0.58017635, g: 1, b: 0, a: 0}
+    key4: {r: 0.5377358, g: 0.021573959, b: 0.0025364957, a: 0}
     key5: {r: 1, g: 0.95496154, b: 0, a: 0}
     key6: {r: 1, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 19935
-    ctime2: 29777
-    ctime3: 38250
-    ctime4: 49837
+    ctime2: 29902
+    ctime3: 38748
+    ctime4: 48092
     ctime5: 58309
     ctime6: 65535
     ctime7: 0
@@ -4329,11 +4330,15 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  _borderColour: {r: 0, g: 0, b: 0, a: 1}
   _seedVisual: {fileID: 1113412429}
   _gridVisual: {fileID: 1093034238}
   _borderVisual: {fileID: 1071447766}
   _mapVisual: {fileID: 1891244284}
+  _mapCoordinateInput: {fileID: 1842490031}
+  _seedColour: {r: 0.1, g: 0.1, b: 0.1, a: 0.7490196}
+  _gridColour: {r: 0, g: 0, b: 0, a: 0.5019608}
+  _gridBorderColour: {r: 0.5, g: 0.5, b: 0.5, a: 0.5019608}
+  _borderColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1514507779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5852,6 +5857,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769329925}
   m_CullTransparentMesh: 1
+--- !u!1 &1842490027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842490028}
+  - component: {fileID: 1842490030}
+  - component: {fileID: 1842490029}
+  - component: {fileID: 1842490031}
+  m_Layer: 5
+  m_Name: CoordinatePixelData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1842490028
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842490027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1505500548}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1842490029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842490027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1842490030
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842490027}
+  m_CullTransparentMesh: 1
+--- !u!114 &1842490031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842490027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2480a98784fd5604fb4656a59c23e46e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.RawImageCoordinateEmitter
+  _rawImageRectTransform: {fileID: 1842490028}
+  _coordinateDimensions: {x: 1000, y: 1000}
 --- !u!1 &1863166272
 GameObject:
   m_ObjectHideFlags: 0
@@ -6673,7 +6765,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

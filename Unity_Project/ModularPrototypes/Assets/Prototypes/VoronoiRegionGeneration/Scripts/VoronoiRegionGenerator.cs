@@ -1,3 +1,6 @@
+using ModularPrototypes.DebugUtils;
+using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +8,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 {
     public class VoronoiRegionGenerator : MonoBehaviour
     {
+        [Header("Map Properties")]
         [SerializeField] private Vector2Int _mapDimension;
         [SerializeField] private int _cellSize = 10;
 
@@ -12,16 +16,52 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         private Vector2Int[,] _seedPositions;
         private Vector2Int[,] _regionMap;
 
+        [Header("Map Visualization")]
         [SerializeField] private Gradient _colourGradient;
         [SerializeField] private Color[,] _cellColours;
-        [SerializeField] private Color _borderColour = Color.black;
 
         #region Visual
+        [Header("UI")]
         [SerializeField] private RawImage _seedVisual;
         [SerializeField] private RawImage _gridVisual;
         [SerializeField] private RawImage _borderVisual;
         [SerializeField] private RawImage _mapVisual;
         #endregion
+
+        #region UI
+        [Header("UI Events")]
+        [SerializeField] private RawImageCoordinateEmitter _mapCoordinateInput;
+        #endregion
+
+        #region Colour Constants
+        [Header("Colour Constants")]
+        [SerializeField] private Color _seedColour = Color.gray4;
+        [SerializeField] private Color _gridColour = new Color(0f, 0f, 0f, .5f);
+        [SerializeField] private Color _gridBorderColour = new Color(.5f, .5f, .5f, .25f);
+        [SerializeField] private Color _borderColour = Color.black;
+        #endregion
+
+        private void OnEnable()
+        {
+            if (_mapCoordinateInput == null)
+            {
+                return;
+            }
+
+            _mapCoordinateInput.PointerMoved += OnMapPointerMoved;
+            _mapCoordinateInput.PointerExited += OnMapPointerExited;
+        }
+
+        private void OnDisable()
+        {
+            if (_mapCoordinateInput == null)
+            {
+                return;
+            }
+
+            _mapCoordinateInput.PointerMoved -= OnMapPointerMoved;
+            _mapCoordinateInput.PointerExited -= OnMapPointerExited;
+        }
 
         private void Start()
         {
@@ -65,17 +105,6 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                     _cellColours[x, y] = _colourGradient.Evaluate(Random.Range(0f, 1f));
                 }
             }
-        }
-
-        private bool IsDifferentRegion(int x, int y, Vector2Int currentRegion)
-        {
-            // Do not draw a border around the outside of the map.
-            if (x < 0 || y < 0 || x >= _mapDimension.x || y >= _mapDimension.y)
-            {
-                return false;
-            }
-
-            return _regionMap[x, y] != currentRegion;
         }
 
         private void GenerateMap()
@@ -161,6 +190,17 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
             SaveToMap(texture2D, _borderVisual);
         }
+
+        private bool IsDifferentRegion(int x, int y, Vector2Int currentRegion)
+        {
+            // Do not draw a border around the outside of the map.
+            if (x < 0 || y < 0 || x >= _mapDimension.x || y >= _mapDimension.y)
+            {
+                return false;
+            }
+
+            return _regionMap[x, y] != currentRegion;
+        }
         #endregion
 
         #region Visual Logic
@@ -181,7 +221,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                 for (int j = 0; j < _mapDimension.y; j++)
                 {
                     var isGridPixel = (i > 0 && i % _cellSize == 0) || (j > 0 && j % _cellSize == 0);
-                    var colour = isGridPixel ? new Color(.5f, .5f, .5f, .25f) : new Color(0f, 0f, 0f, .5f);
+                    var colour = isGridPixel ? _gridBorderColour : _gridColour;
 
                     texture2D.SetPixel(i, j, colour);
                 }
@@ -198,14 +238,13 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             var pixels = new Color[texture2D.width * texture2D.height];
             texture2D.SetPixels(pixels);
 
-
             for (int i = 0; i < _gridLayout.x; i++)
             {
                 for (int j = 0; j < _gridLayout.y; j++)
                 {
                     var seedPosition = _seedPositions[i, j];
 
-                    texture2D.SetPixel(seedPosition.x, seedPosition.y, Color.black);
+                    texture2D.SetPixel(seedPosition.x, seedPosition.y, _seedColour);
                 }
             }
 
@@ -254,30 +293,54 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         }
         #endregion
 
+        #region UI
+        [ContextMenu("OnHover()")]
+        private void OnHover()
+        {
+
+        }
+
+        private void OnHover(int x, int y)
+        {
+        }
+        #endregion
+
+        #region UI Event Handlers
+        private void OnMapPointerMoved(Vector2Int pixelPosition, Vector2Int mapSize)
+        {
+            if (_regionMap == null)
+            {
+                return;
+            }
+
+            Vector2 normalizedPixelPosition = new Vector2((float)pixelPosition.x / mapSize.x, (float)pixelPosition.y / mapSize.y);
+            Vector2Int cellPosition = new Vector2Int((int)(normalizedPixelPosition.x * _mapDimension.x), (int)(normalizedPixelPosition.y * _mapDimension.y));
+
+            var region = _regionMap[cellPosition.x, cellPosition.y];
+            var seedPosition = _seedPositions[region.x, region.y];
+            var regionColor = _cellColours[region.x, region.y];
+
+            var pixelData = new VoronoiRegionPixelData(cellPosition, region, seedPosition, regionColor);
+
+            D(pixelData.ToString());
+        }
+
+        private void OnMapPointerExited()
+        {
+            D("Pointer exited the map area.");
+        }
+        #endregion
+
         #region Utilities
         private void SaveToMap(Texture2D texture2D, RawImage rawImage)
         {
             texture2D.Apply();
             rawImage.texture = texture2D;
         }
-        #endregion
 
-        #region UI
-        [ContextMenu("OnHover()")]
-        private void OnHover()
+        private static void D(string message)
         {
-            OnHover(x: 40);
-        }
-
-        private void OnHover(int x = 30, int y = 30)
-        {
-            var currentGrid = new Vector2Int(x / _cellSize, y / _cellSize);
-            var seedPosition = _seedPositions[currentGrid.x, currentGrid.y];
-            var regionColor = _cellColours[currentGrid.x, currentGrid.y]; // TODO: Fix this to locate after Voronoi Region Generation
-
-            var pixelData = new VoronoiRegionPixelData(new Vector2Int(x, y), currentGrid, seedPosition, regionColor);
-
-            Debug.Log(pixelData);
+            DebugUtils.DebugInfo.Print("<<VoronoiRegionGenerator>> " + message);
         }
         #endregion
     }
