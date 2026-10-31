@@ -83,6 +83,84 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             GenerateVoronoiRegion();
             GenerateBorder();
         }
+
+        private void GenerateVoronoiRegion()
+        {
+            _regionMap = new Vector2Int[_mapDimension.x, _mapDimension.y];
+
+            // Iteration of 2D to determine the region closeness towards the seed of each pixel
+            for (int i = 0; i < _mapDimension.x; i++)
+            {
+                for (int j = 0; j < _mapDimension.y; j++)
+                {
+                    // Locate Current Grid for the Pixel
+                    var currentGrid = new Vector2Int(i / _cellSize, j / _cellSize);
+
+                    var nearestDistance = Mathf.Infinity;
+                    var nearestCellPosition = Vector2Int.zero;
+
+                    // Checking Surrounding Grids
+                    for (int x = -1; x < 2; x++)
+                    {
+                        for (int y = -1; y < 2; y++)
+                        {
+                            int posX = x + currentGrid.x;
+                            int posY = y + currentGrid.y;
+
+                            // Edge Cases
+                            if (posX < 0 || posY < 0 || posX >= _gridLayout.x || posY >= _gridLayout.y)
+                            {
+                                continue;
+                            }
+
+                            // Checking shortest distance from that pixel to seed of the respective Grid
+                            var seedPosition = _seedPositions[posX, posY];
+                            var pixelPosition = new Vector2Int(i, j);
+                            var distance = (pixelPosition - seedPosition).sqrMagnitude;
+
+                            if (distance < nearestDistance)
+                            {
+                                nearestDistance = distance;
+                                nearestCellPosition = new Vector2Int(posX, posY);
+                            }
+                        }
+                    }
+
+                    _regionMap[i, j] = nearestCellPosition;
+                }
+            }
+        }
+
+        private void GenerateBorder()
+        {
+            var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
+            texture2D.filterMode = FilterMode.Point;
+
+            var pixels = new Color[_mapDimension.x * _mapDimension.y];
+
+            texture2D.SetPixels(pixels);
+
+            for (int x = 0; x < _mapDimension.x; x++)
+            {
+                for (int y = 0; y < _mapDimension.y; y++)
+                {
+                    var currentRegion = _regionMap[x, y];
+
+                    var isBorder =
+                        IsDifferentRegion(x - 1, y, currentRegion) ||
+                        IsDifferentRegion(x + 1, y, currentRegion) ||
+                        IsDifferentRegion(x, y - 1, currentRegion) ||
+                        IsDifferentRegion(x, y + 1, currentRegion);
+
+                    if (isBorder)
+                    {
+                        texture2D.SetPixel(x, y, _borderColour);
+                    }
+                }
+            }
+
+            SaveToMap(texture2D, _borderVisual);
+        }
         #endregion
 
         #region Visual Logic
@@ -175,89 +253,6 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             _seedVisual.enabled = !_seedVisual.enabled;
         }
         #endregion
-
-        private void GenerateVoronoiRegion()
-        {
-            _regionMap = new Vector2Int[_mapDimension.x, _mapDimension.y];
-
-            // Iteration of 2D to determine the region closeness towards the seed of each pixel
-            for (int i = 0; i < _mapDimension.x; i++)
-            {
-                for (int j = 0; j < _mapDimension.y; j++)
-                {
-                    // Locate Current Grid for the Pixel
-                    var currentGrid = new Vector2Int(i / _cellSize, j / _cellSize);
-
-                    var nearestDistance = Mathf.Infinity;
-                    var nearestCellPosition = Vector2Int.zero;
-
-                    // Checking Surrounding Grids
-                    for (int x = -1; x < 2; x++)
-                    {
-                        for (int y = -1; y < 2; y++)
-                        {
-                            int posX = x + currentGrid.x;
-                            int posY = y + currentGrid.y;
-
-                            // Edge Cases
-                            if (posX < 0 || posY < 0 || posX >= _gridLayout.x || posY >= _gridLayout.y)
-                            {
-                                continue;
-                            }
-
-                            // Checking shortest distance from that pixel to seed of the respective Grid
-                            var seedPosition = _seedPositions[posX, posY];
-                            var pixelPosition = new Vector2Int(i, j);
-                            var distance = (pixelPosition - seedPosition).sqrMagnitude;
-
-                            if (distance < nearestDistance)
-                            {
-                                nearestDistance = distance;
-                                nearestCellPosition = new Vector2Int(posX, posY);
-                            }
-                        }
-                    }
-
-                    _regionMap[i, j] = nearestCellPosition;
-                }
-            }
-        }
-
-        private void GenerateBorder()
-        {
-            var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
-            texture2D.filterMode = FilterMode.Point;
-
-            var pixels = new Color[_mapDimension.x * _mapDimension.y];
-
-            for (int i = 0; i < pixels.Length; i++)
-            {
-                pixels[i] = Color.clear;
-            }
-
-            texture2D.SetPixels(pixels);
-
-            for (int x = 0; x < _mapDimension.x; x++)
-            {
-                for (int y = 0; y < _mapDimension.y; y++)
-                {
-                    var currentRegion = _regionMap[x, y];
-
-                    var isBorder =
-                        IsDifferentRegion(x - 1, y, currentRegion) ||
-                        IsDifferentRegion(x + 1, y, currentRegion) ||
-                        IsDifferentRegion(x, y - 1, currentRegion) ||
-                        IsDifferentRegion(x, y + 1, currentRegion);
-
-                    if (isBorder)
-                    {
-                        texture2D.SetPixel(x, y, _borderColour);
-                    }
-                }
-            }
-
-            SaveToMap(texture2D, _borderVisual);
-        }
 
         #region Utilities
         private void SaveToMap(Texture2D texture2D, RawImage rawImage)
