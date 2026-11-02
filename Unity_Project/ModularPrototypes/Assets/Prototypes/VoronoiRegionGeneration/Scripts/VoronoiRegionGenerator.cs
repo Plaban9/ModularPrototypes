@@ -218,6 +218,18 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             PaintVoronoiMap();
         }
 
+        private bool IsInternalGridLine(int coordinate, int dimension)
+        {
+            if (coordinate <= 0 || coordinate >= dimension - 1)
+            {
+                return false;
+            }
+
+            var remainder = coordinate % _cellSize;
+
+            return remainder == 0 || remainder == _cellSize - 1;
+        }
+
         private void PaintGrid()
         {
             var texture2D = new Texture2D(_mapDimension.x, _mapDimension.y);
@@ -227,7 +239,13 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             {
                 for (int j = 0; j < _mapDimension.y; j++)
                 {
-                    var isGridPixel = (i > 0 && i % _cellSize == 0) || (j > 0 && j % _cellSize == 0);
+                    var isVerticalGridLine =
+                        IsInternalGridLine(i, _mapDimension.x);
+
+                    var isHorizontalGridLine =
+                        IsInternalGridLine(j, _mapDimension.y);
+
+                    var isGridPixel = isVerticalGridLine || isHorizontalGridLine;
                     var colour = isGridPixel ? _gridBorderColour : _gridColour;
 
                     texture2D.SetPixel(i, j, colour);
@@ -340,7 +358,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             var pixelData = new VoronoiRegionPixelData(cellPosition, region, seedPosition, regionColour);
 
             HandleCellHighlighter(cellPosition);
-            HandlePixelHighlighter(cellPosition);
+            //HandlePixelHighlighter(cellPosition);
 
             D(pixelData.ToString());
         }
