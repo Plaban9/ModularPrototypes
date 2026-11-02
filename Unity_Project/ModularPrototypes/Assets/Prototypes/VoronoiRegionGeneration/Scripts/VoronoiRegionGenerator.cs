@@ -15,10 +15,12 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         private Vector2Int _gridLayout;
         private Vector2Int[,] _seedPositions;
         private Vector2Int[,] _regionMap;
+        private Color[,] _cellColours;
 
         [Header("Map Visualization")]
         [SerializeField] private Gradient _colourGradient;
-        [SerializeField] private Color[,] _cellColours;
+        [SerializeField] private int _gridHighlightThickness = 2;
+
 
         #region Visual
         [Header("UI")]
@@ -26,6 +28,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [SerializeField] private RawImage _gridVisual;
         [SerializeField] private RawImage _borderVisual;
         [SerializeField] private RawImage _mapVisual;
+        [SerializeField] private RawImage _cellHighlightVisual;
         #endregion
 
         #region UI
@@ -36,9 +39,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         #region Colour Constants
         [Header("Colour Constants")]
         [SerializeField] private Color _seedColour = Color.gray4;
-        [SerializeField] private Color _gridColour = new Color(0f, 0f, 0f, .5f);
-        [SerializeField] private Color _gridBorderColour = new Color(.5f, .5f, .5f, .25f);
+        [SerializeField] private Color _gridColour = new Color(0f, 0f, 0f, 0.5f);
+        [SerializeField] private Color _gridBorderColour = new Color(0.5f, 0.5f, 0.5f, 0.25f);
         [SerializeField] private Color _borderColour = Color.black;
+
+        [SerializeField] private Color _gridHighlightColour = Color.red;
         #endregion
 
         private void OnEnable()
@@ -48,6 +53,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                 return;
             }
 
+            _mapCoordinateInput.PointerEntered += OnMapPointerEntered;
             _mapCoordinateInput.PointerMoved += OnMapPointerMoved;
             _mapCoordinateInput.PointerExited += OnMapPointerExited;
         }
@@ -59,6 +65,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
                 return;
             }
 
+            _mapCoordinateInput.PointerEntered -= OnMapPointerEntered;
             _mapCoordinateInput.PointerMoved -= OnMapPointerMoved;
             _mapCoordinateInput.PointerExited -= OnMapPointerExited;
         }
@@ -306,21 +313,34 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         #endregion
 
         #region UI Event Handlers
-        private void OnMapPointerMoved(Vector2Int pixelPosition, Vector2Int mapSize)
+        private void OnMapPointerEntered()
+        {
+            D("Pointer entered the map area.");
+
+            if (_cellHighlightVisual != null)
+            {
+                _cellHighlightVisual.enabled = true;
+            }
+        }
+
+        private void OnMapPointerMoved(Vector2Int relativePixelPosition, Vector2Int mapSize)
         {
             if (_regionMap == null)
             {
                 return;
             }
 
-            Vector2 normalizedPixelPosition = new Vector2((float)pixelPosition.x / mapSize.x, (float)pixelPosition.y / mapSize.y);
+            Vector2 normalizedPixelPosition = new Vector2((float)relativePixelPosition.x / mapSize.x, (float)relativePixelPosition.y / mapSize.y);
             Vector2Int cellPosition = new Vector2Int((int)(normalizedPixelPosition.x * _mapDimension.x), (int)(normalizedPixelPosition.y * _mapDimension.y));
 
             var region = _regionMap[cellPosition.x, cellPosition.y];
             var seedPosition = _seedPositions[region.x, region.y];
-            var regionColor = _cellColours[region.x, region.y];
+            var regionColour = _cellColours[region.x, region.y];
 
-            var pixelData = new VoronoiRegionPixelData(cellPosition, region, seedPosition, regionColor);
+            var pixelData = new VoronoiRegionPixelData(cellPosition, region, seedPosition, regionColour);
+
+            HandleCellHighlighter(cellPosition);
+            HandlePixelHighlighter(cellPosition);
 
             D(pixelData.ToString());
         }
@@ -328,6 +348,78 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         private void OnMapPointerExited()
         {
             D("Pointer exited the map area.");
+
+            if (_cellHighlightVisual != null)
+            {
+                _cellHighlightVisual.enabled = false;
+            }
+        }
+
+        private void HandleCellHighlighter(Vector2Int cellPosition)
+        {
+            //Implement logic to highlight the cell under the pointer
+            //D("Cell Position: " + cellPosition);
+            //if (_cellHighlightVisual == null)
+            //{
+            //    return;
+            //}
+
+            //var actualPosition = _mapVisual.rectTransform.rect.width / 2;
+
+            //_cellHighlightVisual.gameObject.transform.position = new Vector3(cellPosition.x + actualPosition, cellPosition.y + actualPosition, 0);
+            //_cellHighlightVisual.rectTransform.anchoredPosition = new Vector2(cellPosition.x, cellPosition.y);
+
+
+            if (_cellHighlightVisual == null || _mapVisual == null)
+            {
+                return;
+            }
+
+            var mapRectTransform = _mapVisual.rectTransform;
+            var highlightRectTransform = _cellHighlightVisual.rectTransform;
+
+            // cellPosition is a map-pixel position.
+            var gridPosition = new Vector2Int(
+                Mathf.Clamp(cellPosition.x / _cellSize, 0, _gridLayout.x - 1),
+                Mathf.Clamp(cellPosition.y / _cellSize, 0, _gridLayout.y - 1));
+
+            var cellWidth = mapRectTransform.rect.width / _gridLayout.x;
+            var cellHeight = mapRectTransform.rect.height / _gridLayout.y;
+
+            // Calculate the center of the grid cell in map-local coordinates.
+            var localCellCenter = new Vector3(
+                mapRectTransform.rect.xMin + ((gridPosition.x + 0.5f) * cellWidth),
+                mapRectTransform.rect.yMin + ((gridPosition.y + 0.5f) * cellHeight),
+                0f);
+
+            // Convert the map-local position to the UI canvas/world position.
+            var worldCellCenter = mapRectTransform.TransformPoint(localCellCenter);
+
+            highlightRectTransform.pivot = new Vector2(0.5f, 0.5f);
+            highlightRectTransform.sizeDelta = new Vector2(cellWidth, cellHeight);
+            highlightRectTransform.position = worldCellCenter;
+        }
+
+        private void HandlePixelHighlighter(Vector2Int pixelPosition)
+        {
+            if (_cellHighlightVisual == null || _mapVisual == null)
+            {
+                return;
+            }
+
+            var mapRectTransform = _mapVisual.rectTransform;
+            var highlightRectTransform = _cellHighlightVisual.rectTransform;
+
+            var pixelWidth = mapRectTransform.rect.width / _mapDimension.x;
+            var pixelHeight = mapRectTransform.rect.height / _mapDimension.y;
+
+            var localPixelCenter = new Vector3(mapRectTransform.rect.xMin + ((pixelPosition.x + 0.5f) * pixelWidth), mapRectTransform.rect.yMin + ((pixelPosition.y + 0.5f) * pixelHeight), 0f);
+
+            var worldPixelCenter = mapRectTransform.TransformPoint(localPixelCenter);
+
+            highlightRectTransform.pivot = new Vector2(0.5f, 0.5f);
+            highlightRectTransform.sizeDelta = new Vector2(pixelWidth, pixelHeight);
+            highlightRectTransform.position = worldPixelCenter;
         }
         #endregion
 

@@ -5,13 +5,16 @@ using UnityEngine.EventSystems;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 {
-    public class RawImageCoordinateEmitter : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
+    public class RawImageCoordinateEmitter : MonoBehaviour, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
     {
         [SerializeField] private RectTransform _rawImageRectTransform;
         [SerializeField] private Vector2Int _coordinateDimensions;
 
+        #region Events
+        public event Action PointerEntered;
         public event Action<Vector2Int, Vector2Int> PointerMoved;
         public event Action PointerExited;
+        #endregion
 
         private void Awake()
         {
@@ -21,6 +24,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             }
 
             _coordinateDimensions = new Vector2Int((int)_rawImageRectTransform.rect.width, (int)_rawImageRectTransform.rect.height);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            PointerEntered?.Invoke();
         }
 
         public void OnPointerMove(PointerEventData eventData)
