@@ -19,7 +19,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
         [Header("Map Visualization")]
         [SerializeField] private Gradient _colourGradient;
-        [SerializeField] private int _gridHighlightThickness = 2;
+        [SerializeField] private int _cellHighlightThickness = 2;
 
 
         #region Visual
@@ -29,6 +29,8 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [SerializeField] private RawImage _borderVisual;
         [SerializeField] private RawImage _mapVisual;
         [SerializeField] private RawImage _cellHighlightVisual;
+        [SerializeField] private RawImage _pixelHighlightVisual;
+        private Texture2D _cellHighlightTexture;
         #endregion
 
         #region UI
@@ -43,9 +45,10 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [SerializeField] private Color _gridBorderColour = new Color(0.5f, 0.5f, 0.5f, 0.25f);
         [SerializeField] private Color _borderColour = Color.black;
 
-        [SerializeField] private Color _gridHighlightColour = Color.red;
+        //[SerializeField] private Color _gridHighlightColour = Color.red;
         #endregion
 
+        #region Unity Lifecycle
         private void OnEnable()
         {
             if (_mapCoordinateInput == null)
@@ -70,10 +73,19 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             _mapCoordinateInput.PointerExited -= OnMapPointerExited;
         }
 
+        private void OnDestroy()
+        {
+            if (_cellHighlightTexture != null)
+            {
+                Destroy(_cellHighlightTexture);
+            }
+        }
+
         private void Start()
         {
             Initialize();
         }
+        #endregion
 
         private void Initialize()
         {
@@ -88,6 +100,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             GenerateMap();
 
             PaintGeneration();
+            InitializeCellHighlight();
         }
 
         #region Generation Logic
@@ -198,6 +211,43 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             SaveToMap(texture2D, _borderVisual);
         }
 
+        private void InitializeCellHighlight()
+        {
+            if (_cellHighlightVisual == null || _cellSize <= 0)
+            {
+                return;
+            }
+
+            if (_cellHighlightTexture != null)
+            {
+                Destroy(_cellHighlightTexture);
+            }
+
+            _cellHighlightTexture = new Texture2D(_cellSize, _cellSize, TextureFormat.RGBA32, false);
+
+            _cellHighlightTexture.filterMode = FilterMode.Point;
+            _cellHighlightTexture.wrapMode = TextureWrapMode.Clamp;
+
+            var pixels = new Color[_cellSize * _cellSize];
+            var edgeThickness = Mathf.Clamp(_cellHighlightThickness, 1, Mathf.Max(1, _cellSize / 2));
+
+            for (int x = 0; x < _cellSize; x++)
+            {
+                for (int y = 0; y < _cellSize; y++)
+                {
+                    var isEdge = x < edgeThickness || x >= _cellSize - edgeThickness || y < edgeThickness || y >= _cellSize - edgeThickness;
+
+                    pixels[(y * _cellSize) + x] = isEdge ? Color.white : Color.clear;
+                }
+            }
+
+            _cellHighlightTexture.SetPixels(pixels);
+            _cellHighlightTexture.Apply();
+
+            _cellHighlightVisual.texture = _cellHighlightTexture;
+            _cellHighlightVisual.raycastTarget = false;
+        }
+
         private bool IsDifferentRegion(int x, int y, Vector2Int currentRegion)
         {
             // Do not draw a border around the outside of the map.
@@ -220,7 +270,14 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
         private bool IsInternalGridLine(int coordinate, int dimension)
         {
-            if (coordinate <= 0 || coordinate >= dimension - 1)
+            //// Works for edge borders exclusion
+            //if (coordinate <= 0 || coordinate >= dimension - 1)
+            //{
+            //    return false;
+            //}
+
+            // Works for edge borders inclusion
+            if (coordinate < 0 || coordinate > dimension - 1)
             {
                 return false;
             }
@@ -239,11 +296,9 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             {
                 for (int j = 0; j < _mapDimension.y; j++)
                 {
-                    var isVerticalGridLine =
-                        IsInternalGridLine(i, _mapDimension.x);
+                    var isVerticalGridLine = IsInternalGridLine(i, _mapDimension.x);
 
-                    var isHorizontalGridLine =
-                        IsInternalGridLine(j, _mapDimension.y);
+                    var isHorizontalGridLine = IsInternalGridLine(j, _mapDimension.y);
 
                     var isGridPixel = isVerticalGridLine || isHorizontalGridLine;
                     var colour = isGridPixel ? _gridBorderColour : _gridColour;
@@ -339,6 +394,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             {
                 _cellHighlightVisual.enabled = true;
             }
+
+            if (_pixelHighlightVisual != null)
+            {
+                _pixelHighlightVisual.enabled = true;
+            }
         }
 
         private void OnMapPointerMoved(Vector2Int relativePixelPosition, Vector2Int mapSize)
@@ -349,18 +409,22 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             }
 
             Vector2 normalizedPixelPosition = new Vector2((float)relativePixelPosition.x / mapSize.x, (float)relativePixelPosition.y / mapSize.y);
-            Vector2Int cellPosition = new Vector2Int((int)(normalizedPixelPosition.x * _mapDimension.x), (int)(normalizedPixelPosition.y * _mapDimension.y));
+            Vector2Int pixelPosition = new Vector2Int((int)(normalizedPixelPosition.x * _mapDimension.x), (int)(normalizedPixelPosition.y * _mapDimension.y));
 
-            var region = _regionMap[cellPosition.x, cellPosition.y];
+            var region = _regionMap[pixelPosition.x, pixelPosition.y];
             var seedPosition = _seedPositions[region.x, region.y];
             var regionColour = _cellColours[region.x, region.y];
 
-            var pixelData = new VoronoiRegionPixelData(cellPosition, region, seedPosition, regionColour);
+            var pixelData = new VoronoiRegionPixelData(pixelPosition, region, seedPosition, regionColour);
 
-            HandleCellHighlighter(cellPosition);
-            //HandlePixelHighlighter(cellPosition);
+            var gridPosition = new Vector2Int(pixelPosition.x / _cellSize, pixelPosition.y / _cellSize);
+            var seedRegionColour = _cellColours[gridPosition.x, gridPosition.y];
 
-            D(pixelData.ToString());
+            var complementaryCellColour = GetComplementaryColour(seedRegionColour);
+            var complementaryPixelColour = GetComplementaryColour(regionColour);
+
+            HandleCellHighlighter(pixelPosition, complementaryCellColour);
+            HandlePixelHighlighter(pixelPosition, complementaryPixelColour);
         }
 
         private void OnMapPointerExited()
@@ -371,44 +435,34 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             {
                 _cellHighlightVisual.enabled = false;
             }
+
+            if (_pixelHighlightVisual != null)
+            {
+                _pixelHighlightVisual.enabled = false;
+            }
         }
 
-        private void HandleCellHighlighter(Vector2Int cellPosition)
+        private void HandleCellHighlighter(Vector2Int pixelPosition, Color highlightColour)
         {
             //Implement logic to highlight the cell under the pointer
-            //D("Cell Position: " + cellPosition);
-            //if (_cellHighlightVisual == null)
-            //{
-            //    return;
-            //}
-
-            //var actualPosition = _mapVisual.rectTransform.rect.width / 2;
-
-            //_cellHighlightVisual.gameObject.transform.position = new Vector3(cellPosition.x + actualPosition, cellPosition.y + actualPosition, 0);
-            //_cellHighlightVisual.rectTransform.anchoredPosition = new Vector2(cellPosition.x, cellPosition.y);
-
-
             if (_cellHighlightVisual == null || _mapVisual == null)
             {
                 return;
             }
 
+            highlightColour.a = _cellHighlightVisual.color.a;
+            _cellHighlightVisual.color = highlightColour;
+
             var mapRectTransform = _mapVisual.rectTransform;
             var highlightRectTransform = _cellHighlightVisual.rectTransform;
 
-            // cellPosition is a map-pixel position.
-            var gridPosition = new Vector2Int(
-                Mathf.Clamp(cellPosition.x / _cellSize, 0, _gridLayout.x - 1),
-                Mathf.Clamp(cellPosition.y / _cellSize, 0, _gridLayout.y - 1));
+            var gridPosition = new Vector2Int(Mathf.Clamp(pixelPosition.x / _cellSize, 0, _gridLayout.x - 1), Mathf.Clamp(pixelPosition.y / _cellSize, 0, _gridLayout.y - 1));
 
             var cellWidth = mapRectTransform.rect.width / _gridLayout.x;
             var cellHeight = mapRectTransform.rect.height / _gridLayout.y;
 
             // Calculate the center of the grid cell in map-local coordinates.
-            var localCellCenter = new Vector3(
-                mapRectTransform.rect.xMin + ((gridPosition.x + 0.5f) * cellWidth),
-                mapRectTransform.rect.yMin + ((gridPosition.y + 0.5f) * cellHeight),
-                0f);
+            var localCellCenter = new Vector3(mapRectTransform.rect.xMin + ((gridPosition.x + 0.5f) * cellWidth), mapRectTransform.rect.yMin + ((gridPosition.y + 0.5f) * cellHeight), 0f);
 
             // Convert the map-local position to the UI canvas/world position.
             var worldCellCenter = mapRectTransform.TransformPoint(localCellCenter);
@@ -418,21 +472,27 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             highlightRectTransform.position = worldCellCenter;
         }
 
-        private void HandlePixelHighlighter(Vector2Int pixelPosition)
+        private void HandlePixelHighlighter(Vector2Int pixelPosition, Color highlightColour)
         {
-            if (_cellHighlightVisual == null || _mapVisual == null)
+            //Implement logic to highlight the pixel under the pointer
+            if (_pixelHighlightVisual == null || _mapVisual == null)
             {
                 return;
             }
 
+            highlightColour.a = _pixelHighlightVisual.color.a;
+            _pixelHighlightVisual.color = highlightColour;
+
             var mapRectTransform = _mapVisual.rectTransform;
-            var highlightRectTransform = _cellHighlightVisual.rectTransform;
+            var highlightRectTransform = _pixelHighlightVisual.rectTransform;
 
             var pixelWidth = mapRectTransform.rect.width / _mapDimension.x;
             var pixelHeight = mapRectTransform.rect.height / _mapDimension.y;
 
+            // Calculate the center of the pixel cell in map-local coordinates.
             var localPixelCenter = new Vector3(mapRectTransform.rect.xMin + ((pixelPosition.x + 0.5f) * pixelWidth), mapRectTransform.rect.yMin + ((pixelPosition.y + 0.5f) * pixelHeight), 0f);
 
+            // Convert the map-local position to the UI canvas/world position.
             var worldPixelCenter = mapRectTransform.TransformPoint(localPixelCenter);
 
             highlightRectTransform.pivot = new Vector2(0.5f, 0.5f);
@@ -446,6 +506,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         {
             texture2D.Apply();
             rawImage.texture = texture2D;
+        }
+
+        private static Color GetComplementaryColour(Color colour)
+        {
+            return new Color(1f - colour.r, 1f - colour.g, 1f - colour.b, colour.a);
         }
 
         private static void D(string message)
