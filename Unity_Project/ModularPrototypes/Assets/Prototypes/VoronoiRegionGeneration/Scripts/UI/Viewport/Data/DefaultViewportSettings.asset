@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1e8e3cae9b761469e25fc01bc27813, type: 3}
+  m_Name: DefaultViewportSettings
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.Data.ViewportSettings
+  _minimumZoom: 0.5
+  _maximumZoom: 4
+  _zoomStep: 0.1
+  _initialZoom: 1
+  _constrainPan: 1
+  _minimumPan: {x: 0, y: 0}
+  _maximumPan: {x: 0, y: 0}
+  _initialPan: {x: 0, y: 0}

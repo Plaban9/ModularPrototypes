@@ -22,12 +22,22 @@ namespace ModularPrototypes.UI.Tooltip
 
         public static void Show(string header = "", Color? headerColor = null, string content = "", Color? contentColor = null, Color? backgroundColor = null)
         {
+            if (_instance == null)
+            {
+                return;
+            }
+
             _instance._tooltipHandler.SetTooltipAttributes(header, headerColor ?? Color.white, content, contentColor ?? Color.white, backgroundColor ?? Color.gray);
             _instance._tooltipHandler.ShowTooltip();
         }
 
         public static void Hide()
         {
+            if (_instance == null)
+            {
+                return;
+            }
+
             _instance._tooltipHandler.HideTooltip();
         }
     }

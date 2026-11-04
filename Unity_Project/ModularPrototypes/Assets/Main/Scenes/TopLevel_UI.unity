@@ -3228,6 +3228,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2391616560288684939, guid: c19e2e2e5ea1f3d4396840d78a0b9b4c, type: 3}
+      propertyPath: m_FlexibleWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391616560288684939, guid: c19e2e2e5ea1f3d4396840d78a0b9b4c, type: 3}
+      propertyPath: m_PreferredWidth
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 3748705309576647655, guid: c19e2e2e5ea1f3d4396840d78a0b9b4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -1,4 +1,4 @@
-using ModularPrototypes.DebugUtils;
+﻿using ModularPrototypes.UI.Tooltip;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
 
 using UnityEngine;
@@ -31,6 +31,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [SerializeField] private RawImage _cellHighlightVisual;
         [SerializeField] private RawImage _pixelHighlightVisual;
         private Texture2D _cellHighlightTexture;
+        private Vector2Int _lastPixelPosition = new Vector2Int(-1, -1);
         #endregion
 
         #region UI
@@ -392,7 +393,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
             if (_cellHighlightVisual != null)
             {
-                _cellHighlightVisual.enabled = true;
+                _cellHighlightVisual.enabled = _gridVisual.enabled;
             }
 
             if (_pixelHighlightVisual != null)
@@ -425,6 +426,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
             HandleCellHighlighter(pixelPosition, complementaryCellColour);
             HandlePixelHighlighter(pixelPosition, complementaryPixelColour);
+            ShowPixelDataTooltip(pixelData);
         }
 
         private void OnMapPointerExited()
@@ -440,6 +442,8 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             {
                 _pixelHighlightVisual.enabled = false;
             }
+
+            TooltipSystem.Hide();
         }
 
         private void HandleCellHighlighter(Vector2Int pixelPosition, Color highlightColour)
@@ -498,6 +502,39 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             highlightRectTransform.pivot = new Vector2(0.5f, 0.5f);
             highlightRectTransform.sizeDelta = new Vector2(pixelWidth, pixelHeight);
             highlightRectTransform.position = worldPixelCenter;
+        }
+
+        private void ShowPixelDataTooltip(VoronoiRegionPixelData pixelData)
+        {
+            if (pixelData.PixelLocation == _lastPixelPosition)
+            {
+                return;
+            }
+
+            _lastPixelPosition = pixelData.PixelLocation;
+
+            var colourHex = ColorUtility.ToHtmlStringRGBA(pixelData.RegionColor);
+
+            var colourBlock =
+                $"<mark=#{colourHex}><color=#00000000>MI</color></mark>\n" +
+                 "--------------------";
+
+            var header =
+                $"Region - {colourBlock}";
+
+            var content =
+                $"GRID LOCATION: ROW - {pixelData.GridLocation.x}, COL - {pixelData.GridLocation.y}\n" +
+                $"SEED LOCATION: {pixelData.SeedLocation}\n" +
+                $"PIXEL LOCATION: {pixelData.PixelLocation}";
+
+            var backgroundColor = new Color(0f, 0f, 0f, 0.8f);
+
+            TooltipSystem.Show(
+                header: header,
+                headerColor: Color.white,
+                content: content,
+                contentColor: Color.white,
+                backgroundColor: backgroundColor);
         }
         #endregion
 
