@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.Data
 {
-    [CreateAssetMenu(fileName = "ViewportSettings", menuName = "Data/Voronoi/Region/UI/Viewport/Viewport Settings")]
+    [CreateAssetMenu(fileName = "ViewportSettings", menuName = "Data/Voronoi/Region/UI/Viewport Settings")]
     public sealed class ViewportSettings : ScriptableObject
     {
         private const float MinimumAllowedZoom = 0.01f;
