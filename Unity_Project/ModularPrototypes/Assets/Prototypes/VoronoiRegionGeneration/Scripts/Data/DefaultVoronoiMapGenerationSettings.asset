@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bea492464d1bb45aa3ed9bcd27da06, type: 3}
   m_Name: DefaultVoronoiMapGenerationSettings
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data.VoronoiMapGenerationSettings
-  _mapDimension: {x: 1000, y: 1000}
-  _cellSize: 100
+  _mapDimension: {x: 120, y: 120}
+  _cellSize: 40
   _colourGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0.26125875, b: 0.8862745, a: 1}
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  _showGrid: 1
-  _showSeeds: 1
-  _showBorders: 1
+  _showGrid: 0
+  _showSeeds: 0
+  _showRegionBorders: 1
   _showGeneratedMap: 1

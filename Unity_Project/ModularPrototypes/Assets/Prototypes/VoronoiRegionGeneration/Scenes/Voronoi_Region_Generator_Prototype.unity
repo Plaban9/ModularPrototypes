@@ -810,6 +810,7 @@ GameObject:
   - component: {fileID: 163264628}
   - component: {fileID: 163264627}
   - component: {fileID: 163264626}
+  - component: {fileID: 163264629}
   m_Layer: 5
   m_Name: BGPanel
   m_TagString: Untagged
@@ -841,7 +842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -350, y: 0}
   m_SizeDelta: {x: 350, y: 600}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!95 &163264626
@@ -904,6 +905,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163264623}
   m_CullTransparentMesh: 1
+--- !u!114 &163264629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163264623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb535a2d6f0e5a4795dd712e65f34eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.UIManager
+  _settingsTemplate: {fileID: 11400000, guid: 9265cd8f05e26ef42bfb6e5d176afb27, type: 2}
+  _mapWidthInput: {fileID: 1704060276}
+  _mapHeightInput: {fileID: 1755815710}
+  _cellSizeInput: {fileID: 473091448}
+  _showGridToggle: {fileID: 1560877644}
+  _showSeedsToggle: {fileID: 1991665516}
+  _showBordersToggle: {fileID: 1570550268}
+  _showGeneratedMapToggle: {fileID: 1999437801}
+  _generateButton: {fileID: 49327311}
+  _resetButton: {fileID: 774145231}
+  _panelToggleButton: {fileID: 281781618}
+  _panelAnimator: {fileID: 163264626}
+  _panelToggleTrigger: Animate
 --- !u!1 &166069423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 220}
+  m_AnchoredPosition: {x: 40, y: 220}
   m_SizeDelta: {x: 40, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &281781617
