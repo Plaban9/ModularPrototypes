@@ -37,6 +37,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
         private VoronoiMapGenerationSettings _runtimeSettings;
 
         public event Action<VoronoiMapGenerationSettings> GenerateRequested;
+        public event Action ResetRequested;
 
         public VoronoiMapGenerationSettings CurrentSettings => _runtimeSettings;
 
@@ -44,7 +45,8 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
         {
             if (_settingsTemplate == null)
             {
-                D("Settings template is missing.");
+                D("Settings template is missing.", isError: true);
+
                 return;
             }
 
@@ -135,14 +137,12 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
             if (_showBordersToggle != null)
             {
-                _showBordersToggle.onValueChanged.RemoveListener(
-                    OnShowBordersChanged);
+                _showBordersToggle.onValueChanged.RemoveListener(OnShowBordersChanged);
             }
 
             if (_showGeneratedMapToggle != null)
             {
-                _showGeneratedMapToggle.onValueChanged.RemoveListener(
-                    OnShowGeneratedMapChanged);
+                _showGeneratedMapToggle.onValueChanged.RemoveListener(OnShowGeneratedMapChanged);
             }
 
             if (_generateButton != null)
@@ -169,19 +169,9 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             }
         }
 
-        private void OnPanelToggleButtonPressed()
-        {
-            if (_panelAnimator == null)
-            {
-                return;
-            }
-
-            _panelAnimator.SetTrigger(_panelToggleTrigger);
-        }
-
         private void OnMapWidthChanged(string value)
         {
-            if (!int.TryParse(value, out var width))
+            if (_runtimeSettings == null || !int.TryParse(value, out var width))
             {
                 ApplySettingsToUI();
                 return;
@@ -196,7 +186,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
         private void OnMapHeightChanged(string value)
         {
-            if (!int.TryParse(value, out var height))
+            if (_runtimeSettings == null || !int.TryParse(value, out var height))
             {
                 ApplySettingsToUI();
                 return;
@@ -211,7 +201,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
         private void OnCellSizeChanged(string value)
         {
-            if (!int.TryParse(value, out var cellSize))
+            if (_runtimeSettings == null || !int.TryParse(value, out var cellSize))
             {
                 ApplySettingsToUI();
                 return;
@@ -223,32 +213,54 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
         private void OnShowGridChanged(bool value)
         {
-            _runtimeSettings.SetShowGrid(value);
+            if (_runtimeSettings != null)
+            {
+                _runtimeSettings.SetShowGrid(value);
+            }
         }
 
         private void OnShowSeedsChanged(bool value)
         {
-            _runtimeSettings.SetShowSeeds(value);
+            if (_runtimeSettings != null)
+            {
+                _runtimeSettings.SetShowSeeds(value);
+            }
         }
 
         private void OnShowBordersChanged(bool value)
         {
-            _runtimeSettings.SetShowBorders(value);
+            if (_runtimeSettings != null)
+            {
+                _runtimeSettings.SetShowBorders(value);
+            }
         }
 
         private void OnShowGeneratedMapChanged(bool value)
         {
-            _runtimeSettings.SetShowGeneratedMap(value);
+            if (_runtimeSettings != null)
+            {
+                _runtimeSettings.SetShowGeneratedMap(value);
+            }
         }
 
         private void OnGenerateButtonPressed()
         {
+            if (_runtimeSettings == null)
+            {
+                return;
+            }
+
             ApplyInputValues();
             GenerateRequested?.Invoke(_runtimeSettings);
         }
 
         private void OnResetButtonPressed()
         {
+            if (_settingsTemplate == null)
+            {
+                return;
+            }
+
             if (_runtimeSettings != null)
             {
                 Destroy(_runtimeSettings);
@@ -257,10 +269,27 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             _runtimeSettings = _settingsTemplate.CreateRuntimeCopy();
 
             ApplySettingsToUI();
+
+            ResetRequested?.Invoke();
+        }
+
+        private void OnPanelToggleButtonPressed()
+        {
+            if (_panelAnimator == null)
+            {
+                return;
+            }
+
+            _panelAnimator.SetTrigger(_panelToggleTrigger);
         }
 
         private void ApplyInputValues()
         {
+            if (_runtimeSettings == null)
+            {
+                return;
+            }
+
             if (_mapWidthInput != null)
             {
                 OnMapWidthChanged(_mapWidthInput.text);
