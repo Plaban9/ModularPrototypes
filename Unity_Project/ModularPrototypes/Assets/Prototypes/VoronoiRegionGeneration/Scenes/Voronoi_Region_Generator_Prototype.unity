@@ -170,9 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _header: Toggle Grid
+  _content: "Turns the grid layout ON/OFF. \n\nAlso, turns ON/OFF the Cell highlight
+    based on mouse position. "
+  _headerColor: {r: 0, g: 1, b: 0.048205614, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
   _showDelay: 0.5
@@ -328,11 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Reset
-  _content: "Restores all parameters in the RADIAL BURST section to their default
-    values. \n\nThis clears any custom inputs and returns the settings to their original
-    state."
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _header: Generate Map
+  _content: Generates a new map based on the input parameters.
+  _headerColor: {r: 1, g: 0.053293042, b: 0, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
   _showDelay: 0.5
@@ -1292,7 +1291,6 @@ GameObject:
   - component: {fileID: 247478658}
   - component: {fileID: 247478661}
   - component: {fileID: 247478660}
-  - component: {fileID: 247478659}
   m_Layer: 5
   m_Name: X
   m_TagString: Untagged
@@ -1320,24 +1318,6 @@ RectTransform:
   m_AnchoredPosition: {x: 72.6, y: 0}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &247478659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247478657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
-  _contentColor: {r: 1, g: 1, b: 1, a: 1}
-  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
-  _showDelay: 0.5
 --- !u!114 &247478660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,7 +1404,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5, y: -3, z: 0, w: 0}
+  m_margin: {x: 5, y: -3, z: 141.55331, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1989,7 +1969,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.95686275, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -2157,8 +2137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
+  _header: Map Dimensions
+  _content: 'Specifies the dimensions of the map in ''X'' width units and ''Y'' height
+    units.
+
+
+    *NOTE: Unit multiples of Cell Size produce better results.'
   _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
@@ -2389,9 +2373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _header: Toggle  Border
+  _content: Turns ON/OFF the highlights of the edges between the regions.
+  _headerColor: {r: 0, g: 1, b: 0.047058824, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
   _showDelay: 0.5
@@ -2546,8 +2530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
+  _header: Cell Size
+  _content: Units in both length and height resulting in a square Grid Cell of the
+    Map.
   _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
@@ -3037,11 +3022,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Reset
-  _content: "Restores all parameters in the RADIAL BURST section to their default
-    values. \n\nThis clears any custom inputs and returns the settings to their original
-    state."
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _header: Reset Parameters
+  _content: 'Resets the Map Parameters as well as Camera Parameters.
+
+
+    *NOTE:
+    You still need to Click GENERATE to create map from the map parameters which
+    were reset.'
+  _headerColor: {r: 1, g: 0.05490196, b: 0, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
   _showDelay: 0.5
@@ -3178,9 +3166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _header: Show Seed
+  _content: Highlights the seed on each Grid Cell.
+  _headerColor: {r: 0, g: 1, b: 0.047058824, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
   _showDelay: 0.5
@@ -3411,9 +3399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
+  _header: Toggle Map Visual
+  _content: Toggles the per region colour of the Voronoi Generated Regions.
+  _headerColor: {r: 0, g: 1, b: 0.047058824, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
   _showDelay: 0.5
@@ -3809,6 +3797,7 @@ GameObject:
   - component: {fileID: 1110767552}
   - component: {fileID: 1110767554}
   - component: {fileID: 1110767553}
+  - component: {fileID: 1110767555}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -3937,6 +3926,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110767551}
   m_CullTransparentMesh: 1
+--- !u!114 &1110767555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110767551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
+  _header: VORONOI REGION
+  _content: Generates Voronoi regions by dividing the map into territories around
+    seed points, creating natural boundaries for biomes, zones, and procedural world
+    generation.
+  _headerColor: {r: 0, g: 1, b: 0.88871026, a: 1}
+  _contentColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.95}
+  _showDelay: 0.5
 --- !u!1 &1113412427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,7 +4614,6 @@ GameObject:
   - component: {fileID: 1514507780}
   - component: {fileID: 1514507783}
   - component: {fileID: 1514507782}
-  - component: {fileID: 1514507781}
   m_Layer: 5
   m_Name: Unit
   m_TagString: Untagged
@@ -4633,24 +4641,6 @@ RectTransform:
   m_AnchoredPosition: {x: 155, y: 0}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &1514507781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514507779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
-  _contentColor: {r: 1, g: 1, b: 1, a: 1}
-  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
-  _showDelay: 0.5
 --- !u!114 &1514507782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4737,7 +4727,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5, y: -3, z: 0, w: 0}
+  m_margin: {x: 5, y: -3, z: 71.74625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5194,7 +5184,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.9553981, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -5704,7 +5694,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.95686275, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -6099,7 +6089,6 @@ GameObject:
   - component: {fileID: 1863166273}
   - component: {fileID: 1863166276}
   - component: {fileID: 1863166275}
-  - component: {fileID: 1863166274}
   m_Layer: 5
   m_Name: Y
   m_TagString: Untagged
@@ -6127,24 +6116,6 @@ RectTransform:
   m_AnchoredPosition: {x: 175, y: 0}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &1863166274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863166272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: Bullets Amount
-  _content: Spawns "N" bullets, equally spaced along the specified arc.
-  _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
-  _contentColor: {r: 1, g: 1, b: 1, a: 1}
-  _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
-  _showDelay: 0.5
 --- !u!114 &1863166275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6231,7 +6202,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5, y: -3, z: 0, w: 0}
+  m_margin: {x: 5, y: -3, z: 144.46194, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6334,7 +6305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1922394338
 MonoBehaviour:
   m_ObjectHideFlags: 0
