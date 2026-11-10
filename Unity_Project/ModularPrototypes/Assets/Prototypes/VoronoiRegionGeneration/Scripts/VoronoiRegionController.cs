@@ -1,9 +1,11 @@
-using UnityEngine;
-
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Generation;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
+
+using UnityEditor.ShaderKeywordFilter;
+
+using UnityEngine;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 {
@@ -15,8 +17,12 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [Header("Rendering")]
         [SerializeField] private VoronoiMapRenderer _mapRenderer;
 
+        [Header("Interaction")]
+        [SerializeField] private VoronoiRegionInteraction _interaction;
+
         [Header("Generation")]
         [SerializeField] private int _randomSeed = 12345;
+
 
         private VoronoiMapGenerator _mapGenerator;
         private VoronoiMapData _mapData;
@@ -37,6 +43,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
             _uiManager.GenerateRequested += OnGenerateRequested;
             _uiManager.ResetRequested += OnResetRequested;
+            _uiManager.VisualSettingsChanged += OnVisualSettingsChanged;
         }
 
         private void OnDisable()
@@ -48,6 +55,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
             _uiManager.GenerateRequested -= OnGenerateRequested;
             _uiManager.ResetRequested -= OnResetRequested;
+            _uiManager.VisualSettingsChanged -= OnVisualSettingsChanged;
         }
 
         private void Start()
@@ -63,22 +71,30 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             GenerateMap(settings);
         }
 
-        private void OnResetRequested()
+        private void OnResetRequested(VoronoiMapGenerationSettings settings)
         {
-            if (_uiManager?.CurrentSettings != null)
+            _mapRenderer?.ApplyVisibility(settings);
+            _interaction?.ResetInteraction();
+        }
+
+        private void OnVisualSettingsChanged(VoronoiMapGenerationSettings settings)
+        {
+            if (_mapRenderer == null)
             {
-                GenerateMap(_uiManager.CurrentSettings);
+                return;
             }
+
+            _mapRenderer.ApplyVisibility(settings);
+            _interaction?.SetGridVisible(settings.ShowGrid);
         }
 
         private void GenerateMap(VoronoiMapGenerationSettings settings)
         {
             _mapData = _mapGenerator.Generate(settings, _randomSeed);
 
-            if (_mapRenderer != null)
-            {
-                _mapRenderer.Render(_mapData, settings);
-            }
+            _mapRenderer?.Render(_mapData, settings);
+            _interaction?.SetMapData(_mapData);
+            _interaction?.SetGridVisible(settings.ShowGrid);
         }
     }
 }

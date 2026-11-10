@@ -30,25 +30,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering
             RenderSeeds(mapData);
             RenderBorders(mapData);
 
-            if (_mapVisual != null)
-            {
-                _mapVisual.enabled = settings.ShowGeneratedMap;
-            }
-
-            if (_gridVisual != null)
-            {
-                _gridVisual.enabled = settings.ShowGrid;
-            }
-
-            if (_seedVisual != null)
-            {
-                _seedVisual.enabled = settings.ShowSeeds;
-            }
-
-            if (_borderVisual != null)
-            {
-                _borderVisual.enabled = settings.ShowRegionBorders;
-            }
+            ApplyVisibility(settings);
         }
 
         private void RenderMap(VoronoiMapData mapData)
@@ -66,6 +48,18 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering
             SaveTexture(texture, _mapVisual);
         }
 
+        private static bool IsInternalGridLine(int coordinate, int dimension, int cellSize)
+        {
+            if (coordinate < 0 || coordinate > dimension - 1)
+            {
+                return false;
+            }
+
+            var remainder = coordinate % cellSize;
+
+            return remainder == 0 || remainder == cellSize - 1;
+        }
+
         private void RenderGrid(VoronoiMapData mapData)
         {
             var texture = CreateTexture(mapData.MapDimension);
@@ -74,11 +68,13 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering
             {
                 for (int y = 0; y < mapData.MapDimension.y; y++)
                 {
-                    var isVerticalLine = x > 0 && x % mapData.CellSize == 0;
+                    var isVerticalLine = IsInternalGridLine(x, mapData.MapDimension.x, mapData.CellSize);
 
-                    var isHorizontalLine = y > 0 && y % mapData.CellSize == 0;
+                    var isHorizontalLine = IsInternalGridLine(y, mapData.MapDimension.y, mapData.CellSize);
 
-                    texture.SetPixel(x, y, isVerticalLine || isHorizontalLine ? _gridBorderColour : _gridColour);
+                    var isGridLine = isVerticalLine || isHorizontalLine;
+
+                    texture.SetPixel(x, y, isGridLine ? _gridBorderColour : _gridColour);
                 }
             }
 
@@ -145,6 +141,29 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering
             texture.SetPixels(pixels);
 
             return texture;
+        }
+
+        public void ApplyVisibility(VoronoiMapGenerationSettings settings)
+        {
+            if (_mapVisual != null)
+            {
+                _mapVisual.enabled = settings.ShowGeneratedMap;
+            }
+
+            if (_gridVisual != null)
+            {
+                _gridVisual.enabled = settings.ShowGrid;
+            }
+
+            if (_seedVisual != null)
+            {
+                _seedVisual.enabled = settings.ShowSeeds;
+            }
+
+            if (_borderVisual != null)
+            {
+                _borderVisual.enabled = settings.ShowRegionBorders;
+            }
         }
 
         private static void SaveTexture(Texture2D texture, RawImage rawImage)

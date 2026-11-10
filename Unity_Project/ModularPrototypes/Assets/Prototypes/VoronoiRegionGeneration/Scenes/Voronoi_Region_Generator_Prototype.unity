@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.6324958, b: 0, a: 1}
-    m_PressedColor: {r: 1, g: 0.9819712, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9451673, b: 0, a: 1}
+    m_PressedColor: {r: 0.27056146, g: 1, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -552,13 +552,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &139863234
 CanvasRenderer:
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.29411766}
+  m_Color: {r: 0.425, g: 0.425, b: 0.425, a: 0.7490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3067,8 +3067,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.6324958, b: 0, a: 1}
-    m_PressedColor: {r: 1, g: 0.9819712, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.4846769, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.009896709, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4422,6 +4422,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1505500548}
   - component: {fileID: 1505500549}
+  - component: {fileID: 1505500553}
+  - component: {fileID: 1505500552}
+  - component: {fileID: 1505500551}
+  - component: {fileID: 1505500550}
+  - component: {fileID: 1505500554}
   m_Layer: 5
   m_Name: VoronoiRegionGenrator
   m_TagString: Untagged
@@ -4463,7 +4468,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505500547}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07febc0e6ba9f894788618ce1ace0a05, type: 3}
   m_Name: 
@@ -4512,6 +4517,83 @@ MonoBehaviour:
   _gridColour: {r: 0, g: 0, b: 0, a: 0.5019608}
   _gridBorderColour: {r: 0.5, g: 0.5, b: 0.5, a: 0.5019608}
   _borderColour: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &1505500550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505500547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4383082fc28e79841bf947665f1a717d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.VoronoiRegionViewportInput
+--- !u!114 &1505500551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505500547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a29e449a6d431489d54125c39c815b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.VoronoiRegionViewportController
+--- !u!114 &1505500552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505500547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895b94d8e6abe014881b2cd01fb4eaf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.VoronoiRegionController
+  _uiManager: {fileID: 163264629}
+  _mapRenderer: {fileID: 1505500553}
+  _interaction: {fileID: 1505500554}
+  _randomSeed: 12345
+--- !u!114 &1505500553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505500547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5695e7f01a980d84fb3e782993f785ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering.VoronoiMapRenderer
+  _mapVisual: {fileID: 1891244284}
+  _gridVisual: {fileID: 1093034238}
+  _seedVisual: {fileID: 1113412429}
+  _borderVisual: {fileID: 1071447766}
+  _gridColour: {r: 0, g: 0, b: 0, a: 0.5019608}
+  _gridBorderColour: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
+  _seedColour: {r: 0.101960786, g: 0.101960786, b: 0.101960786, a: 0.7490196}
+  _borderColour: {r: 0, g: 0, b: 0, a: 1}
+--- !u!114 &1505500554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505500547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0be9c19b98a2c4380cf34112407da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.VoronoiRegionInteraction
+  _mapCoordinateInput: {fileID: 1842490031}
+  _mapVisual: {fileID: 1891244284}
+  _cellHighlightVisual: {fileID: 340252918}
+  _pixelHighlightVisual: {fileID: 162696805}
+  _cellHighlightThickness: 1
 --- !u!1 &1514507779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,8 +4947,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9728835, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5694697, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4950,8 +5032,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5686275, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6373,8 +6455,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5686275, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -6458,8 +6540,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.972549, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5686275, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1

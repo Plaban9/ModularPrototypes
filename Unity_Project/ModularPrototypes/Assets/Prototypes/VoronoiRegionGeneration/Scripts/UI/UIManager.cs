@@ -37,7 +37,8 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
         private VoronoiMapGenerationSettings _runtimeSettings;
 
         public event Action<VoronoiMapGenerationSettings> GenerateRequested;
-        public event Action ResetRequested;
+        public event Action<VoronoiMapGenerationSettings> VisualSettingsChanged;
+        public event Action<VoronoiMapGenerationSettings> ResetRequested;
 
         public VoronoiMapGenerationSettings CurrentSettings => _runtimeSettings;
 
@@ -213,34 +214,46 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
         private void OnShowGridChanged(bool value)
         {
-            if (_runtimeSettings != null)
+            if (_runtimeSettings == null)
             {
-                _runtimeSettings.SetShowGrid(value);
+                return;
             }
+
+            _runtimeSettings.SetShowGrid(value);
+            NotifyVisualSettingsChanged();
         }
 
         private void OnShowSeedsChanged(bool value)
         {
-            if (_runtimeSettings != null)
+            if (_runtimeSettings == null)
             {
-                _runtimeSettings.SetShowSeeds(value);
+                return;
             }
+
+            _runtimeSettings.SetShowSeeds(value);
+            NotifyVisualSettingsChanged();
         }
 
         private void OnShowBordersChanged(bool value)
         {
-            if (_runtimeSettings != null)
+            if (_runtimeSettings == null)
             {
-                _runtimeSettings.SetShowBorders(value);
+                return;
             }
+
+            _runtimeSettings.SetShowBorders(value);
+            NotifyVisualSettingsChanged();
         }
 
         private void OnShowGeneratedMapChanged(bool value)
         {
-            if (_runtimeSettings != null)
+            if (_runtimeSettings == null)
             {
-                _runtimeSettings.SetShowGeneratedMap(value);
+                return;
             }
+
+            _runtimeSettings.SetShowGeneratedMap(value);
+            NotifyVisualSettingsChanged();
         }
 
         private void OnGenerateButtonPressed()
@@ -270,7 +283,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
             ApplySettingsToUI();
 
-            ResetRequested?.Invoke();
+            ResetRequested?.Invoke(_runtimeSettings);
         }
 
         private void OnPanelToggleButtonPressed()
@@ -369,6 +382,16 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             {
                 _showGeneratedMapToggle.SetIsOnWithoutNotify(_runtimeSettings.ShowGeneratedMap);
             }
+        }
+
+        private void NotifyVisualSettingsChanged()
+        {
+            if (_runtimeSettings == null)
+            {
+                return;
+            }
+
+            VisualSettingsChanged?.Invoke(_runtimeSettings);
         }
 
         private void D(string message, bool isError = false)
