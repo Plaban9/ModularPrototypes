@@ -1,5 +1,3 @@
-using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
-
 using System;
 
 using UnityEngine;

@@ -5,14 +5,14 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data
     [CreateAssetMenu(fileName = "VoronoiMapGenerationSettings", menuName = "Data/Voronoi/Region/Voronoi Map Generation Settings")]
     public sealed class VoronoiMapGenerationSettings : ScriptableObject
     {
-        private const int MinimumCellSize = 1;
+        //[Header("Bounds")]
+        [SerializeField] private const int MinimumCellSize = 5;
 
-        private const int MinimumDimension = 10;
-        private const int MaximumDimension = 1000;
+        [SerializeField] private const int MinimumDimension = 25;
+        [SerializeField] private const int MaximumDimension = 500;
 
         [Header("Map")]
-        [SerializeField]
-        private Vector2Int _mapDimension = new Vector2Int(1000, 1000);
+        [SerializeField] private Vector2Int _mapDimension = new Vector2Int(1000, 1000);
 
         [Min(MinimumCellSize)]
         [SerializeField] private int _cellSize = 100;

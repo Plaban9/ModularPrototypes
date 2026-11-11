@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultViewportSettings
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.Data.ViewportSettings
   _minimumZoom: 0.25
-  _maximumZoom: 2
+  _maximumZoom: 20
   _zoomStep: 0.05
   _initialZoom: 1
   _constrainPan: 1
