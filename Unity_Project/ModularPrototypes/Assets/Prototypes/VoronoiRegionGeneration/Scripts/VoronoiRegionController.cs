@@ -2,6 +2,7 @@ using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Generation;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
+using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport;
 
 using UnityEditor.ShaderKeywordFilter;
 
@@ -16,6 +17,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
         [Header("Rendering")]
         [SerializeField] private VoronoiMapRenderer _mapRenderer;
+        [SerializeField] private VoronoiMapAspectRatioController _aspectRatioController;
 
         [Header("Interaction")]
         [SerializeField] private VoronoiRegionInteraction _interaction;
@@ -93,8 +95,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             _mapData = _mapGenerator.Generate(settings, _randomSeed);
 
             _mapRenderer?.Render(_mapData, settings);
+
             _interaction?.SetMapData(_mapData);
             _interaction?.SetGridVisible(settings.ShowGrid);
+
+            _aspectRatioController?.ApplyMapAspectRatio(settings.MapDimension);
         }
     }
 }
