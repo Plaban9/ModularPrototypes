@@ -1,8 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
-
 using ModularPrototypes.UI.Tooltip;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
+using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport;
+
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 {
@@ -10,6 +11,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
     {
         [Header("Input")]
         [SerializeField] private RawImageCoordinateEmitter _mapCoordinateInput;
+        [SerializeField] private VoronoiRegionViewportInput _mapViewportInput;
 
         [Header("Map Visual")]
         [SerializeField] private RawImage _mapVisual;
@@ -28,9 +30,16 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
         private bool _isGridVisible;
         private bool _isPointerOver;
 
+        private bool _isPanning;
+
         private void Awake()
         {
             SubscribeToInput();
+
+            if (_mapViewportInput != null)
+            {
+                _mapViewportInput.PanStateChanged += OnPanStateChanged;
+            }
 
             if (_cellHighlightVisual != null)
             {
@@ -48,6 +57,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
         private void OnDestroy()
         {
             UnsubscribeFromInput();
+
+            if (_mapViewportInput != null)
+            {
+                _mapViewportInput.PanStateChanged -= OnPanStateChanged;
+            }
 
             if (_cellHighlightTexture != null)
             {
@@ -138,6 +152,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
         private void OnPointerMoved(Vector2Int relativePixelPosition, Vector2Int inputSize)
         {
+            if (_isPanning)
+            {
+                return;
+            }
+
             if (_mapData == null || inputSize.x <= 0 || inputSize.y <= 0)
             {
                 return;
@@ -180,6 +199,19 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
         {
             _isPointerOver = false;
             _lastPixelPosition = new Vector2Int(-1, -1);
+
+            HideHighlights();
+            TooltipSystem.Hide();
+        }
+
+        private void OnPanStateChanged(bool isPanning)
+        {
+            _isPanning = isPanning;
+
+            if (!isPanning)
+            {
+                return;
+            }
 
             HideHighlights();
             TooltipSystem.Hide();

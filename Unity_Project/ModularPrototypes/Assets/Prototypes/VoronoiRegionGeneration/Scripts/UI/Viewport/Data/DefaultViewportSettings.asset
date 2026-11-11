@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1e8e3cae9b761469e25fc01bc27813, type: 3}
   m_Name: DefaultViewportSettings
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.Data.ViewportSettings
-  _minimumZoom: 0.5
-  _maximumZoom: 4
-  _zoomStep: 0.1
+  _minimumZoom: 0.25
+  _maximumZoom: 2
+  _zoomStep: 0.01
   _initialZoom: 1
   _constrainPan: 1
-  _minimumPan: {x: 0, y: 0}
-  _maximumPan: {x: 0, y: 0}
+  _minimumPan: {x: -500, y: -500}
+  _maximumPan: {x: 500, y: 500}
   _initialPan: {x: 0, y: 0}
