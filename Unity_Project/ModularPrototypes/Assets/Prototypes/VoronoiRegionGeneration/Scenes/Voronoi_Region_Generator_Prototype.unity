@@ -4540,7 +4540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.VoronoiRegionViewportInput
   _controller: {fileID: 1505500551}
-  _panSpace: {fileID: 1505500548}
+  _panSpace: {fileID: 641980481}
   _dragIcon: {fileID: 1961579271}
   _uiManager: {fileID: 163264629}
 --- !u!114 &1505500551
@@ -4607,7 +4607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.VoronoiRegionInteraction
   _mapCoordinateInput: {fileID: 1842490031}
-  _mapViewportInput: {fileID: 0}
+  _mapViewportInput: {fileID: 1505500550}
   _mapVisual: {fileID: 1891244284}
   _cellHighlightVisual: {fileID: 340252918}
   _pixelHighlightVisual: {fileID: 162696805}

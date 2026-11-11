@@ -5,8 +5,10 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data
     [CreateAssetMenu(fileName = "VoronoiMapGenerationSettings", menuName = "Data/Voronoi/Region/Voronoi Map Generation Settings")]
     public sealed class VoronoiMapGenerationSettings : ScriptableObject
     {
-        private const int MinimumDimension = 1;
         private const int MinimumCellSize = 1;
+
+        private const int MinimumDimension = 10;
+        private const int MaximumDimension = 1000;
 
         [Header("Map")]
         [SerializeField]
@@ -37,7 +39,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data
 
         private void OnValidate()
         {
-            _mapDimension = new Vector2Int(Mathf.Max(MinimumDimension, _mapDimension.x), Mathf.Max(MinimumDimension, _mapDimension.y));
+            _mapDimension = new Vector2Int(Mathf.Clamp(_mapDimension.x, MinimumDimension, MaximumDimension), Mathf.Clamp(_mapDimension.y, MinimumDimension, MaximumDimension));
 
             _cellSize = Mathf.Clamp(_cellSize, MinimumCellSize, Mathf.Min(_mapDimension.x, _mapDimension.y));
         }
@@ -49,7 +51,13 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data
 
         public void SetMapDimension(Vector2Int mapDimension)
         {
-            _mapDimension = new Vector2Int(Mathf.Max(MinimumDimension, mapDimension.x), Mathf.Max(MinimumDimension, mapDimension.y));
+            if (!IsValidMapDimension(mapDimension))
+            {
+                Debug.LogWarning($"Map dimension {mapDimension} is outside the valid range " + $"of {MinimumDimension} to {MaximumDimension}.");
+                return;
+            }
+
+            _mapDimension = mapDimension;
 
             _cellSize = Mathf.Clamp(_cellSize, MinimumCellSize, Mathf.Min(_mapDimension.x, _mapDimension.y));
         }
@@ -87,6 +95,16 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data
         public void SetShowGeneratedMap(bool showGeneratedMap)
         {
             _showGeneratedMap = showGeneratedMap;
+        }
+
+        private static bool IsValidMapDimension(Vector2Int mapDimension)
+        {
+            return mapDimension.x >= MinimumDimension && mapDimension.y >= MinimumDimension && mapDimension.x <= MaximumDimension && mapDimension.y <= MaximumDimension;
+        }
+
+        private static void D(string message)
+        {
+            DebugUtils.DebugInfo.Print("<<VoronoiMapGenerationSettings>> " + message);
         }
     }
 }

@@ -11,6 +11,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Generation
     {
         public VoronoiMapData Generate(VoronoiMapGenerationSettings settings, int randomSeed)
         {
+            if (settings == null)
+            {
+                throw new System.ArgumentNullException(nameof(settings));
+            }
+
             var mapDimension = settings.MapDimension;
             var cellSize = settings.CellSize;
             var gridLayout = new Vector2Int(mapDimension.x / cellSize, mapDimension.y / cellSize);
