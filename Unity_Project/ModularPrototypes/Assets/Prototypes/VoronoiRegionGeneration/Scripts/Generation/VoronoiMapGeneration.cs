@@ -13,14 +13,12 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Generation
         {
             if (settings == null)
             {
-                throw new System.ArgumentNullException(nameof(settings));
+                throw new ArgumentNullException(nameof(settings));
             }
 
             var mapDimension = settings.MapDimension;
             var cellSize = settings.CellSize;
             var gridLayout = new Vector2Int(mapDimension.x / cellSize, mapDimension.y / cellSize);
-
-            var random = new System.Random(randomSeed);
 
             var seedPositions = GenerateSeeds(gridLayout, cellSize, settings.ColourGradient, out var regionColours);
 

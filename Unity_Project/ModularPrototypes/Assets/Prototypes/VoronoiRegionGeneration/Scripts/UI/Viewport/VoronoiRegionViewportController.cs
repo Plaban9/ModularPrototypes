@@ -1,8 +1,9 @@
+using System;
+
 using UnityEngine;
 
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.Data;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
-using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
 {
@@ -13,6 +14,8 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
         [SerializeField] private UIManager _uiManager;
 
         private ViewportSettings _runtimeSettings;
+
+        public event Action<float, float> ZoomChanged;
 
         public float CurrentZoom => _runtimeSettings != null ? _runtimeSettings.CurrentZoom : 1f;
 
@@ -47,6 +50,19 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
             _runtimeSettings.SetZoom(_runtimeSettings.CurrentZoom + amount);
 
             ApplyTransform();
+            NotifyZoomChanged();
+        }
+
+        private void NotifyZoomChanged()
+        {
+            if (_runtimeSettings == null)
+            {
+                return;
+            }
+
+            var normalizedZoom = Mathf.InverseLerp(_runtimeSettings.MinimumZoom, _runtimeSettings.MaximumZoom, _runtimeSettings.CurrentZoom);
+
+            ZoomChanged?.Invoke(_runtimeSettings.CurrentZoom, normalizedZoom);
         }
 
         public void Pan(Vector2 delta)
