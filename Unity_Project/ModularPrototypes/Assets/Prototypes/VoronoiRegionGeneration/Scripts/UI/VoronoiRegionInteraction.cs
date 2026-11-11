@@ -171,7 +171,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
             _lastPixelPosition = pixelPosition;
 
-            var gridPosition = new Vector2Int(pixelPosition.x / _mapData.CellSize, pixelPosition.y / _mapData.CellSize);
+            var gridPosition = new Vector2Int(Mathf.Clamp(pixelPosition.x / _mapData.CellSize, 0, _mapData.GridLayout.x - 1), Mathf.Clamp(pixelPosition.y / _mapData.CellSize, 0, _mapData.GridLayout.y - 1));
 
             var region = _mapData.GetRegionAt(pixelPosition);
 
@@ -232,20 +232,42 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             }
 
             var mapRectTransform = _mapVisual.rectTransform;
+
             var highlightRectTransform = _cellHighlightVisual.rectTransform;
 
-            var cellWidth = mapRectTransform.rect.width / _mapData.GridLayout.x;
+            var mapDimension = _mapData.MapDimension;
 
-            var cellHeight = mapRectTransform.rect.height / _mapData.GridLayout.y;
+            var cellSize = _mapData.CellSize;
 
-            var localCellCenter = new Vector3(mapRectTransform.rect.xMin + ((gridPosition.x + 0.5f) * cellWidth), mapRectTransform.rect.yMin + ((gridPosition.y + 0.5f) * cellHeight), 0f);
+            var cellStartX = gridPosition.x * cellSize;
+
+            var cellStartY = gridPosition.y * cellSize;
+
+            var cellEndX = Mathf.Min(cellStartX + cellSize, mapDimension.x);
+
+            var cellEndY = Mathf.Min(cellStartY + cellSize, mapDimension.y);
+
+            var pixelWidth = mapRectTransform.rect.width / mapDimension.x;
+
+            var pixelHeight = mapRectTransform.rect.height / mapDimension.y;
+
+            var localLeft = mapRectTransform.rect.xMin + (cellStartX * pixelWidth);
+
+            var localRight = mapRectTransform.rect.xMin + (cellEndX * pixelWidth);
+
+            var localBottom = mapRectTransform.rect.yMin + (cellStartY * pixelHeight);
+
+            var localTop = mapRectTransform.rect.yMin + (cellEndY * pixelHeight);
+
+            var localCellCenter = new Vector3((localLeft + localRight) * 0.5f, (localBottom + localTop) * 0.5f, 0f);
 
             var worldCellCenter = mapRectTransform.TransformPoint(localCellCenter);
 
-            SetHighlightTransform(highlightRectTransform, worldCellCenter, new Vector2(cellWidth, cellHeight));
+            highlightRectTransform.pivot = new Vector2(0.5f, 0.5f);
+            highlightRectTransform.position = worldCellCenter;
+            highlightRectTransform.sizeDelta = new Vector2(localRight - localLeft, localTop - localBottom);
 
             _cellHighlightVisual.color = highlightColour;
-            _cellHighlightVisual.color = new Color(highlightColour.r, highlightColour.g, highlightColour.b, 0.8f);
             _cellHighlightVisual.enabled = _isGridVisible && _isPointerOver;
         }
 
