@@ -5176,6 +5176,7 @@ MonoBehaviour:
   _uiManager: {fileID: 163264629}
   _mapRenderer: {fileID: 1505500553}
   _aspectRatioController: {fileID: 93638306}
+  _viewportController: {fileID: 1505500551}
   _interaction: {fileID: 1505500554}
   _randomSeed: 12345
 --- !u!114 &1505500553

@@ -13,6 +13,10 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
         [SerializeField] private ViewportSettings _settingsTemplate;
         [SerializeField] private UIManager _uiManager;
 
+        private Vector2Int _mapDimension = Vector2Int.one;
+        public Vector2Int MapDimension => _mapDimension;
+
+
         private ViewportSettings _runtimeSettings;
 
         public event Action<float, float> ZoomChanged;
@@ -49,7 +53,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
 
             _runtimeSettings.SetZoom(_runtimeSettings.CurrentZoom + amount);
 
-            ApplyTransform();
+            ApplyTransform(true);
             NotifyZoomChanged();
         }
 
@@ -85,19 +89,50 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
             }
 
             _runtimeSettings.ResetRuntimeState();
+
             ApplyTransform();
+            NotifyZoomChanged();
         }
 
-        private void ApplyTransform()
+        private void ApplyTransform(bool isScrollOperation = false)
         {
             if (_mapTransform == null || _runtimeSettings == null)
             {
                 return;
             }
 
-            _mapTransform.localScale = Vector3.one * _runtimeSettings.CurrentZoom;
-
+            _mapTransform.localScale = isScrollOperation ? Vector3.one * _runtimeSettings.CurrentZoom : CalculateRelativeZoom();
             _mapTransform.anchoredPosition = _runtimeSettings.CurrentPan;
+        }
+
+        private Vector3 CalculateRelativeZoom()
+        {
+            var currentMapDimension = _mapDimension;
+            var zoom = _runtimeSettings.CurrentZoom;
+            var aspectRatio = (float)currentMapDimension.x / currentMapDimension.y;
+
+            if (aspectRatio < 1f)
+            {
+                zoom = Mathf.Clamp(aspectRatio, _runtimeSettings.MinimumZoom, _runtimeSettings.MaximumZoom);
+            }
+            //else if (aspectRatio > 1.8f)
+            //{
+            //    zoom = Mathf.Clamp(1/(aspectRatio - 1), _runtimeSettings.MinimumZoom, _runtimeSettings.MaximumZoom);
+            //}
+
+            _runtimeSettings.SetZoom(zoom);
+
+            return Vector3.one * zoom;
+        }
+
+        public void SetMapDimensions(Vector2Int mapDimension)
+        {
+            if (mapDimension.x <= 0 || mapDimension.y <= 0)
+            {
+                return;
+            }
+
+            _mapDimension = mapDimension;
         }
 
         private void OnDestroy()

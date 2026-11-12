@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1e8e3cae9b761469e25fc01bc27813, type: 3}
   m_Name: DefaultViewportSettings
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport.Data.ViewportSettings
-  _minimumZoom: 0.1
+  _minimumZoom: 0.05
   _maximumZoom: 10
   _zoomStep: 0.05
   _initialZoom: 1

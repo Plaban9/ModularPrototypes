@@ -18,6 +18,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [Header("Rendering")]
         [SerializeField] private VoronoiMapRenderer _mapRenderer;
         [SerializeField] private VoronoiMapAspectRatioController _aspectRatioController;
+        [SerializeField] private VoronoiRegionViewportController _viewportController;
 
         [Header("Interaction")]
         [SerializeField] private VoronoiRegionInteraction _interaction;
@@ -100,6 +101,10 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
             _interaction?.SetGridVisible(settings.ShowGrid);
 
             _aspectRatioController?.ApplyMapAspectRatio(settings.MapDimension);
+
+            _viewportController?.SetMapDimensions(settings.MapDimension);
+
+            _viewportController?.ResetViewport();
         }
     }
 }
