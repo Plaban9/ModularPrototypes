@@ -13,7 +13,7 @@ namespace ModularPrototypes.Scene
                 return;
             }
 
-            _sceneLoader.LoadScene(SceneModules.Main, "CrossFade", animateTranstionOutTimeSecs: 0.25f);
+            _sceneLoader.LoadScene(SceneModules.MAIN, "CrossFade", animateTranstionOutTimeSecs: 0.25f);
         }
     }
 }

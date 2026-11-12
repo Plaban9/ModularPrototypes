@@ -1,6 +1,7 @@
 using ModularPrototypes.Scene;
 
 using System.Collections.Generic;
+using System.Linq;
 
 using TMPro;
 
@@ -13,13 +14,13 @@ namespace ModularPrototypes.Manager
     {
         // Match the sequence in Dropdown list
         [SerializeField]
-        private static readonly List<string> _availalbleScenes = new()
+        private static readonly List<SceneModuleInfo> _availalbleScenes = new()
         {
-            SceneModules.Voronoi_SplitScreen_Prototype,
-            SceneModules.Voronoi_Region_Generator_Prototype,
-            SceneModules.BulletHell_Prototype,
-            SceneModules.Platformer_Prototype,
-            SceneModules.PlatformWithProjectiles_Prototype,
+            //SceneModules.VORONOI_SPLITSCREEN_PROTOTYPE,
+            SceneModules.VORONOI_REGION_GENERATOR_PROTOTYPE,
+            SceneModules.BULLETHELL_PROTOTYPE,
+            SceneModules.PLATFORMER_PROTOTYPE,
+            SceneModules.PLATFORM_WITH_PROJECTILES_PROTOTYPE,
         };
 
         [SerializeField] private Button _sceneSwitchButton;
@@ -37,7 +38,7 @@ namespace ModularPrototypes.Manager
         {
             _sceneLoader = FindFirstObjectByType<SceneLoader>();
             _sceneDropdown.ClearOptions();
-            _sceneDropdown.AddOptions(_availalbleScenes);
+            _sceneDropdown.AddOptions(_availalbleScenes.Select(scene => scene.GetDisplayName()).ToList());
         }
 
         private void Start()
@@ -58,7 +59,7 @@ namespace ModularPrototypes.Manager
                 return;
             }
 
-            D("Switching Scene to: " + _availalbleScenes[_currentSceneIndex] + ", Current Scene: " + _sceneLoader.GetCurrentScene());
+            D("Switching Scene to: " + _availalbleScenes[_currentSceneIndex].GetSceneName() + ", Current Scene: " + _sceneLoader.GetCurrentScene().GetSceneName());
             _sceneLoader.LoadScene(_availalbleScenes[_currentSceneIndex], isAdditive: true, showProgress: true);
             _sceneSwitchButton.image.color = _defaultSceneColor;
         }
