@@ -109,11 +109,11 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
         {
             var currentMapDimension = _mapDimension;
             var zoom = _runtimeSettings.CurrentZoom;
-            var aspectRatio = (float)currentMapDimension.x / currentMapDimension.y;
+            var aspectRatio = (float)currentMapDimension.x / currentMapDimension.y; // Calculated aspect ratio since it is actually the zoom factor for portrait mode
 
             if (aspectRatio < 1f)
             {
-                zoom = Mathf.Clamp(aspectRatio, _runtimeSettings.MinimumZoom, _runtimeSettings.MaximumZoom);
+                zoom = CalculateSteppedZoom(aspectRatio);
             }
             //else if (aspectRatio > 1.8f)
             //{
@@ -123,6 +123,29 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
             _runtimeSettings.SetZoom(zoom);
 
             return Vector3.one * zoom;
+        }
+
+        // This method calculates the stepped zoom for portrait mode based on the aspect ratio. Adjusts it to the nearest step defined in the runtime settings.
+        private float CalculateSteppedZoom(float calculatedZoom)
+        {
+            if (_runtimeSettings == null)
+            {
+                return 1f;
+            }
+
+            var minimumZoom = _runtimeSettings.MinimumZoom;
+            var maximumZoom = _runtimeSettings.MaximumZoom;
+            var zoomStep = _runtimeSettings.ZoomStep;
+
+            if (zoomStep <= 0f)
+            {
+                return Mathf.Clamp(calculatedZoom, minimumZoom, maximumZoom);
+            }
+
+            var steps = Mathf.Floor((calculatedZoom - minimumZoom) / zoomStep);
+            var steppedZoom = minimumZoom + (steps * zoomStep);
+
+            return Mathf.Clamp(steppedZoom, minimumZoom, maximumZoom);
         }
 
         public void SetMapDimensions(Vector2Int mapDimension)
