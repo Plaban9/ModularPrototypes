@@ -4474,7 +4474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14030c27b79b7084f95c747ef6c7daaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
-  _header: VORONOI REGION
+  _header: VORONOI REGIONS
   _content: Generates Voronoi regions by dividing the map into territories around
     seed points, creating natural boundaries for biomes, zones, and procedural world
     generation.
@@ -7031,7 +7031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1922394338
 MonoBehaviour:
   m_ObjectHideFlags: 0

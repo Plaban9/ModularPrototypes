@@ -2,6 +2,8 @@ using ModularPrototypes.Scene;
 
 using System.Collections.Generic;
 
+using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,11 +31,13 @@ namespace ModularPrototypes.Manager
 
         [SerializeField] private Button _panelCollapseButton;
         [SerializeField] private Animator _panelAnimator;
-
+        [SerializeField] private TMP_Dropdown _sceneDropdown;
 
         private void Awake()
         {
             _sceneLoader = FindFirstObjectByType<SceneLoader>();
+            _sceneDropdown.ClearOptions();
+            _sceneDropdown.AddOptions(_availalbleScenes);
         }
 
         private void Start()
