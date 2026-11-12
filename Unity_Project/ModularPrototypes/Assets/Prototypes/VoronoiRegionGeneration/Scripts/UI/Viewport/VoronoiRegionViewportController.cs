@@ -25,6 +25,9 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
 
         public float ZoomStep => _runtimeSettings != null ? _runtimeSettings.ZoomStep : 0f;
 
+        // For current setup it is the threshold where it requires zoom less than 1f to fit screen in landscape mode.
+        private const float LandscapeStartAspectRatioThreshold = 1.8f; 
+
         private void Awake()
         {
             if (_mapTransform == null)
@@ -115,17 +118,23 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
             {
                 zoom = CalculateSteppedZoom(aspectRatio);
             }
-            //else if (aspectRatio > 1.8f)
-            //{
-            //    zoom = Mathf.Clamp(1/(aspectRatio - 1), _runtimeSettings.MinimumZoom, _runtimeSettings.MaximumZoom);
-            //}
+            else if (aspectRatio > LandscapeStartAspectRatioThreshold)
+            {
+                zoom = CalculateSteppedZoom(CalculateLandscapeZoom(aspectRatio));
+            }
 
             _runtimeSettings.SetZoom(zoom);
 
             return Vector3.one * zoom;
         }
 
-        // This method calculates the stepped zoom for portrait mode based on the aspect ratio. Adjusts it to the nearest step defined in the runtime settings.
+        // Based on the threshold formula. It caluclates from the realtion where y = Threshold / x.
+        private float CalculateLandscapeZoom(float aspectRatio)
+        {
+            return LandscapeStartAspectRatioThreshold / aspectRatio;
+        }
+
+        // This method calculates the stepped zoom for based on the aspect ratio. Adjusts it to the nearest step defined in the runtime settings.
         private float CalculateSteppedZoom(float calculatedZoom)
         {
             if (_runtimeSettings == null)
