@@ -20,8 +20,7 @@ namespace ModularPrototypes.UI.Notification
 
             public static readonly Color SuccessHeaderColor = Color.green;
             public static readonly Color SuccessContentColor = Color.white;
-            public static readonly Color SuccessBackgroundColor = new Color(0f, 0.5f, 0f, 0.75f);
-            
+            public static readonly Color SuccessBackgroundColor = new Color(0f, 0.5f, 0f, 0.75f);            
         }
     }
 }
