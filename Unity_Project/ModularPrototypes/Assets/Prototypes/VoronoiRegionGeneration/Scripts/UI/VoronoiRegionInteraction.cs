@@ -353,7 +353,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
             var colourBlock =
                 $"<mark=#{colourHex}><color=#00000000>MI</color></mark>\n" +
-                 "--------------------";
+                 "---------------------";
 
             var header = $"Region - {colourBlock}";
 

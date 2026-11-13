@@ -3409,7 +3409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2391616560288684939, guid: c19e2e2e5ea1f3d4396840d78a0b9b4c, type: 3}
       propertyPath: m_PreferredWidth
-      value: 400
+      value: 425
       objectReference: {fileID: 0}
     - target: {fileID: 3748705309576647655, guid: c19e2e2e5ea1f3d4396840d78a0b9b4c, type: 3}
       propertyPath: m_Pivot.x

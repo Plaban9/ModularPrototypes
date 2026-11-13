@@ -2529,7 +2529,11 @@ MonoBehaviour:
     units.
 
 
-    *NOTE: Unit multiples of Cell Size produce better results.'
+    MIN: 25 units, MAX: 500 units
+
+
+    *NOTE: Unit multiples of Cell
+    Size produce better results.'
   _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
@@ -2918,8 +2922,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModularPrototypes.UI.Tooltip.TooltipTrigger
   _header: Cell Size
-  _content: Units in both length and height resulting in a square Grid Cell of the
+  _content: 'Units in both length and height resulting in a square Grid Cell of the
     Map.
+
+
+    MIN: 5 units'
   _headerColor: {r: 1, g: 0.8666667, b: 0, a: 1}
   _contentColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0.1886792, g: 0.1886792, b: 0.1886792, a: 0.9490196}
