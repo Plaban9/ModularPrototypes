@@ -41,12 +41,28 @@ namespace ModularPrototypes.UI.Notification
             _instance._notificationHandler.HideNotification();
         }
 
-        [ContextMenu("TestNotification()")]
-        public void ShowNotification()
-        {
-            var backgroundColor = new Color(1f, 0f, 0f, 0.75f);
+        //[ContextMenu("Test_DefaultNotification()")]
+        //public void ShowDefaultNotification()
+        //{
+        //    ModularPrototypes.UI.Notification.NotificationSystem.Show("Header", NotificationConstants.NotificationColors.DefaultHeaderColor, "Notification Content.", NotificationConstants.NotificationColors.DefaultContentColor, NotificationConstants.NotificationColors.DefaultBackgroundColor, 3f);
+        //}
 
-            ModularPrototypes.UI.Notification.NotificationSystem.Show("ERROR", Color.yellow, "Notification Content.", Color.white, backgroundColor, 3f);
-        }
+        //[ContextMenu("Test_ErrorNotification()")]
+        //public void ShowErrorNotification()
+        //{
+        //    ModularPrototypes.UI.Notification.NotificationSystem.Show("Header", NotificationConstants.NotificationColors.ErrorHeaderColor, "Notification Content.", NotificationConstants.NotificationColors.ErrorContentColor, NotificationConstants.NotificationColors.ErrorBackgroundColor, 3f);
+        //}
+
+        //[ContextMenu("Test_WarningNotification()")]
+        //public void ShowWarningNotification()
+        //{
+        //    ModularPrototypes.UI.Notification.NotificationSystem.Show("Header", NotificationConstants.NotificationColors.WarningHeaderColor, "Notification Content.", NotificationConstants.NotificationColors.WarningContentColor, NotificationConstants.NotificationColors.WarningBackgroundColor, 3f);
+        //}
+
+        //[ContextMenu("Test_SuccessNotification()")]
+        //public void ShowSuccessNotification()
+        //{
+        //    ModularPrototypes.UI.Notification.NotificationSystem.Show("Header", NotificationConstants.NotificationColors.SuccessHeaderColor, "Notification Content.", NotificationConstants.NotificationColors.SuccessContentColor, NotificationConstants.NotificationColors.SuccessBackgroundColor, 3f);
+        //}
     }
 }

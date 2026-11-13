@@ -4,9 +4,9 @@ namespace ModularPrototypes.UI.Notification
 {
     public class NotificationConstants
     {
-        public struct NotificationColors
+        public readonly struct NotificationColors
         {
-            public static readonly Color DefaultHeaderColor = Color.white;
+            public static readonly Color DefaultHeaderColor = Color.cyan;
             public static readonly Color DefaultContentColor = Color.white;
             public static readonly Color DefaultBackgroundColor = new Color(0.2f, 0.2f, 0.2f, 0.8f);
 
@@ -15,8 +15,8 @@ namespace ModularPrototypes.UI.Notification
             public static readonly Color ErrorBackgroundColor = new Color(0.5f, 0f, 0f, 0.75f);
 
             public static readonly Color WarningHeaderColor = Color.yellow;
-            public static readonly Color WarningContentColor = Color.black;
-            public static readonly Color WarningBackgroundColor = new Color(1f, 0.65f, 0f, 0.75f);
+            public static readonly Color WarningContentColor = Color.white;
+            public static readonly Color WarningBackgroundColor = new Color(1f, 0.5f, 0f, 0.75f);
 
             public static readonly Color SuccessHeaderColor = Color.green;
             public static readonly Color SuccessContentColor = Color.white;
