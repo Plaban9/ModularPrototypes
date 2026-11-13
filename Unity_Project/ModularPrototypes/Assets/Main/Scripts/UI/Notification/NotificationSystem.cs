@@ -40,5 +40,13 @@ namespace ModularPrototypes.UI.Notification
 
             _instance._notificationHandler.HideNotification();
         }
+
+        [ContextMenu("TestNotification()")]
+        public void ShowNotification()
+        {
+            var backgroundColor = new Color(1f, 0f, 0f, 0.75f);
+
+            ModularPrototypes.UI.Notification.NotificationSystem.Show("ERROR", Color.yellow, "Notification Content.", Color.white, backgroundColor, 3f);
+        }
     }
 }

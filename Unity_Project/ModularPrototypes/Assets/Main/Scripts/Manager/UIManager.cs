@@ -104,13 +104,5 @@ namespace ModularPrototypes.Manager
             _sceneSwitchButton.onClick.RemoveListener(OnSceneSwitchButtonPressed);
             _panelCollapseButton.onClick.RemoveListener(() => _panelAnimator.SetTrigger("PanelInOut"));
         }
-
-        [ContextMenu("TestNotification()")]
-        public void ShowNotification()
-        {
-            var backgroundColor = new Color(1f, 0f, 0f, 0.75f);
-
-            ModularPrototypes.UI.Notification.NotificationSystem.Show("Notification Header", Color.yellow, "Notification Content", Color.white, backgroundColor, 3f);
-        }
     }
 }
