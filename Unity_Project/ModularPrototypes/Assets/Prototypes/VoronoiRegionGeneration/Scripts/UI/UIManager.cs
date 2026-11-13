@@ -1,11 +1,12 @@
+using ModularPrototypes.UI.Notification;
+using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
+
 using System;
 
 using TMPro;
 
 using UnityEngine;
 using UnityEngine.UI;
-
-using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 {
@@ -182,7 +183,14 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
             _runtimeSettings.SetMapDimension(new Vector2Int(width, dimension.y));
 
+            var correctedWidth = _runtimeSettings.MapDimension.x;
+
             ApplySettingsToUI();
+
+            if (correctedWidth != width)
+            {
+                ShowInputCorrectionNotification($"Map width was corrected to {correctedWidth}.");
+            }
         }
 
         private void OnMapHeightChanged(string value)
@@ -197,7 +205,14 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
 
             _runtimeSettings.SetMapDimension(new Vector2Int(dimension.x, height));
 
+            var correctedHeight = _runtimeSettings.MapDimension.y;
+
             ApplySettingsToUI();
+
+            if (correctedHeight != height)
+            {
+                ShowInputCorrectionNotification($"Map height was corrected to {correctedHeight}.");
+            }
         }
 
         private void OnCellSizeChanged(string value)
@@ -209,7 +224,15 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             }
 
             _runtimeSettings.SetCellSize(cellSize);
+
+            var correctedCellSize = _runtimeSettings.CellSize;
+
             ApplySettingsToUI();
+
+            if (correctedCellSize != cellSize)
+            {
+                ShowInputCorrectionNotification($"Cell size was corrected to {correctedCellSize}.");
+            }
         }
 
         private void OnShowGridChanged(bool value)
@@ -392,6 +415,17 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI
             }
 
             VisualSettingsChanged?.Invoke(_runtimeSettings);
+        }
+
+        private static void ShowInputCorrectionNotification(string message)
+        {
+            NotificationSystem.Show(
+                header: "Input corrected",
+                headerColor: NotificationConstants.NotificationColors.WarningHeaderColor,
+                content: message,
+                contentColor: NotificationConstants.NotificationColors.ErrorContentColor,
+                backgroundColor: NotificationConstants.NotificationColors.DefaultBackgroundColor,
+                displayDuration: 3f);
         }
 
         private void D(string message, bool isError = false)

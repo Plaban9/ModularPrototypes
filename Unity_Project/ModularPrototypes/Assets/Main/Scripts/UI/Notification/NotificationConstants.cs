@@ -8,7 +8,7 @@ namespace ModularPrototypes.UI.Notification
         {
             public static readonly Color DefaultHeaderColor = Color.cyan;
             public static readonly Color DefaultContentColor = Color.white;
-            public static readonly Color DefaultBackgroundColor = new Color(0.2f, 0.2f, 0.2f, 0.8f);
+            public static readonly Color DefaultBackgroundColor = new Color(0f, 0f, 0f, 0.75f);
 
             public static readonly Color ErrorHeaderColor = Color.red;
             public static readonly Color ErrorContentColor = Color.white;
