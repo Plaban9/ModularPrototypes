@@ -105,10 +105,12 @@ namespace ModularPrototypes.Manager
             _panelCollapseButton.onClick.RemoveListener(() => _panelAnimator.SetTrigger("PanelInOut"));
         }
 
-        [ContextMenu("ShowNotification()")]
+        [ContextMenu("TestNotification()")]
         public void ShowNotification()
         {
-            ModularPrototypes.UI.Notification.NotificationSystem.Show("Notification Header", Color.yellow, "Notification Content", Color.white, Color.gray, 3f);
+            var backgroundColor = new Color(1f, 0f, 0f, 0.75f);
+
+            ModularPrototypes.UI.Notification.NotificationSystem.Show("Notification Header", Color.yellow, "Notification Content", Color.white, backgroundColor, 3f);
         }
     }
 }
