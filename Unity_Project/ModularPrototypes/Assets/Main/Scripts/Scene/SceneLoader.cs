@@ -1,4 +1,5 @@
 using ModularPrototypes.Scene.Transition;
+using ModularPrototypes.UI.Notification;
 
 using System.Collections;
 using System.Linq;
@@ -67,7 +68,7 @@ namespace ModularPrototypes.Scene
             currentScene = sceneToLoad;
         }
 
-        private IEnumerator LoadSceneAsync(SceneModuleInfo sceneName, string transitionName, bool isAdditive, bool showProgress, float animateTranstionInTimeInSecs = 0.5f, float animateTranstionOutTimeSecs = 0.5f)
+        private IEnumerator LoadSceneAsync(SceneModuleInfo sceneModule, string transitionName, bool isAdditive, bool showProgress, float animateTranstionInTimeInSecs = 0.5f, float animateTranstionOutTimeSecs = 0.5f)
         {
             SceneTransition transition = _transitions.First(element => element.name.Equals(transitionName));
 
@@ -75,7 +76,7 @@ namespace ModularPrototypes.Scene
 
             _progressBar.gameObject.SetActive(showProgress);
 
-            AsyncOperation scene = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName.GetSceneName(), isAdditive ? UnityEngine.SceneManagement.LoadSceneMode.Additive : UnityEngine.SceneManagement.LoadSceneMode.Single);
+            AsyncOperation scene = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneModule.GetSceneName(), isAdditive ? UnityEngine.SceneManagement.LoadSceneMode.Additive : UnityEngine.SceneManagement.LoadSceneMode.Single);
             scene.allowSceneActivation = false;
 
             do

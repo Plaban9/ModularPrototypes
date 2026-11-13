@@ -25,10 +25,14 @@ namespace ModularPrototypes.Platformer.Settings.UI
         public override void Initialize()
         {
             D("OnInitialize");
+
             stateName = string.IsNullOrEmpty(stateName) ? "Camera Settings" : stateName;
+
             _cameraData = Instantiate(_cameraDefaultData);
             _camera.orthographic = _cameraData.GetIsOrthographic();
+
             ApplyToUI();
+
             D("Initialized");
         }
 
@@ -53,6 +57,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
         {
             _cameraData.ApplyConfiguratioon(_cameraDefaultData);
             _cameraController.ResetCamera();
+
             ApplyToUI();
         }
 
@@ -88,6 +93,7 @@ namespace ModularPrototypes.Platformer.Settings.UI
         protected override void UnsubscribeFromUIElements()
         {
             D("UnsubscribeFromUIElements");
+
             _showOrthographicSlider.onValueChanged.RemoveAllListeners();
             _resetToDefaultButton.onClick.RemoveAllListeners();
         }
