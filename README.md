@@ -62,6 +62,7 @@ Currently, I have some examples of:
     <tr><td>6</td><td>scale</td><td><a href="https://thenounproject.com/icon/scale-2433788/">https://thenounproject.com/icon/scale-2433788/</a></td><td>DailyPM</td></tr>
     <tr><td>7</td><td>ruler</td><td><a href="https://thenounproject.com/icon/ruler-3937207/">https://thenounproject.com/icon/ruler-3937207/</a></td><td>alimasykurm</td></tr>
     <tr><td>8</td><td>camera settings</td><td><a href="https://thenounproject.com/icon/camera-settings-7635988/">https://thenounproject.com/icon/camera-settings-7635988/</a></td><td>Sentya Irma</td></tr>
+    <tr><td>9</td><td>drag</td><td><a href="https://thenounproject.com/icon/drag-376197/">https://thenounproject.com/icon/drag-376197/</a></td><td>Sergey Demushkin</td></tr>
   </tbody>
 </table>
 
