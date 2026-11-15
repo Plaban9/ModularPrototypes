@@ -2,10 +2,11 @@ Welcome to Modular Prototypes.
 
 I’m Plaban, and this space is where I explore different gameplay ideas and systems while documenting the techniques behind them. 
 
-It also gives me a place to publish devlogs, build a consistent documentation habit, and track my progress over time.
+It also gives me a platform to publish devlogs, build a consistent documentation habit, and track my progress over time.
 
 Currently, I have some examples of:
 <ul>
+  <li>Voronoi Region Generation (Latest Addition)</li>
   <li>Bullet Hell Patterns</li>
   <li>Platformer (Locomotion, Orientation, and Size Operations) (Deterministic Trigonometric Function)</li>
   <li>A combination of the two to generate unique patterns</li>
