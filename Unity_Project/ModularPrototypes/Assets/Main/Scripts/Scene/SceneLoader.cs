@@ -1,5 +1,4 @@
 using ModularPrototypes.Scene.Transition;
-using ModularPrototypes.UI.Notification;
 
 using System.Collections;
 using System.Linq;
@@ -16,6 +15,8 @@ namespace ModularPrototypes.Scene
         [SerializeField] private Slider _progressBar;
         [SerializeField] private SceneModuleInfo currentScene = SceneModules.EMPTY;
 
+        private bool _isSceneLoading = false;
+
         private void Awake()
         {
             _transitions = _transitionContainer.GetComponentsInChildren<SceneTransition>();
@@ -29,7 +30,7 @@ namespace ModularPrototypes.Scene
         /// </summary>
         public void LoadScene(SceneModuleInfo sceneToLoad)
         {
-            if (string.IsNullOrEmpty(sceneToLoad.GetSceneName()))
+            if (_isSceneLoading || string.IsNullOrEmpty(sceneToLoad.GetSceneName()))
             {
                 return;
             }
@@ -40,6 +41,7 @@ namespace ModularPrototypes.Scene
                 UnloadScene(currentScene.GetSceneName());
             }
 
+            _isSceneLoading = true;
             StartCoroutine(LoadSceneAsync(sceneToLoad, _transitions[Random.Range(0, _transitions.Length)].name, false, false));
             currentScene = sceneToLoad;
         }
@@ -53,7 +55,7 @@ namespace ModularPrototypes.Scene
         /// <param name="showProgress">Whether to show the progress bar while loading the new scene. By default, it is false (do not show progress bar).</param>
         public void LoadScene(SceneModuleInfo sceneToLoad, string transitionName = "CrossFade", bool isAdditive = false, bool showProgress = false, float animateTranstionInTimeInSecs = 0.5f, float animateTranstionOutTimeSecs = 0.5f)
         {
-            if (string.IsNullOrEmpty(sceneToLoad.GetSceneName()))
+            if (_isSceneLoading || string.IsNullOrEmpty(sceneToLoad.GetSceneName()))
             {
                 return;
             }
@@ -64,6 +66,7 @@ namespace ModularPrototypes.Scene
                 UnloadScene(currentScene.GetSceneName());
             }
 
+            _isSceneLoading = true;
             StartCoroutine(LoadSceneAsync(sceneToLoad, transitionName, isAdditive, showProgress, animateTranstionInTimeInSecs, animateTranstionOutTimeSecs));
             currentScene = sceneToLoad;
         }
@@ -90,6 +93,8 @@ namespace ModularPrototypes.Scene
             _progressBar.gameObject.SetActive(false);
 
             yield return transition.AnimateTransitionOut(animateTranstionOutTimeSecs);
+
+            _isSceneLoading = false;
         }
 
         public void UnloadScene(string sceneToUnload)

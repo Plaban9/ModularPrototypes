@@ -2,7 +2,6 @@ using System;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
-using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Data;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
