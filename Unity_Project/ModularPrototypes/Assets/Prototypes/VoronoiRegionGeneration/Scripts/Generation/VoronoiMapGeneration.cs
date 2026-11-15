@@ -9,7 +9,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.Generation
 {
     public sealed class VoronoiMapGenerator
     {
-        public VoronoiMapData Generate(VoronoiMapGenerationSettings settings, int randomSeed)
+        public VoronoiMapData Generate(VoronoiMapGenerationSettings settings)
         {
             if (settings == null)
             {

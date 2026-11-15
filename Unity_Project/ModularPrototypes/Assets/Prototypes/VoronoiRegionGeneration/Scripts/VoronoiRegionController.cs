@@ -21,10 +21,6 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
         [Header("Interaction")]
         [SerializeField] private VoronoiRegionInteraction _interaction;
 
-        [Header("Generation")]
-        [SerializeField] private int _randomSeed = 12345;
-
-
         private VoronoiMapGenerator _mapGenerator;
         private VoronoiMapData _mapData;
 
@@ -91,7 +87,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 
         private void GenerateMap(VoronoiMapGenerationSettings settings)
         {
-            _mapData = _mapGenerator.Generate(settings, _randomSeed);
+            _mapData = _mapGenerator.Generate(settings);
 
             _mapRenderer?.Render(_mapData, settings);
 
