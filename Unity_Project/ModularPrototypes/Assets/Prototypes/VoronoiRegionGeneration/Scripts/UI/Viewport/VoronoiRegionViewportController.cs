@@ -26,7 +26,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
         public float ZoomStep => _runtimeSettings != null ? _runtimeSettings.ZoomStep : 0f;
 
         // For current setup it is the threshold where it requires zoom less than 1f to fit screen in landscape mode.
-        private const float LandscapeStartAspectRatioThreshold = 1.8f; 
+        private const float LandscapeStartAspectRatioThreshold = 1.8f;
 
         private void Awake()
         {
@@ -56,7 +56,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
 
             _runtimeSettings.SetZoom(_runtimeSettings.CurrentZoom + amount);
 
-            ApplyTransform(true);
+            ApplyTransform(preserveZoom: true);
             NotifyZoomChanged();
         }
 
@@ -81,7 +81,7 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
 
             _runtimeSettings.SetPan(_runtimeSettings.CurrentPan + delta);
 
-            ApplyTransform();
+            ApplyTransform(preserveZoom: true);
         }
 
         public void ResetViewport()
@@ -97,14 +97,14 @@ namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport
             NotifyZoomChanged();
         }
 
-        private void ApplyTransform(bool isScrollOperation = false)
+        private void ApplyTransform(bool preserveZoom = false)
         {
             if (_mapTransform == null || _runtimeSettings == null)
             {
                 return;
             }
 
-            _mapTransform.localScale = isScrollOperation ? Vector3.one * _runtimeSettings.CurrentZoom : CalculateRelativeZoom();
+            _mapTransform.localScale = preserveZoom ? Vector3.one * _runtimeSettings.CurrentZoom : CalculateRelativeZoom();
             _mapTransform.anchoredPosition = _runtimeSettings.CurrentPan;
         }
 

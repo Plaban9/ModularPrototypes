@@ -4,8 +4,6 @@ using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI.Viewport;
 
-using UnityEditor.ShaderKeywordFilter;
-
 using UnityEngine;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
