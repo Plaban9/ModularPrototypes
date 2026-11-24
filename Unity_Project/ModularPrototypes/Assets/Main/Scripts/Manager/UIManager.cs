@@ -16,7 +16,7 @@ namespace ModularPrototypes.Manager
         [SerializeField]
         private static readonly List<SceneModuleInfo> _availalbleScenes = new()
         {
-            //SceneModules.VORONOI_SPLITSCREEN_PROTOTYPE,
+            SceneModules.VORONOI_SPLITSCREEN_PROTOTYPE,
             SceneModules.VORONOI_REGION_GENERATOR_PROTOTYPE,
             SceneModules.BULLETHELL_PROTOTYPE,
             SceneModules.PLATFORMER_PROTOTYPE,
@@ -36,7 +36,11 @@ namespace ModularPrototypes.Manager
 
         private void Awake()
         {
-            _sceneLoader = FindFirstObjectByType<SceneLoader>();
+            if (_sceneLoader == null)
+            {
+                _sceneLoader = FindFirstObjectByType<SceneLoader>();
+            }
+
             _sceneDropdown.ClearOptions();
             _sceneDropdown.AddOptions(_availalbleScenes.Select(scene => scene.GetDisplayName()).ToList());
         }
