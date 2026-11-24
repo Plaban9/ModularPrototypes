@@ -1,11 +1,28 @@
 ﻿using ModularPrototypes.UI.Tooltip;
 using ModularPrototypes.Voronoi.ProceduralGeneration.Region.UI;
+using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Generation;
+using ModularPrototypes.Voronoi.ProceduralGeneration.Region.Rendering;
 
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ModularPrototypes.Voronoi.ProceduralGeneration.Region
 {
+    /// <summary>
+    /// This was a monolithic implementation of the Voronoi Region Generator,
+    /// which has been refactored into a more modular design for prototyping
+    /// and testing purposes.
+    /// </summary>
+    /// <remarks>
+    /// The generation and rendering logic has been separated into their own
+    /// classes, allowing for better maintainability and extensibility.
+    /// The generation logic has been moved to
+    /// <see cref="VoronoiMapGenerator"/>, and the rendering logic has been moved
+    /// to <see cref="VoronoiMapRenderer"/>.
+    /// This class now serves as a controller that orchestrates the generation
+    /// and rendering of the Voronoi map, as well as handling user interactions
+    /// and UI events.
+    /// </remarks>
     public class VoronoiRegionGenerator : MonoBehaviour
     {
         [Header("Map Properties")]
